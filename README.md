@@ -1,2 +1,2 @@
 # JazzGGJ
-Made for GGJ.
+Made for GGJ 2024.
