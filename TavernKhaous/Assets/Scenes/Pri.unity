@@ -671,6 +671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 7267144209420581274, guid: f57945b91c43fc64fa53371798df64d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8019908253893538970, guid: f57945b91c43fc64fa53371798df64d1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

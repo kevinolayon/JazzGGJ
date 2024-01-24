@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    private DialogManager _dialogManager;
-    public DialogManager DialogManager { get { return _dialogManager; } }
+    private Tree _tree;
 
     public void Start()
     {
-        
+        Init();
     }
 
     public void Init()
     {
-        _dialogManager = new DialogManager();
+        _tree = new Tree();
+        _tree.BuildTree();
+
+        _tree.PrintTree();
     }
 }
