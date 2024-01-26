@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 120481985}
   - component: {fileID: 120481986}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: DialogTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 11400000, guid: 4163127efc6959341bf2287cdbf48bb0, type: 2}
+  _dialogKey: 32
 --- !u!65 &120481986
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -681,8 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeDialog: {fileID: 11400000, guid: 4163127efc6959341bf2287cdbf48bb0, type: 2}
   _dialogManager: {fileID: 1760405633}
-  _uiController: {fileID: 0}
-  UIController: {fileID: 0}
+  _uiController: {fileID: 753683267}
 --- !u!4 &1431179223
 Transform:
   m_ObjectHideFlags: 0
@@ -728,9 +728,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsWriting: 0
-  _timeBetweenwords: 0.038
-  dialogText: {fileID: 0}
-  _dialogName: {fileID: 0}
+  _timeBetweenwords: 0.036
+  dialogText: {fileID: 11400000, guid: 717960214de5a0644a20412e443a096d, type: 2}
+  _dialogName: {fileID: 11400000, guid: 3fe292d364cd03647a4ad84da86d5237, type: 2}
 --- !u!4 &1760405634
 Transform:
   m_ObjectHideFlags: 0
@@ -1141,6 +1141,6 @@ SceneRoots:
   - {fileID: 753683266}
   - {fileID: 1431179223}
   - {fileID: 1760405634}
-  - {fileID: 871750364}
   - {fileID: 120481984}
   - {fileID: 1928026548}
+  - {fileID: 871750364}

@@ -10,7 +10,8 @@ public class DialogBox : MonoBehaviour
     public TextMeshProUGUI dialog;
     public Button nextButton;
 
-    public Image img;
+    public Image dialogBackground;
+    public Image optionsBackground;
 
     public SOText dialogText;
     public SOText dialogName;
@@ -26,21 +27,20 @@ public class DialogBox : MonoBehaviour
 
     public void SetBoxVisibility(bool isVisible)
     {
-        this.gameObject.SetActive(isVisible);
-        img.gameObject.SetActive(isVisible);
+        ResetFields();
 
-        if(isVisible)
+        this.gameObject.SetActive(isVisible);
+        dialogBackground.gameObject.SetActive(isVisible);
+        optionsBackground.gameObject.SetActive(isVisible);
+
+        if (isVisible)
         {
-            EnableDialogOptions(true);
             nextButton.interactable = true;
         }          
         else
         {
-            EnableDialogOptions(false);
             nextButton.interactable = false;
         }
-           
-
     }
 
     public void Update()
@@ -60,7 +60,7 @@ public class DialogBox : MonoBehaviour
         dialogText.value = "";
         dialog.text = dialogText.value;
 
-        img.gameObject.SetActive(false);
+        dialogBackground.gameObject.SetActive(false);
 
         ResetOptions();
 
@@ -91,10 +91,14 @@ public class DialogBox : MonoBehaviour
 
     public void SetOptions(List<Option> options)
     {
-        for(int i = 0; i < _options.Length; i++)
+        optionsBackground.gameObject.SetActive(true);
+
+        for (int i = 0; i < _options.Length; i++)
         {
+            _options[i].Reset();
             _options[i].SetText(options[i].text);
             _options[i].SetIndex(options[i].index);
-        }
+            _options[i].EnableOption(true);
+        }           
     }
 }

@@ -73,51 +73,57 @@ public class DialogManager : MonoBehaviour
     {
         Debug.Log("Write");
 
-        _dialogLetters = currentNode.data.ToCharArray();
-
         if (_currentCoroutine != null)
         {
             Debug.Log("Coroutine != null");
             StopCoroutine(_currentCoroutine);
         }
 
-        _currentCoroutine = StartCoroutine(WriteCoroutine(_dialogLetters));
+        _currentCoroutine = StartCoroutine(WriteCoroutine());
     }
 
-    private  IEnumerator WriteCoroutine(char [] text)
+    private  IEnumerator WriteCoroutine()
     {
         Debug.Log("Write Coroutine");
         onDialogStart.Invoke();
 
         while(_currentNodeDialog != null)
         {
-            _hasAnswered = false;
+            Debug.Log("_currentNodeDialog != null");
 
-            if(_currentNodeDialog.children.Count > 0)
+            _hasAnswered = false;
+            _dialogLetters = _currentNodeDialog.data.ToCharArray();
+
+            dialogText.value = "";
+
+            if (_currentNodeDialog.children.Count > 0)
                 UpdateAnswers(_currentNodeDialog.children);
 
-            foreach (char letter in text)
+            foreach (char letter in _dialogLetters)
             {
                 dialogText.value = dialogText.value + letter;
                 yield return new WaitForSeconds(_timeBetweenwords);
             }
 
             //waiting player answer the dialog
+            Debug.Log("waiting answer");
             yield return new WaitUntil(() => _hasAnswered);
+            Debug.Log("answered");
         }     
     }
 
     private void UpdateAnswers(List<TreeNode> answers)
     {
-        if(_currentDialogOptions.Count > 0)
-            _currentDialogOptions.Clear();
-
         Debug.Log("Set Node Answers");
 
         for (int i = 0; i < answers.Count; i++)
         {
+            _currentDialogOptions[i].text = "";
             _currentDialogOptions[i].text = answers[i].data;
+
             _currentDialogOptions[i].index = i;
+
+            Debug.Log($"answers: {_currentDialogOptions[i].text}");
         }
 
         onSendDialogOptions?.Invoke(_currentDialogOptions);
@@ -125,18 +131,42 @@ public class DialogManager : MonoBehaviour
 
     private void ChangeCurrentNode(int index)
     {
-        _currentNodeDialog = _currentNodeDialog.children[index];
+        if (_currentNodeDialog.children.Count > 0)
+        {
+            var choosedOption = _currentNodeDialog.children[index];
+
+            if (choosedOption.children.Count > 0)
+            {
+                _currentNodeDialog = choosedOption.children[0];
+
+                Debug.Log(_currentNodeDialog);
+
+                _hasAnswered = true;
+
+                Debug.Log("change node");
+            }
+            else
+                DialogEnd();
+        }
+        else
+        {
+            DialogEnd();
+        }               
     }
 
     public void ChangeToNextDialog(int index)
     {
         ChangeCurrentNode(index);
-        _hasAnswered = true;
     }
 
     public void DialogEnd()
     {
+        _hasAnswered = false;
+        _currentNodeDialog = null;
+
         onDialogEnd.Invoke();
+        StopCoroutine(WriteCoroutine());
+       
         _isWriting = false;
     }
 }

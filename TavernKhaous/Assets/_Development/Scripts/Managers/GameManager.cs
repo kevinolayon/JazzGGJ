@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private UIController _uiController;
-    public UIController UIController;
+    public UIController UIController { get { return _uiController; } }
 
     public void Start()
     {

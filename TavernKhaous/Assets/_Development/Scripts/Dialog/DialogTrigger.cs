@@ -9,29 +9,38 @@ public class DialogTrigger : MonoBehaviour
     [SerializeField]
     private SODialog dialog;
 
+    [SerializeField]
+    private KeyCode _dialogKey;
+
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger enter");
-
-        if(dialog != null)
-        {
-            if (other.gameObject.CompareTag("Player") && !hasDialogStarted)
-            {
-                Debug.Log("Trigger Player");
-                hasDialogStarted = true;
-                GameManager.Instance.DialogManager.DialogStart(dialog.root, dialog.name);
-            }
-        }   
+       
     }
 
     public void OnTriggerStay(Collider other)
     {
+        Debug.Log("Trigger stay");
 
+        if (dialog != null)
+        {
+            if (!hasDialogStarted && Input.GetKeyDown(_dialogKey))
+            {
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    Debug.Log("Trigger Player");
+                    hasDialogStarted = true;
+                    GameManager.Instance.DialogManager.DialogStart(dialog.root, dialog.name);
+                }
+            }
+        }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        GameManager.Instance.DialogManager.DialogEnd();
-        hasDialogStarted = false;
+        if(hasDialogStarted)
+        {
+            GameManager.Instance.DialogManager.DialogEnd();
+            hasDialogStarted = false;
+        }      
     }
 }

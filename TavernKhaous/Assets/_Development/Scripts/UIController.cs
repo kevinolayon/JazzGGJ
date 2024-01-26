@@ -39,6 +39,8 @@ public class UIController : MonoBehaviour
         GameManager.Instance.DialogManager.onDialogStart -= OpenDialogBox;
         GameManager.Instance.DialogManager.onDialogEnd -= CloseDialogBox;
         GameManager.Instance.DialogManager.onSendDialogOptions -= SetDialogOptions;
+
+        DialogOption.onChooseOption -= NextDialog;
     }
 
     public void SetDialogOptions(List<Option> options)
