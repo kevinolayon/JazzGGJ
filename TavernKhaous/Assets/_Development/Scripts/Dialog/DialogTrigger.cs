@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class DialogTrigger : MonoBehaviour
 {
+    private bool hasDialogStarted = false;
+
     [SerializeField]
     private SODialog dialog;
-    private bool hasDialogStarted = false;
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !hasDialogStarted)
+        Debug.Log("Trigger enter");
+
+        if(dialog != null)
         {
-            hasDialogStarted = true;
-        }
+            if (other.gameObject.CompareTag("Player") && !hasDialogStarted)
+            {
+                Debug.Log("Trigger Player");
+                hasDialogStarted = true;
+                GameManager.Instance.DialogManager.DialogStart(dialog.root, dialog.name);
+            }
+        }   
     }
 
     public void OnTriggerStay(Collider other)
@@ -23,6 +31,7 @@ public class DialogTrigger : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
+        GameManager.Instance.DialogManager.DialogEnd();
         hasDialogStarted = false;
     }
 }

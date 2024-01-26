@@ -1,23 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class TreeNode<T>
+[System.Serializable]
+public class TreeNode
 {
-    public T data;
-    public List<TreeNode<T>> _children;
+    public string data;
+    public int nodeId;
 
-    public TreeNode(T value)
+    public List<TreeNode> children = new List<TreeNode>();
+
+    public TreeNode AddChild(string value)
     {
-        this.data = value;
-        this._children = new List<TreeNode<T>>();
-    }
-        
-    public TreeNode<T> AddChild(T value)
-    {
-        var newChild = new TreeNode<T>(value);
-        _children.Add(newChild);
+        var newChild = new TreeNode();
+        newChild.data = value;
+
+        children.Add(newChild);
 
         return newChild;
+    }
+
+    public TreeNode ReturnChild(int id)
+    {
+        if (children.Count > 0)
+        {
+            var result = children.Where(node => node.nodeId == id).FirstOrDefault();
+
+            if (result != null)
+                return result;
+        }
+
+        return null;
     }
 }

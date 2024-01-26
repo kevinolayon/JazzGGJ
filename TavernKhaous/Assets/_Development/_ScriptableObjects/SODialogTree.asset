@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315d0843cdca6e349b641bbca2224739, type: 3}
+  m_Name: SODialogTree
+  m_EditorClassIdentifier: 
+  name: Mago
+  root:
+    data: "Bem-vindo ao Reino M\xE1gico!"
+    nodeId: 0
+    children:
+    - data: "[Op\xE7\xE3o 1] Como posso chegar \xE0 Cidade dos Magos?"
+      nodeId: 0
+      children:
+      - data: "Answer: Voc\xEA pode chegar \xE0 Cidade dos Magos atravessando a Floresta
+          Encantada"
+        nodeId: 0
+        children:
+        - data: ("[Opcao 1.1.1] Pode me dar um mapa?"
+          nodeId: 0
+          children: []
+        - data: "[Opcao 1.1.2] Como est\xE1 a seguran\xE7a na floresta?"
+          nodeId: 1
+          children: []
+    - data: "[Op\xE7\xE3o 2] O que voc\xEA vende aqui?\""
+      nodeId: 1
+      children: []
