@@ -950,7 +950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877286810949221706}
-  - component: {fileID: 2051601601885116330}
+  - component: {fileID: 8300381129748925105}
   m_Layer: 0
   m_Name: Templario
   m_TagString: Untagged
@@ -975,7 +975,7 @@ Transform:
   - {fileID: 2537405108088736160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2051601601885116330
+--- !u!95 &8300381129748925105
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -983,12 +983,12 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8004565349366419676}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7c0146bbeb6492549a090a1e0a65bd76, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2be64f57d7d213648aa9b2e5e8e0a39b, type: 2}
-  m_CullingMode: 1
+  m_Controller: {fileID: 9100000, guid: 026a8b36f2e93a84cbf2b423f879981c, type: 2}
+  m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
