@@ -13,51 +13,59 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] ConfigurableJoint cj;
 
-    float horizontal;
-    float vertical;
-
-    bool isRotating;
     bool isMoving;
+    bool canWalk = true;
+    bool canInteract = false;
 
-    float initialSpeed;
-    Quaternion newRotation;
+    CanvasManager canvas;
 
     private void Start()
     {
-        initialSpeed = movementSpeed;
+        canvas = CanvasManager.Instance;        
+    }
+
+    private void OnEnable()
+    {
+        CanvasManager.enableWalk += CanWalk;
     }
 
     private void FixedUpdate()
     {
         Movement();
-        Rotate();
     }
 
     private void Update()
     {
         Jump();
+        Interact();
+    }
+
+    public void CanWalk(bool value)
+    {
+        canWalk = value;
+        canInteract = value;
     }
 
     void Movement()
     {
-        vertical = Input.GetAxis("Vertical"); // Get input to move
+        if (!canWalk) return;
 
-        //movementSpeed = isRotating ? movementSpeed / 2 : initialSpeed;
+        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
 
-        isMoving = vertical != 0; // Toggle bool if is moving or not
+        Vector3 dir = new Vector3(horizontal, 0, vertical).normalized;
 
-        rb.AddForce(vertical * movementSpeed * rb.transform.forward); // Add force to movement the character
-    }
+        isMoving = dir.magnitude != 0;
 
-    void Rotate()
-    {
-        horizontal = Input.GetAxis("Horizontal"); // Get input to rotate
+        rb.AddForce(dir * movementSpeed, ForceMode.Impulse);
 
-        isRotating = horizontal != 0;  // Toggle bool if is rotating or not
-
-        newRotation = Quaternion.Euler(0, -horizontal * rotationSpeed, 0); // Calculate the new rotation
-
-        cj.targetRotation *= newRotation; // Apply rotation to the joint
+        if (dir != Vector3.zero)
+        {
+            Vector3 rotDir = dir;
+            rotDir.x = -dir.x;
+            Quaternion rotTarget = Quaternion.LookRotation(rotDir);
+            cj.targetRotation = rotTarget;
+        }
     }
 
     void Jump()
@@ -66,5 +74,29 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Counter"))
+        {
+            canInteract = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Counter"))
+        {
+            canInteract = false;
+        }
+    }
+
+    void Interact()
+    {
+        if (!canInteract) return;
+
+        if (Input.GetKeyDown(KeyCode.E))
+            canvas.ShowOrderMenu();
     }
 }
