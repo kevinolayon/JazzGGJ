@@ -10,6 +10,9 @@ public class DialogTrigger : MonoBehaviour
     private SODialog dialog;
 
     [SerializeField]
+    private SOClient client;
+
+    [SerializeField]
     private KeyCode _dialogKey;
 
     public void OnTriggerEnter(Collider other)
