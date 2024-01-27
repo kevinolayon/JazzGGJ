@@ -16,6 +16,9 @@ public class GameManager : Singleton<GameManager>
     public ScoreManager _scoreManager;
     public ScoreManager ScoreManager { get { return _scoreManager; } }
 
+    [SerializeField]
+    private SOPoints scoreGuide;
+
     public void Start()
     {
         Init();
@@ -24,6 +27,6 @@ public class GameManager : Singleton<GameManager>
     private void Init()
     {
         DialogManager.Init();
-        _scoreManager = new ScoreManager();
+        _scoreManager = new ScoreManager(scoreGuide);
     }
 }

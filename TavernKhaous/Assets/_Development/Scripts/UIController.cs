@@ -8,6 +8,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private DialogBox _dialogBox;
 
+    [SerializeField]
+    private ScoreContainer _scoreContainer;
+
     public void Start()
     {
         Init();
@@ -19,6 +22,7 @@ public class UIController : MonoBehaviour
         GameManager.Instance.DialogManager.onEndDialog += CloseDialogBox;
         GameManager.Instance.DialogManager.onUpdateOptions += SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton += HideOptions;
+        GameManager.Instance.ScoreManager.onUpdatePoints += UpdatePoints;
 
         DialogOption.onChooseOption += SelectOption;
 
@@ -41,6 +45,7 @@ public class UIController : MonoBehaviour
         GameManager.Instance.DialogManager.onEndDialog -= CloseDialogBox;
         GameManager.Instance.DialogManager.onUpdateOptions -= SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton -= HideOptions;
+        GameManager.Instance.ScoreManager.onUpdatePoints -= UpdatePoints;
 
         DialogOption.onChooseOption -= SelectOption;
     }
@@ -59,5 +64,10 @@ public class UIController : MonoBehaviour
     public void HideOptions()
     {
         _dialogBox.HideDialogOptions();
+    }
+
+    public void UpdatePoints(int value)
+    {
+        _scoreContainer.UpdateScore(value);
     }
 }
