@@ -11,11 +11,14 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Rigidbody rb;
+    [SerializeField] ConfigurableJoint rLegJoint;
+    [SerializeField] ConfigurableJoint lLegJoint;
     [SerializeField] ConfigurableJoint cj;
 
     bool isMoving;
     bool canWalk = true;
     bool canInteract = false;
+    Coroutine legRoutine;
 
     CanvasManager canvas;
 
@@ -27,6 +30,11 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         CanvasManager.enableWalk += CanWalk;
+    }
+
+    private void OnDisable()
+    {
+        CanvasManager.enableWalk -= CanWalk;
     }
 
     private void FixedUpdate()
@@ -59,12 +67,40 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(dir * movementSpeed, ForceMode.Impulse);
 
-        if (dir != Vector3.zero)
+        if (isMoving && legRoutine == null)
         {
+            legRoutine = StartCoroutine("LegAnimation");
+        }
+        if (isMoving)
+        {  
             Vector3 rotDir = dir;
             rotDir.x = -dir.x;
             Quaternion rotTarget = Quaternion.LookRotation(rotDir);
             cj.targetRotation = rotTarget;
+        }
+        else if (legRoutine != null)
+        {
+            StopCoroutine(legRoutine);
+            legRoutine = null;
+            lLegJoint.targetRotation = Quaternion.identity;
+            rLegJoint.targetRotation = Quaternion.identity;
+        }
+        Debug.Log(isMoving +" "+ legRoutine);
+    }
+
+    IEnumerator LegAnimation()
+    {
+        while (isMoving)
+        {
+            lLegJoint.targetRotation = Quaternion.Euler(0, 0, 33);
+            rLegJoint.targetRotation = Quaternion.Euler(0, 0, 33);
+
+            yield return new WaitForSeconds(0.3f);
+
+            lLegJoint.targetRotation = Quaternion.Euler(0, 0, -33);
+            rLegJoint.targetRotation = Quaternion.Euler(0, 0, -33);
+
+            yield return new WaitForSeconds(.3f);
         }
     }
 

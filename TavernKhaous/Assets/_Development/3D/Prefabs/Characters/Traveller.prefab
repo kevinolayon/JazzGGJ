@@ -1810,13 +1810,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 10
+    positionSpring: 20
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 10
+    positionSpring: 20
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -2853,6 +2853,8 @@ MonoBehaviour:
   rotationSpeed: 3
   jumpForce: 100
   rb: {fileID: 656931461193002548}
+  rLegJoint: {fileID: 0}
+  lLegJoint: {fileID: 0}
   cj: {fileID: 6409465132016184850}
 --- !u!65 &4000196161426379137
 BoxCollider:
