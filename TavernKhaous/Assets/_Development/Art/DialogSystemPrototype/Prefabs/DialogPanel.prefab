@@ -463,8 +463,40 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4287452239508587797}
     m_Modifications:
+    - target: {fileID: 1836368454069744493, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836368454069744493, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836368454069744493, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836368454069744493, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnEndDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836368454069744493, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836368454069744493, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4972715407353453482, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
       propertyPath: img
+      value: 
+      objectReference: {fileID: 3161376251433407082}
+    - target: {fileID: 4972715407353453482, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 3161376251433407082}
+    - target: {fileID: 4972715407353453482, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
+      propertyPath: characterImage
       value: 
       objectReference: {fileID: 3161376251433407082}
     - target: {fileID: 4972715407353453482, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}

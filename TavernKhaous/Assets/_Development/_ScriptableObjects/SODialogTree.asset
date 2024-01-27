@@ -91,7 +91,14 @@ MonoBehaviour:
         children:
         - data: Poderia me contar sobre?
           nodeId: 0
-          children: []
+          children:
+          - data: Sim claro, aconteceu a muito tempo atras quando eu ainda era um
+              jovem feiticeiro
+            nodeId: 0
+            children:
+            - data: "Nossa entao ela \xE9 bem antiga mesmo"
+              nodeId: 0
+              children: []
         - data: "Ela \xE9 triste?"
           nodeId: 1
           children: []
