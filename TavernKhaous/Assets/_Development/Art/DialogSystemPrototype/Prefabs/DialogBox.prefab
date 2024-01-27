@@ -555,7 +555,9 @@ MonoBehaviour:
   characterName: {fileID: 7498296475270976734}
   dialog: {fileID: 670741416863958221}
   nextButton: {fileID: 1836368454069744493}
-  img: {fileID: 0}
+  dialogBackground: {fileID: 2170208632080514847}
+  optionsBackground: {fileID: 0}
+  portrait: {fileID: 0}
   dialogText: {fileID: 11400000, guid: 717960214de5a0644a20412e443a096d, type: 2}
   dialogName: {fileID: 11400000, guid: 3fe292d364cd03647a4ad84da86d5237, type: 2}
   _options:

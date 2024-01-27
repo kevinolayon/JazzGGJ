@@ -20,9 +20,10 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     private SOText _dialogName;
 
-    public Action onDialogStart;
-    public Action onDialogEnd;
-    public Action<List<Option>> onSendDialogOptions;
+    public Action onStartDialog;
+    public Action onEndDialog;
+    public Action<List<Option>> onUpdateOptions;
+    public Action onEnableNextButton;
 
     private Coroutine _currentCoroutine;
 
@@ -48,10 +49,15 @@ public class DialogManager : MonoBehaviour
     {
         _isWriting = false;
         _hasAnswered = false;
-        
+
         _currentNodeDialog = null;
-        
-        for(int i = 0; i < _currentDialogOptions.Count; i++)
+
+        ResetOptions();
+    }
+
+    private void ResetOptions()
+    {
+        for (int i = 0; i < _currentDialogOptions.Count; i++)
         {
             _currentDialogOptions[i].text = "";
             _currentDialogOptions[i].index = -1;
@@ -66,10 +72,10 @@ public class DialogManager : MonoBehaviour
         _currentNodeDialog = tree;
         _dialogName.value = characterName;
 
-        Write(tree);
+        Write();
     }
 
-    private void Write(TreeNode currentNode)
+    private void Write()
     {
         Debug.Log("Write");
 
@@ -85,7 +91,7 @@ public class DialogManager : MonoBehaviour
     private  IEnumerator WriteCoroutine()
     {
         Debug.Log("Write Coroutine");
-        onDialogStart.Invoke();
+        onStartDialog.Invoke();
 
         while(_currentNodeDialog != null)
         {
@@ -96,37 +102,40 @@ public class DialogManager : MonoBehaviour
 
             dialogText.value = "";
 
-            if (_currentNodeDialog.children.Count > 0)
-                UpdateAnswers(_currentNodeDialog.children);
+            ResetOptions();
 
+            if (_currentNodeDialog.children.Count > 0)
+                OnUpdateOptions(_currentNodeDialog.children);
+            else
+                onEnableNextButton?.Invoke();
+                
             foreach (char letter in _dialogLetters)
             {
                 dialogText.value = dialogText.value + letter;
                 yield return new WaitForSeconds(_timeBetweenwords);
             }
-
-            //waiting player answer the dialog
-            Debug.Log("waiting answer");
-            yield return new WaitUntil(() => _hasAnswered);
+   
+            Debug.Log("waiting for answer...");
+            yield return new WaitUntil(() => _hasAnswered || _currentNodeDialog == null);
             Debug.Log("answered");
         }     
     }
 
-    private void UpdateAnswers(List<TreeNode> answers)
+    private void OnUpdateOptions(List<TreeNode> answers)
     {
         Debug.Log("Set Node Answers");
 
         for (int i = 0; i < answers.Count; i++)
-        {
+        {      
             _currentDialogOptions[i].text = "";
             _currentDialogOptions[i].text = answers[i].data;
 
             _currentDialogOptions[i].index = i;
-
+            
             Debug.Log($"answers: {_currentDialogOptions[i].text}");
         }
 
-        onSendDialogOptions?.Invoke(_currentDialogOptions);
+        onUpdateOptions?.Invoke(_currentDialogOptions);
     }
 
     private void ChangeCurrentNode(int index)
@@ -138,20 +147,16 @@ public class DialogManager : MonoBehaviour
             if (choosedOption.children.Count > 0)
             {
                 _currentNodeDialog = choosedOption.children[0];
-
                 Debug.Log(_currentNodeDialog);
 
                 _hasAnswered = true;
-
                 Debug.Log("change node");
             }
             else
-                DialogEnd();
+                OnEndDialog();
         }
         else
-        {
-            DialogEnd();
-        }               
+            OnEndDialog();             
     }
 
     public void ChangeToNextDialog(int index)
@@ -159,14 +164,14 @@ public class DialogManager : MonoBehaviour
         ChangeCurrentNode(index);
     }
 
-    public void DialogEnd()
+    public void OnEndDialog()
     {
         _hasAnswered = false;
         _currentNodeDialog = null;
 
-        onDialogEnd.Invoke();
         StopCoroutine(WriteCoroutine());
-       
+
+        onEndDialog.Invoke();     
         _isWriting = false;
     }
 }

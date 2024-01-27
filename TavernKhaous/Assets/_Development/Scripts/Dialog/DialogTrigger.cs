@@ -31,16 +31,13 @@ public class DialogTrigger : MonoBehaviour
                     hasDialogStarted = true;
                     GameManager.Instance.DialogManager.DialogStart(dialog.root, dialog.name);
                 }
-            }
+            }           
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if(hasDialogStarted)
-        {
-            GameManager.Instance.DialogManager.DialogEnd();
-            hasDialogStarted = false;
-        }      
+        GameManager.Instance.DialogManager.OnEndDialog();
+        hasDialogStarted = false;    
     }
 }

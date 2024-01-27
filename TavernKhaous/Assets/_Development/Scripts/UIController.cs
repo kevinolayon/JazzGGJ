@@ -15,11 +15,12 @@ public class UIController : MonoBehaviour
 
     public void Init()
     {
-        GameManager.Instance.DialogManager.onDialogStart += OpenDialogBox;
-        GameManager.Instance.DialogManager.onDialogEnd += CloseDialogBox;
-        GameManager.Instance.DialogManager.onSendDialogOptions += SetDialogOptions;
+        GameManager.Instance.DialogManager.onStartDialog += OpenDialogBox;
+        GameManager.Instance.DialogManager.onEndDialog += CloseDialogBox;
+        GameManager.Instance.DialogManager.onUpdateOptions += SetDialogOptions;
+        GameManager.Instance.DialogManager.onEnableNextButton += HideOptions;
 
-        DialogOption.onChooseOption += NextDialog;
+        DialogOption.onChooseOption += SelectOption;
 
         _dialogBox.Init();
     }
@@ -36,11 +37,12 @@ public class UIController : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.Instance.DialogManager.onDialogStart -= OpenDialogBox;
-        GameManager.Instance.DialogManager.onDialogEnd -= CloseDialogBox;
-        GameManager.Instance.DialogManager.onSendDialogOptions -= SetDialogOptions;
+        GameManager.Instance.DialogManager.onStartDialog -= OpenDialogBox;
+        GameManager.Instance.DialogManager.onEndDialog -= CloseDialogBox;
+        GameManager.Instance.DialogManager.onUpdateOptions -= SetDialogOptions;
+        GameManager.Instance.DialogManager.onEnableNextButton -= HideOptions;
 
-        DialogOption.onChooseOption -= NextDialog;
+        DialogOption.onChooseOption -= SelectOption;
     }
 
     public void SetDialogOptions(List<Option> options)
@@ -48,9 +50,14 @@ public class UIController : MonoBehaviour
         _dialogBox.SetOptions(options);
     }
 
-    public void NextDialog(int option)
+    public void SelectOption(int option)
     {
         Debug.Log($"next dialog index: {option}");
         GameManager.Instance.DialogManager.ChangeToNextDialog(option);
+    }
+
+    public void HideOptions()
+    {
+        _dialogBox.HideDialogOptions();
     }
 }

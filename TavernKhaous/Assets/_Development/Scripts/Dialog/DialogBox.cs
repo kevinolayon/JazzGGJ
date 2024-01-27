@@ -12,6 +12,7 @@ public class DialogBox : MonoBehaviour
 
     public Image dialogBackground;
     public Image optionsBackground;
+    public Image portrait;
 
     public SOText dialogText;
     public SOText dialogName;
@@ -32,15 +33,21 @@ public class DialogBox : MonoBehaviour
         this.gameObject.SetActive(isVisible);
         dialogBackground.gameObject.SetActive(isVisible);
         optionsBackground.gameObject.SetActive(isVisible);
+        portrait.enabled = isVisible;
+    }
 
-        if (isVisible)
-        {
-            nextButton.interactable = true;
-        }          
-        else
-        {
-            nextButton.interactable = false;
-        }
+    public void EnableNextButton(bool enable)
+    {
+        nextButton.interactable = enable;
+    }
+
+    public void HideDialogOptions()
+    {
+        ResetOptions();
+        EnableDialogOptions(false);
+        optionsBackground.gameObject.SetActive(false);
+
+        EnableNextButton(true);     
     }
 
     public void Update()
@@ -61,6 +68,8 @@ public class DialogBox : MonoBehaviour
         dialog.text = dialogText.value;
 
         dialogBackground.gameObject.SetActive(false);
+
+        EnableNextButton(false);
 
         ResetOptions();
 
@@ -93,12 +102,19 @@ public class DialogBox : MonoBehaviour
     {
         optionsBackground.gameObject.SetActive(true);
 
+        ResetOptions();
+
         for (int i = 0; i < _options.Length; i++)
-        {
-            _options[i].Reset();
-            _options[i].SetText(options[i].text);
-            _options[i].SetIndex(options[i].index);
-            _options[i].EnableOption(true);
+        {           
+            if(options[i].text == "")
+                _options[i].EnableOption(false);
+
+            else
+            {
+                _options[i].SetText(options[i].text);
+                _options[i].SetIndex(options[i].index);
+                _options[i].EnableOption(true);
+            }          
         }           
     }
 }
