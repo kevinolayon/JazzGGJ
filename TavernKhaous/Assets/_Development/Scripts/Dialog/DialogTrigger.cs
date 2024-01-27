@@ -4,25 +4,40 @@ using UnityEngine;
 
 public class DialogTrigger : MonoBehaviour
 {
+    private bool hasDialogStarted = false;
+
     [SerializeField]
     private SODialog dialog;
-    private bool hasDialogStarted = false;
+
+    [SerializeField]
+    private KeyCode _dialogKey;
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !hasDialogStarted)
-        {
-            hasDialogStarted = true;
-        }
+       
     }
 
     public void OnTriggerStay(Collider other)
     {
+        Debug.Log("Trigger stay");
 
+        if (dialog != null)
+        {
+            if (!hasDialogStarted && Input.GetKeyDown(_dialogKey))
+            {
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    Debug.Log("Trigger Player");
+                    hasDialogStarted = true;
+                    GameManager.Instance.DialogManager.DialogStart(dialog.root, dialog.name);
+                }
+            }           
+        }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        hasDialogStarted = false;
+        GameManager.Instance.DialogManager.OnEndDialog();
+        hasDialogStarted = false;    
     }
 }

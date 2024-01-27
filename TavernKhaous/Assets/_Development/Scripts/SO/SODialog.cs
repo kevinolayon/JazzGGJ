@@ -1,18 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "dialog")]
+[CreateAssetMenu(menuName = "Dialogue")]
 public class SODialog : ScriptableObject
 {
-    public SpriteRenderer img;
-    public string characterName;
-    public DialogText[] dialogs;
-}
-
-[System.Serializable]
-public class DialogText
-{
-    [TextArea(5, 5)]
-    public string dialog;
+    public string name;
+    public TreeNode root;
 }
