@@ -10,10 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 5f;
 
     [Header("References")]
-    [SerializeField] Rigidbody rb;
+    Rigidbody rb;
     [SerializeField] ConfigurableJoint rLegJoint;
     [SerializeField] ConfigurableJoint lLegJoint;
-    [SerializeField] ConfigurableJoint cj;
+    ConfigurableJoint cj;
 
     bool isMoving;
     bool canWalk = true;
@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        canvas = CanvasManager.Instance;        
+        canvas = CanvasManager.Instance;
+        rb = GetComponent<Rigidbody>();
+        cj = GetComponent<ConfigurableJoint>();
     }
 
     private void OnEnable()
@@ -44,7 +46,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Jump();
         Interact();
     }
 
@@ -85,7 +86,6 @@ public class PlayerController : MonoBehaviour
             lLegJoint.targetRotation = Quaternion.identity;
             rLegJoint.targetRotation = Quaternion.identity;
         }
-        Debug.Log(isMoving +" "+ legRoutine);
     }
 
     IEnumerator LegAnimation()
@@ -101,14 +101,6 @@ public class PlayerController : MonoBehaviour
             rLegJoint.targetRotation = Quaternion.Euler(0, 0, -33);
 
             yield return new WaitForSeconds(.3f);
-        }
-    }
-
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 

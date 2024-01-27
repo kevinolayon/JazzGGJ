@@ -7,7 +7,7 @@ public class Start_Menu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Kevin");
+        SceneManager.LoadScene("Game");
     }
     public void Credits()
     {
