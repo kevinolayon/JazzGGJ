@@ -245,9 +245,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialBalance: 100
-  decreasingBalanceCooldown: 1
   onPlayerBalanceChanges: {fileID: 11400000, guid: 410b7f06545fd82488e4f53d711153ac, type: 2}
   onPlayerBalanceInitializes: {fileID: 11400000, guid: eab79d5a17d92474d997c71a92ad168f, type: 2}
+  decreasingBalanceCooldown: 1
+  continuousBalanceDecreaseAmount: 1
+  continuousBalanceDecreaseMultiplier: 1
 --- !u!4 &910235795
 Transform:
   m_ObjectHideFlags: 0
