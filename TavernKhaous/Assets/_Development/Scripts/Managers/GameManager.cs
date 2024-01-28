@@ -34,7 +34,13 @@ public class GameManager : Singleton<GameManager>
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            _scoreManager.UpdatePoints(PointsType.hitSecretOrder);
+            _scoreManager.UpdatePoints(PointsType.hitOrder);
+            _scoreManager.UpdateUIScore();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            _scoreManager.UpdatePoints(PointsType.wrongOrder);
             _scoreManager.UpdateUIScore();
         }
     }

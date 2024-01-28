@@ -22,6 +22,8 @@ public enum SatisfactionType
 public class ScoreManager
 {
     private int _currentScore;
+    private int _currentOrderScore;
+
     private SOPoints points;
 
     public Action<int> onUpdatePoints;
@@ -37,17 +39,18 @@ public class ScoreManager
     public void Reset()
     {
         _currentScore = 0;
+        _currentOrderScore = 0;
         UpdateUIScore();
     }
 
     public void UpdateUIScore()
     {
-        onUpdatePoints?.Invoke(_currentScore);
+        onUpdatePoints?.Invoke(_currentOrderScore);
     }
 
     public void UpdatePoints(PointsType type)
     {
         int value = points.GetPointValue(type);
-        _currentScore += value;
+        _currentOrderScore += value;
     }
 }

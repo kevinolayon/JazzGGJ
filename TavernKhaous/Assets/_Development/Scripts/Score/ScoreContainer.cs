@@ -8,7 +8,14 @@ public class ScoreContainer : MonoBehaviour
 {
     public Image coin;
     public TextMeshProUGUI score;
+    public TextMeshProUGUI scoreSimbol;
+
     public float timeBetweenPoints;
+  
+    private int _currentScore;
+    private int _newValue;
+
+    private bool _isPositiveValue;
 
     public void Init()
     {
@@ -17,25 +24,50 @@ public class ScoreContainer : MonoBehaviour
 
     public void Reset()
     {
-        score.text = "$0";
+        scoreSimbol.text = "$";
+        score.text = "0";
+        _currentScore = 0;
     }
 
     private void UpdateScore(int value)
     {
-        score.text = "$" + value;
+        score.text = value.ToString();
     }
 
     public void StartCoinAnimation(int value)
     {
-        StartCoroutine(CoinAnimationCoroutine(value));
+        _newValue = _currentScore;
+
+        if (value < _currentScore)
+            _isPositiveValue = false;
+
+        else  
+            _isPositiveValue = true;
+
+        _newValue = value;
+
+        StartCoroutine(CoinAnimationCoroutine(_isPositiveValue, value));
     }
 
-    private IEnumerator CoinAnimationCoroutine(int value)
+    private IEnumerator CoinAnimationCoroutine(bool isPositiveValue, int newValue)
     {
-        for(int i = 1; i <= value; i++)
+        if(isPositiveValue)
         {
-            UpdateScore(i);
-            yield return new WaitForSeconds(timeBetweenPoints);
+            for (int i = _currentScore; i <= newValue; i++)
+            {
+                UpdateScore(i);
+                yield return new WaitForSeconds(timeBetweenPoints);
+            }
         }
+        else
+        {
+            for (int i = (int)_currentScore; i >= _newValue; i--)
+            {
+                UpdateScore(i);
+                yield return new WaitForSeconds(timeBetweenPoints);
+            }
+        }
+
+        _currentScore = newValue;
     }
 }
