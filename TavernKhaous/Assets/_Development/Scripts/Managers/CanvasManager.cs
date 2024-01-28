@@ -7,7 +7,6 @@ public class CanvasManager : Singleton<CanvasManager>
     [SerializeField] CanvasGroup orderGroup;
 
     public static Action<bool> enableWalk;
-
     private void Awake()
     {
         HideOrderMenu();
