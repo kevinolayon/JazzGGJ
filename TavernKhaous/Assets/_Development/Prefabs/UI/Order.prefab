@@ -388,7 +388,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3070400439122447717}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5529332856057707422}
+        m_TargetAssemblyTypeName: OrderButton, Assembly-CSharp
+        m_MethodName: Order
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4343860396592101902
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +772,7 @@ GameObject:
   - component: {fileID: 7029977336735533162}
   - component: {fileID: 2199325176423947900}
   - component: {fileID: 8376337746639291512}
+  - component: {fileID: 5529332856057707422}
   m_Layer: 5
   m_Name: Order
   m_TagString: Untagged
@@ -829,3 +842,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5529332856057707422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555695024439515148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e167cf8f5a56e4d81656a55d557e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

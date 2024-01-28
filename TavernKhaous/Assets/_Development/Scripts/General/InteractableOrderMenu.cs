@@ -4,6 +4,8 @@ public class InteractableOrderMenu : MonoBehaviour, IInteractable
 {
     CanvasManager canvas;
 
+    bool canOrder;
+
     private void Start()
     {
         canvas = CanvasManager.Instance;
@@ -11,6 +13,8 @@ public class InteractableOrderMenu : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (!canOrder) return;
+
         canvas.ShowOrderMenu();
         float value;
         SoundManager.Instance.audioMixer.GetFloat("volume", out value);

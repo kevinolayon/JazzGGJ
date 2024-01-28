@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerBalance : MonoBehaviour
 {
@@ -59,13 +57,13 @@ public class PlayerBalance : MonoBehaviour
         // If the event did not have a multiplier
         if (data is int)
         {
-            int amount = (int) data;
+            int amount = (int)data;
             DecreaseBalance(amount);
         }
         // If the event did have a multiplier (in this case it should send the values as a BalaceStruct)
         else if (data is BalanceStruct)
         {
-            BalanceStruct balanceValues = (BalanceStruct) data;
+            BalanceStruct balanceValues = (BalanceStruct)data;
             DecreaseBalance(balanceValues.Amount, balanceValues.Multiplier);
         }
     }
@@ -82,7 +80,7 @@ public class PlayerBalance : MonoBehaviour
         {
             // We could add some validation to see if the multplier value received is reasonable
 
-            int value = (int) data;
+            int value = (int)data;
             SetContinuousBalanceDecreaseMultiplier(value);
         }
     }

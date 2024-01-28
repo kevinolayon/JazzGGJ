@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BalanceBar : MonoBehaviour
-{
-    
+{    
     public Slider balanceBarFill;
 
     public void SetInitialMaxBalance (Component sender, object data)

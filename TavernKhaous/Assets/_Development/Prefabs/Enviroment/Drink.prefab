@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 4700293544169510904}
   - component: {fileID: 818245096883603990}
   - component: {fileID: 377974778889303943}
+  - component: {fileID: 1411719136393788147}
   m_Layer: 5
   m_Name: Drink
   m_TagString: Untagged
@@ -347,6 +348,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1411719136393788147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4129311436621446895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e167cf8f5a56e4d81656a55d557e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5113734822753710128
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +571,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4572622165214801021}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411719136393788147}
+        m_TargetAssemblyTypeName: OrderButton, Assembly-CSharp
+        m_MethodName: Order
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6119459307139140080
 GameObject:
   m_ObjectHideFlags: 0
