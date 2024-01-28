@@ -1,15 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CanvasManager : Singleton<CanvasManager>
 {
-    [SerializeField] Image image;
+    [SerializeField] CanvasGroup orderGroup;
 
-    public void ToggleImage()
+    public static Action<bool> enableWalk;
+    private void Awake()
     {
-        image.enabled = !image.enabled;
+        HideOrderMenu();
     }
 
+    public void ShowOrderMenu()
+    {
+        enableWalk?.Invoke(false);
+        orderGroup.DOFade(1, .25f);
+        orderGroup.interactable = true;
+        orderGroup.blocksRaycasts = true;
+    }
+
+    public void HideOrderMenu()
+    {
+        enableWalk?.Invoke(true);
+        orderGroup.DOFade(0, .25f);
+        orderGroup.interactable = false;
+        orderGroup.blocksRaycasts = false;
+    }
 }
