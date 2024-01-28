@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 907444644266165506}
   - component: {fileID: 7355282195489538383}
   m_Layer: 5
-  m_Name: ScoreSimbol
+  m_Name: CurrencySimbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 6359615633211915911}
   - component: {fileID: 2042515300605456511}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: CurrencyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032685742752182985}
   m_Layer: 5
-  m_Name: ScoreContainer
+  m_Name: CurrencyContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 3035045515975811038}
   - component: {fileID: 3008577367517606125}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Currency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,6 +431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 2680056988726383085}
-  score: {fileID: 2042515300605456511}
-  scoreSimbol: {fileID: 7355282195489538383}
+  currency: {fileID: 2042515300605456511}
+  currencySimbol: {fileID: 7355282195489538383}
   timeBetweenPoints: 0.05

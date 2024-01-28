@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     private DialogBox _dialogBox;
 
     [SerializeField]
-    private ScoreContainer _scoreContainer;
+    private CurrencyContainer _currencyContainer;
 
     public void Start()
     {
@@ -22,19 +22,19 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.DialogManager.onEndDialog += CloseDialogBox;
         GameManager.Instance.DialogManager.onUpdateOptions += SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton += HideOptions;
-        GameManager.Instance.ScoreManager.onUpdatePoints += UpdatePoints;
+        GameManager.Instance.ScoreManager.onUpdateCurrency += UpdatePoints;
         GameManager.Instance.DialogManager.onChangePortrait += UpdatePortrait;
 
         DialogOption.onChooseOption += SelectOption;
 
         _dialogBox.Init();
-        _scoreContainer.Init();
+        _currencyContainer.Init();
     }
 
     public void Reset()
     {
         _dialogBox.ResetFields();
-        _scoreContainer.Reset();
+        _currencyContainer.Reset();
     }
 
     public void OpenDialogBox()
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.DialogManager.onEndDialog -= CloseDialogBox;
         GameManager.Instance.DialogManager.onUpdateOptions -= SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton -= HideOptions;
-        GameManager.Instance.ScoreManager.onUpdatePoints -= UpdatePoints;
+        GameManager.Instance.ScoreManager.onUpdateCurrency -= UpdatePoints;
         GameManager.Instance.DialogManager.onChangePortrait -= UpdatePortrait;
 
         DialogOption.onChooseOption -= SelectOption;
@@ -86,7 +86,7 @@ public class UIManager : MonoBehaviour
     #region Score
     public void UpdatePoints(int value)
     {
-        _scoreContainer.StartCoinAnimation(value);
+        _currencyContainer.StartCoinAnimation(value);
     }
 
     #endregion

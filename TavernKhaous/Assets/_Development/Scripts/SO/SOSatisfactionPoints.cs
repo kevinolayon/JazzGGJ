@@ -12,7 +12,6 @@ public class SOPoints : ScriptableObject
     public int neutralInteraction;
     public int badInteraction;
     public int wrongOrder;
-<<<<<<< HEAD
     public int badTime;
 
     private Dictionary<PointsType, int> pointControl;
@@ -35,7 +34,4 @@ public class SOPoints : ScriptableObject
         pointControl.Add(PointsType.wrongOrder, wrongOrder);
         pointControl.Add(PointsType.badTime, badTime);
     }
-=======
-    public int badTimepublic;
->>>>>>> main
 }

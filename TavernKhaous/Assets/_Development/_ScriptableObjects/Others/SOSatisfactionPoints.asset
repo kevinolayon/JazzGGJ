@@ -9,7 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df092a48fe329b2448c8851faf57dd91, type: 3}
-  m_Name: SOScore
+  m_Script: {fileID: 11500000, guid: ee64b77f70cf8f041a4954b5c65e3cf9, type: 3}
+  m_Name: SOSatisfactionPoints
   m_EditorClassIdentifier: 
-  value: 0
+  hitOrder: 10
+  rightTime: 10
+  hitSecretOrder: 20
+  goodInteraction: 5
+  neutralInteraction: 0
+  badInteraction: -5
+  wrongOrder: -10
+  badTimepublic: -10

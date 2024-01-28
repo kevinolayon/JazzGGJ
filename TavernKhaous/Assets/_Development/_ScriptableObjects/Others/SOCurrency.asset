@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee64b77f70cf8f041a4954b5c65e3cf9, type: 3}
-  m_Name: SOPoints
+  m_Script: {fileID: 11500000, guid: 51712344e66f48d46b5e189ec9b9422a, type: 3}
+  m_Name: SOCurrency
   m_EditorClassIdentifier: 
-  hitOrder: 10
-  rightTime: 10
-  hitSecretOrder: 20
-  goodInteraction: 5
-  neutralInteraction: 0
-  badInteraction: -5
-  wrongOrder: -10
-  badTimepublic: -10
+  value: 0
