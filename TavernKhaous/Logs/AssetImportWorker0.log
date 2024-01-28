@@ -3681,3 +3681,140 @@ Number of asset objects unloaded after import = 0
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  3.065 seconds
+Refreshing native plugins compatible for Editor in 9.08 ms, found 6 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.956 seconds
+Domain Reload Profiling: 6982ms
+	BeginReloadAssembly (967ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (306ms)
+	RebuildCommonClasses (177ms)
+	RebuildNativeTypeToScriptingClass (28ms)
+	initialDomainReloadingComplete (64ms)
+	LoadAllAssembliesAndSetupDomain (1789ms)
+		LoadAssemblies (2273ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (97ms)
+			TypeCache.Refresh (33ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (44ms)
+			ResolveRequiredComponents (19ms)
+	FinalizeReload (3956ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1168ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (232ms)
+			ProcessInitializeOnLoadAttributes (787ms)
+			ProcessInitializeOnLoadMethodAttributes (117ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (25ms)
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
+Refreshing native plugins compatible for Editor in 7.11 ms, found 6 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5283 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 50 unused Assets / (393.6 KB). Loaded Objects now: 6734.
+Memory consumption went from 285.5 MB to 285.1 MB.
+Total: 5.297800 ms (FindLiveObjects: 0.766200 ms CreateObjectMapping: 0.483900 ms MarkObjects: 3.796300 ms  DeleteObjects: 0.249900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 62b5816608c3102f162a1797e29626cf -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 258.726097 seconds.
+  path: Assets/_Development/Prefabs/Score.prefab
+  artifactKey: Guid(560b5430bc890f64ab1b5d8ef7c9db16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/Prefabs/Score.prefab using Guid(560b5430bc890f64ab1b5d8ef7c9db16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a45f5f54343955cedc27f7d250b9668') in 0.653843 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 24
+========================================================================
+Received Import Request.
+  Time since last request: 6.941101 seconds.
+  path: Assets/_Development/Prefabs/Score
+  artifactKey: Guid(e39e5bda28715cb489b48ab7b450dd96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/Prefabs/Score using Guid(e39e5bda28715cb489b48ab7b450dd96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '480c3c51c465c9f7611ad4aa469c4007') in 0.001930 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 9.915254 seconds.
+  path: Assets/_Development/Prefabs/UI
+  artifactKey: Guid(e8c837716265a514b956cd1f288d845d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/Prefabs/UI using Guid(e8c837716265a514b956cd1f288d845d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd34142032a98a3115784af7da9f69a41') in 0.001251 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 17.799977 seconds.
+  path: Assets/_Development/Scripts/Dialog/Materials
+  artifactKey: Guid(9540e32fbade4f440b9746a181c6e4dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/Scripts/Dialog/Materials using Guid(9540e32fbade4f440b9746a181c6e4dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3883a06933fd3ca7a4849c39403d655') in 0.003071 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 34.223519 seconds.
+  path: Assets/_Development/Art/DialogSystemPrototype/Prefabs
+  artifactKey: Guid(d0a891b64247561458f3ea45ab309593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/Art/DialogSystemPrototype/Prefabs using Guid(d0a891b64247561458f3ea45ab309593) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '371c96ffd78932f901676f43f3ec87b1') in 0.001143 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.975982 seconds.
+  path: Assets/_Development/Art/DialogSystemPrototype/Prefabs/DialogBox.prefab
+  artifactKey: Guid(fcfb1b6f2b63f0540a05cd526169bc7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/Art/DialogSystemPrototype/Prefabs/DialogBox.prefab using Guid(fcfb1b6f2b63f0540a05cd526169bc7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '905aebaf815d5900967d3082f4fb6f5f') in 0.194827 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 35
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/_Development/Art/DialogSystemPrototype/Prefabs/DialogOptions.prefab
+  artifactKey: Guid(8c932f72248054449beb52c2eba54caf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/Art/DialogSystemPrototype/Prefabs/DialogOptions.prefab using Guid(8c932f72248054449beb52c2eba54caf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9097508247ba56326d62f9d8b75545f0') in 0.094373 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 44
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/_Development/Art/DialogSystemPrototype/Prefabs/DialogPanel.prefab
+  artifactKey: Guid(f57945b91c43fc64fa53371798df64d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/Art/DialogSystemPrototype/Prefabs/DialogPanel.prefab using Guid(f57945b91c43fc64fa53371798df64d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bf13a7616ed97d173064969e44e7899') in 0.105687 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 76
+========================================================================
+Received Import Request.
+  Time since last request: 25.812439 seconds.
+  path: Assets/_Development/UI
+  artifactKey: Guid(543e79cc2f5038e40ad6cf6233e47604) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Development/UI using Guid(543e79cc2f5038e40ad6cf6233e47604) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '581bffbbcdb3e1c2137ad7df2093d2a8') in 0.001023 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0

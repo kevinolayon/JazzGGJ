@@ -8,6 +8,7 @@ public class ScoreContainer : MonoBehaviour
 {
     public Image coin;
     public TextMeshProUGUI score;
+    public float timeBetweenPoints;
 
     public void Init()
     {
@@ -16,11 +17,25 @@ public class ScoreContainer : MonoBehaviour
 
     public void Reset()
     {
-        score.text = "";
+        score.text = "$0";
     }
 
-    public void UpdateScore(int value)
+    private void UpdateScore(int value)
     {
         score.text = "$" + value;
+    }
+
+    public void StartCoinAnimation(int value)
+    {
+        StartCoroutine(CoinAnimationCoroutine(value));
+    }
+
+    private IEnumerator CoinAnimationCoroutine(int value)
+    {
+        for(int i = 1; i <= value; i++)
+        {
+            UpdateScore(i);
+            yield return new WaitForSeconds(timeBetweenPoints);
+        }
     }
 }

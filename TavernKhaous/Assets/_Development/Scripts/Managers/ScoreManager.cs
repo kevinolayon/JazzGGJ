@@ -12,6 +12,13 @@ public enum PointsType
     badTime
 }
 
+public enum SatisfactionType
+{
+    satisfied,
+    dissatisfied,
+    verySatisfied
+}
+
 public class ScoreManager
 {
     private int _currentScore;

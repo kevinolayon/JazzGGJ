@@ -9,8 +9,8 @@ public class GameManager : Singleton<GameManager>
     public DialogManager DialogManager { get { return _dialogManager; } }
 
     [SerializeField]
-    private UIController _uiController;
-    public UIController UIController { get { return _uiController; } }
+    private UIManager _uiController;
+    public UIManager UIController { get { return _uiController; } }
 
     [SerializeField]
     public ScoreManager _scoreManager;
@@ -28,5 +28,14 @@ public class GameManager : Singleton<GameManager>
     {
         DialogManager.Init();
         _scoreManager = new ScoreManager(scoreGuide);
+    }
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            _scoreManager.UpdatePoints(PointsType.hitSecretOrder);
+            _scoreManager.UpdateUIScore();
+        }
     }
 }

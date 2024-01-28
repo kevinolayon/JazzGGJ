@@ -59,7 +59,7 @@ public class DialogBox : MonoBehaviour
             characterName.text = dialogName.value;
     }
 
-    private void ResetFields()
+    public void ResetFields()
     {
         dialogName.value = "";
         characterName.text = dialogName.value;
