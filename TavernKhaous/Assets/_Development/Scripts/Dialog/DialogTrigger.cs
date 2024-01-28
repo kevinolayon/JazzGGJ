@@ -21,9 +21,7 @@ public class DialogTrigger : MonoBehaviour
     }
 
     public void OnTriggerStay(Collider other)
-    {
-        Debug.Log("Trigger stay");
-
+    { 
         if (dialog != null)
         {
             if (!hasDialogStarted && Input.GetKeyDown(_dialogKey))

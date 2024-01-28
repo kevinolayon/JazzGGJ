@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39206f2a29add24d8712cf7d8fad5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 11400000, guid: 53f4a07b4ee0a2447a184228a0aff3e3, type: 2}
+  dialog: {fileID: 11400000, guid: 887cb87b1d7c6734999aa4db3fa28145, type: 2}
   client: {fileID: 11400000, guid: fb072b06857055144b19529baf88081e, type: 2}
   _dialogKey: 32
 --- !u!65 &120481986
