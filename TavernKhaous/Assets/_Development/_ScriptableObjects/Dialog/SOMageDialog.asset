@@ -16,92 +16,150 @@ MonoBehaviour:
   root:
     data: "Bem-vindo ao Reino M\xE1gico!"
     nodeId: 0
+    characterPortrait: {fileID: 21300000, guid: a2c591902bc6b55478eb7da90f2a131d, type: 3}
+    isLastNode: 0
     children:
     - data: "[Op\xE7\xE3o 1] Como posso chegar \xE0 Cidade dos Magos?"
       nodeId: 0
+      characterPortrait: {fileID: 21300000, guid: 0409e593fbc537e42aa1d1d209c6c99c, type: 3}
+      isLastNode: 0
       children:
       - data: "Voc\xEA pode chegar \xE0 Cidade dos Magos atravessando a Floresta
           Encantada"
         nodeId: 0
+        characterPortrait: {fileID: 0}
+        isLastNode: 0
         children:
         - data: ("[Opcao 1.1.1] Pode me dar um mapa?"
           nodeId: 0
+          characterPortrait: {fileID: 21300000, guid: 774d299d63e15df47bb59fb23a906a2f, type: 3}
+          isLastNode: 0
           children:
           - data: "Claro! Ir\xE1 te custar 1000 Rupes, e ainda est\xE1 com desconto"
             nodeId: 0
+            characterPortrait: {fileID: 0}
+            isLastNode: 0
             children:
             - data: Nao tenho tanto dinheiro assim, poderia me ajudar sr mago? faz
                 fiado
               nodeId: 0
+              characterPortrait: {fileID: 0}
+              isLastNode: 0
               children:
               - data: Sinto muito, aqui nao fazemos fiado normas da loja
                 nodeId: 0
+                characterPortrait: {fileID: 0}
+                isLastNode: 0
                 children: []
             - data: Ah entao vou procurar em outro lugar, passar bem!
               nodeId: 1
+              characterPortrait: {fileID: 0}
+              isLastNode: 0
               children: []
         - data: "[Opcao 1.1.2] Como est\xE1 a seguran\xE7a na floresta?"
           nodeId: 1
+          characterPortrait: {fileID: 0}
+          isLastNode: 0
           children:
           - data: Esta pessima, ha ogros invadindo o terreno das fadas
             nodeId: 0
+            characterPortrait: {fileID: 0}
+            isLastNode: 0
             children:
             - data: Nossa tem algo que eu possa ajudar?
               nodeId: 0
+              characterPortrait: {fileID: 0}
+              isLastNode: 0
               children: []
             - data: Poxa Alguem deveria fazer algo a respeito disso
               nodeId: 1
+              characterPortrait: {fileID: 0}
+              isLastNode: 0
               children: []
     - data: "[Op\xE7\xE3o 2] O que voc\xEA vende aqui?\""
       nodeId: 1
+      characterPortrait: {fileID: 0}
+      isLastNode: 0
       children:
       - data: Pocoes, mapas, itens raros, quer algo?
         nodeId: 0
+        characterPortrait: {fileID: 0}
+        isLastNode: 0
         children:
         - data: Mapas
           nodeId: 0
+          characterPortrait: {fileID: 0}
+          isLastNode: 0
           children:
           - data: "Custar\xE1 1000 Rupes"
             nodeId: 0
+            characterPortrait: {fileID: 0}
+            isLastNode: 0
             children: []
         - data: Pocoes
           nodeId: 1
+          characterPortrait: {fileID: 0}
+          isLastNode: 0
           children:
           - data: Cada pocao custa em media 300 Rupes
             nodeId: 0
+            characterPortrait: {fileID: 0}
+            isLastNode: 0
             children: []
         - data: Itens Raros
           nodeId: 2
+          characterPortrait: {fileID: 0}
+          isLastNode: 0
           children:
           - data: Ai depende muito do item, temos comecando por 1000 rupes ate 10
               mil, gostaria de algum?
             nodeId: 0
+            characterPortrait: {fileID: 0}
+            isLastNode: 0
             children:
             - data: Nao Obrigada
               nodeId: 0
+              characterPortrait: {fileID: 0}
+              isLastNode: 0
               children: []
             - data: Sim gostaria de ver
               nodeId: 1
+              characterPortrait: {fileID: 0}
+              isLastNode: 0
               children: []
     - data: '[Opcao 3] Porque voce esta em uma loja e nao ajudando no castelo?'
       nodeId: 2
+      characterPortrait: {fileID: 0}
+      isLastNode: 0
       children:
       - data: "Ai meu caro cavalero, essa \xE9 uma longa historia"
         nodeId: 0
+        characterPortrait: {fileID: 0}
+        isLastNode: 0
         children:
         - data: Poderia me contar sobre?
           nodeId: 0
+          characterPortrait: {fileID: 0}
+          isLastNode: 0
           children:
           - data: Sim claro, aconteceu a muito tempo atras quando eu ainda era um
               jovem feiticeiro
             nodeId: 0
+            characterPortrait: {fileID: 0}
+            isLastNode: 0
             children:
             - data: "Nossa entao ela \xE9 bem antiga mesmo"
               nodeId: 0
+              characterPortrait: {fileID: 0}
+              isLastNode: 0
               children: []
         - data: "Ela \xE9 triste?"
           nodeId: 1
+          characterPortrait: {fileID: 0}
+          isLastNode: 0
           children: []
         - data: Ah obrigada, estou com pressa espero que voce fique bem aqui
           nodeId: 2
+          characterPortrait: {fileID: 0}
+          isLastNode: 0
           children: []

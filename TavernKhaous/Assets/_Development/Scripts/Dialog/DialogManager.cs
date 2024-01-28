@@ -24,6 +24,7 @@ public class DialogManager : MonoBehaviour
     public Action onEndDialog;
     public Action<List<Option>> onUpdateOptions;
     public Action onEnableNextButton;
+    public Action<Sprite> onChangePortrait;
 
     private Coroutine _currentCoroutine;
 
@@ -103,6 +104,9 @@ public class DialogManager : MonoBehaviour
             dialogText.value = "";
 
             ResetOptions();
+
+            if (_currentNodeDialog.characterPortrait != null)
+                onChangePortrait?.Invoke(_currentNodeDialog.characterPortrait);
 
             if (_currentNodeDialog.children.Count > 0)
                 OnUpdateOptions(_currentNodeDialog.children);

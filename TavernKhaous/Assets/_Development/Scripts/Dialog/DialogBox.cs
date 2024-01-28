@@ -98,6 +98,11 @@ public class DialogBox : MonoBehaviour
         }
     }
 
+    public void ChangePortrait(Sprite sprite)
+    {
+        portrait.sprite = sprite;
+    }
+
     public void SetOptions(List<Option> options)
     {
         optionsBackground.gameObject.SetActive(true);

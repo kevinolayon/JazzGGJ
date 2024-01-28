@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.DialogManager.onUpdateOptions += SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton += HideOptions;
         GameManager.Instance.ScoreManager.onUpdatePoints += UpdatePoints;
+        GameManager.Instance.DialogManager.onChangePortrait += UpdatePortrait;
 
         DialogOption.onChooseOption += SelectOption;
 
@@ -53,6 +54,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.DialogManager.onUpdateOptions -= SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton -= HideOptions;
         GameManager.Instance.ScoreManager.onUpdatePoints -= UpdatePoints;
+        GameManager.Instance.DialogManager.onChangePortrait -= UpdatePortrait;
 
         DialogOption.onChooseOption -= SelectOption;
     }
@@ -66,6 +68,11 @@ public class UIManager : MonoBehaviour
     public void HideOptions()
     {
         _dialogBox.HideDialogOptions();
+    }
+
+    public void UpdatePortrait(Sprite newPortrait)
+    {
+        _dialogBox.ChangePortrait(newPortrait);
     }
 
     #endregion

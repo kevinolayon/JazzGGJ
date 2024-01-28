@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class TreeNode
 {
     public string data;
     public int nodeId;
+    public Sprite characterPortrait;
+    public bool isLastNode;
 
     public List<TreeNode> children = new List<TreeNode>();
 
