@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 3151405686488011026}
   - component: {fileID: 5584881070538852436}
   m_Layer: 0
-  m_Name: FemaleCharacterPBR
+  m_Name: "An\xE3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
