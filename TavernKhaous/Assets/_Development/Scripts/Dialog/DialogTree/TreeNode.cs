@@ -12,6 +12,7 @@ public class TreeNode
     public bool isLastNode;
     public List<DialogData> normalDialogs = new List<DialogData>();
     public DialogData dialogData;
+    public int _dialogPoint;
     public List<TreeNode> children = new List<TreeNode>();
 
     public TreeNode AddChild(string value)

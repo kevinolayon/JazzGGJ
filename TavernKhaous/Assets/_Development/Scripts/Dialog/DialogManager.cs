@@ -25,6 +25,7 @@ public class DialogManager : MonoBehaviour
     public Action<List<Option>> onUpdateOptions;
     public Action onEnableNextButton;
     public Action<Sprite> onChangePortrait;
+    public Action<int> onSendDialogPoints;
 
     private Coroutine _currentCoroutine;
 
@@ -142,6 +143,9 @@ public class DialogManager : MonoBehaviour
 
                 if (_currentNodeDialog.children.Count > 0)
                     OnUpdateOptions(_currentNodeDialog.children);
+
+                if (_currentNodeDialog._dialogPoint != 0)
+                    _dialogPoints += _currentNodeDialog._dialogPoint;
             }          
 
             _isWriting = true;
@@ -258,6 +262,9 @@ public class DialogManager : MonoBehaviour
         _hasReadBrachDialogData = false;
 
         StopCoroutine(WriteCoroutine());
+
+        if (_dialogPoints != 0)
+            onSendDialogPoints?.Invoke(_dialogPoints);
 
         onEndDialog.Invoke();     
         _isWriting = false;
