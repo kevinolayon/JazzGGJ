@@ -150,11 +150,12 @@ public class PlayerController : MonoBehaviour
             interactableInterface.Interact();
     }
 
-    void DragItem(GameObject item)
+    void DragItem(GameObject item, GameObject vfx)
     {
         if (dragging) return;
         dragging = true;
         Instantiate(item, bowlSocket);
+        Instantiate(vfx, bowlSocket.position, Quaternion.identity);
     }
 
     public void ReleaseItem()

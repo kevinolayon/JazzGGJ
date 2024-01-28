@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.Mathematics;
 public class Options_Menu : MonoBehaviour
 {
     public GameObject Pausemenu;
@@ -13,11 +14,14 @@ public class Options_Menu : MonoBehaviour
 
     public AudioMixer audioMixer;
     public TMPro.TMP_Dropdown resolutionDropdown;
+
+    private bool gamestart;
     Resolution[] resolutions;
     void Start()
     {
-        resolutions = Screen.resolutions;
-
+        gamestart = true;
+        SetVolume(1);
+        resolutions = Screen.resolutions; 
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
 
@@ -36,29 +40,48 @@ public class Options_Menu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        gamestart = false;
     }
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        float value;
+        if (gamestart == false){
+        SoundManager.Instance.audioMixer.GetFloat("volume", out value);
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.GetSFXByName("Whoosh"), Vector3.zero, value);
+        }
+        float newvolume = volume * 100f - 80f;
+        audioMixer.SetFloat("volume", newvolume);
     }
 
     public void SetQuality(int qualityIndex)
     {
+        float value;
+        SoundManager.Instance.audioMixer.GetFloat("volume", out value);
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.GetSFXByName("Click"), Vector3.zero, value);
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void Setfullscreen(bool isFullscreen)
     {
+        float value;
+        SoundManager.Instance.audioMixer.GetFloat("volume", out value);
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.GetSFXByName("Click"), Vector3.zero, value);
         Screen.fullScreen = isFullscreen;
     }
 
     public void Setresolution(int resolutionIndex)
     {
+        float value;
+        SoundManager.Instance.audioMixer.GetFloat("volume", out value);
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.GetSFXByName("Click"), Vector3.zero, value);
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, Screen.fullScreen);
     }
     public void Options()
     {
+        float value;
+        SoundManager.Instance.audioMixer.GetFloat("volume", out value);
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.GetSFXByName("Click_negativo"), Vector3.zero, value);
         Optionsmenu.SetActive(false);
         Pausemenu.SetActive(true);
     }
