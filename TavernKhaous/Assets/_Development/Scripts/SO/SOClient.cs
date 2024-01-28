@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Client")]
 public class SOClient : ScriptableObject
 {
-    public string name;
+    public string clientName;
     public bool hasClientStartedOrder = false;
     public string secretOrder;
     public string normalOrder;

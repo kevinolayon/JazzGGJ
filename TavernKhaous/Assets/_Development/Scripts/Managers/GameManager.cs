@@ -13,11 +13,8 @@ public class GameManager : Singleton<GameManager>
     public UIManager UIController { get { return _uiController; } }
 
     [SerializeField]
-    public ScoreManager _scoreManager;
-    public ScoreManager ScoreManager { get { return _scoreManager; } }
-
-    [SerializeField]
-    private SOPoints scoreGuide;
+    public NightCurrencyManager _nightCurrentManager;
+    public NightCurrencyManager ScoreManager { get { return _nightCurrentManager; } }
 
     public void Start()
     {
@@ -27,21 +24,22 @@ public class GameManager : Singleton<GameManager>
     private void Init()
     {
         DialogManager.Init();
-        _scoreManager = new ScoreManager(scoreGuide);
+        _nightCurrentManager = new NightCurrencyManager();
+        _nightCurrentManager.Int();
     }
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        #region Test PointsType
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            _scoreManager.UpdatePoints(PointsType.hitOrder);
-            _scoreManager.UpdateUIScore();
+            _nightCurrentManager.UpdateCurrency(10);
         }
 
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            _scoreManager.UpdatePoints(PointsType.wrongOrder);
-            _scoreManager.UpdateUIScore();
+            _nightCurrentManager.UpdateCurrency(-10);
         }
+        #endregion
     }
 }

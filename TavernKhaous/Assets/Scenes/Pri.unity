@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogBox: {fileID: 5532211411248913140}
-  _scoreContainer: {fileID: 2107502597}
+  _currencyContainer: {fileID: 2107502597}
 --- !u!1 &871750361
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +685,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogManager: {fileID: 1760405633}
   _uiController: {fileID: 753683267}
-  scoreGuide: {fileID: 11400000, guid: d9acbc3ded072af4ca1a05f3dc1844b8, type: 2}
 --- !u!4 &1431179223
 Transform:
   m_ObjectHideFlags: 0
@@ -1162,6 +1161,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 753683266}
     m_Modifications:
+    - target: {fileID: 2042515300605456511, guid: 560b5430bc890f64ab1b5d8ef7c9db16, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973980854802454157, guid: 560b5430bc890f64ab1b5d8ef7c9db16, type: 3}
+      propertyPath: m_Name
+      value: CurrencyContainer
+      objectReference: {fileID: 0}
     - target: {fileID: 3035045515975811038, guid: 560b5430bc890f64ab1b5d8ef7c9db16, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1244,7 +1251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7375183305384803812, guid: 560b5430bc890f64ab1b5d8ef7c9db16, type: 3}
       propertyPath: m_Name
-      value: Score
+      value: Currency
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
