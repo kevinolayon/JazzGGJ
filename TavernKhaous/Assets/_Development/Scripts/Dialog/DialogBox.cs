@@ -60,7 +60,7 @@ public class DialogBox : MonoBehaviour
             characterName.text = dialogName.value;
     }
 
-    private void ResetFields()
+    public void ResetFields()
     {
         dialogName.value = "";
         characterName.text = dialogName.value;
@@ -97,6 +97,11 @@ public class DialogBox : MonoBehaviour
                 _options[i].EnableOption(enable);
             }
         }
+    }
+
+    public void ChangePortrait(Sprite sprite)
+    {
+        portrait.sprite = sprite;
     }
 
     public void SetOptions(List<Option> options)

@@ -10,6 +10,9 @@ public class DialogTrigger : MonoBehaviour
     private SODialog dialog;
 
     [SerializeField]
+    private SOClient client;
+
+    [SerializeField]
     private KeyCode _dialogKey;
 
     public void OnTriggerEnter(Collider other)
@@ -18,9 +21,7 @@ public class DialogTrigger : MonoBehaviour
     }
 
     public void OnTriggerStay(Collider other)
-    {
-        Debug.Log("Trigger stay");
-
+    { 
         if (dialog != null)
         {
             if (!hasDialogStarted && Input.GetKeyDown(_dialogKey))
@@ -29,7 +30,7 @@ public class DialogTrigger : MonoBehaviour
                 {
                     Debug.Log("Trigger Player");
                     hasDialogStarted = true;
-                    GameManager.Instance.DialogManager.DialogStart(dialog.root, dialog.name);
+                    GameManager.Instance.DialogManager.DialogStart(dialog.root);
                 }
             }           
         }

@@ -4,56 +4,44 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    private Tree _tree;
-    public SODialog treeDialog;
-
     [SerializeField]
     private DialogManager _dialogManager;
     public DialogManager DialogManager { get { return _dialogManager; } }
 
     [SerializeField]
-    private UIController _uiController;
-    public UIController UIController { get { return _uiController; } }
+    private UIManager _uiController;
+    public UIManager UIController { get { return _uiController; } }
+
+    [SerializeField]
+    public ScoreManager _scoreManager;
+    public ScoreManager ScoreManager { get { return _scoreManager; } }
+
+    [SerializeField]
+    private SOPoints scoreGuide;
 
     public void Start()
     {
-        //InitGenericTree();
         Init();
-
-        //PrintTree();
     }
 
     private void Init()
     {
         DialogManager.Init();
+        _scoreManager = new ScoreManager(scoreGuide);
     }
 
-    public void InitGenericTree()
+    public void Update()
     {
-        _tree = new Tree();
-        _tree.BuildTree();
-
-        //_tree.PrintTree();
-    }
-
-    public void PrintTree()
-    {
-        Debug.Log("--iniciou--");
-
-        PrintNodeData(treeDialog.root);
-
-        Debug.Log("--finalizou--");
-    }
-
-    private void PrintNodeData(TreeNode node)
-    {
-        Debug.Log(node.data);
-
-        for (int j = 0; j < node.children.Count; j++)
+        if(Input.GetKeyDown(KeyCode.A))
         {
-            PrintNodeData(node.children[j]);
+            _scoreManager.UpdatePoints(PointsType.hitOrder);
+            _scoreManager.UpdateUIScore();
         }
 
-        return;
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            _scoreManager.UpdatePoints(PointsType.wrongOrder);
+            _scoreManager.UpdateUIScore();
+        }
     }
 }
