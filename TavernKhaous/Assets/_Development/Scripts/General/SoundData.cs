@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundData: MonoBehaviour
+
+[System.Serializable]
+public class SoundData
 {
-    public string name;
+    public string clipname;
     public AudioClip clip;
 }

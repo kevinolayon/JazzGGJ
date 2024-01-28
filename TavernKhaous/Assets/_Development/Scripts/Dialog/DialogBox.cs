@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class DialogBox : MonoBehaviour
 {
@@ -116,5 +117,22 @@ public class DialogBox : MonoBehaviour
                 _options[i].EnableOption(true);
             }          
         }           
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        float value;
+        SoundManager.Instance.audioMixer.GetFloat("volume", out value);
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.GetSFXByName("click"), Vector3.zero, value);
+        throw new System.NotImplementedException();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        float value;
+        SoundManager.Instance.audioMixer.GetFloat("volume", out value);
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.GetSFXByName("click"), Vector3.zero, value);
+        throw new System.NotImplementedException();
+        
     }
 }

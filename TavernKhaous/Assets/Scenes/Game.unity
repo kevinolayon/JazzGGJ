@@ -2126,6 +2126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 744013787}
   - component: {fileID: 744013786}
+  - component: {fileID: 744013788}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -2142,12 +2143,12 @@ AudioSource:
   m_GameObject: {fileID: 744013785}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ea87f8dc33c580c46a7db7e0941c8019, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2244,6 +2245,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744013788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744013785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70d14232b0fad4488f694099e537511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: {fileID: 11400000, guid: 6f50342e23e384843b1b81e10bebf1e4, type: 2}
+  audioMixer: {fileID: 24100000, guid: ea87f8dc33c580c46a7db7e0941c8019, type: 2}
 --- !u!1 &756762542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,7 +2542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pausemenu: {fileID: 1800620646}
   Optionsmenu: {fileID: 1305920523}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: ea87f8dc33c580c46a7db7e0941c8019, type: 2}
   resolutionDropdown: {fileID: 1305920525}
 --- !u!1 &821523653
 GameObject:
@@ -4399,6 +4414,42 @@ PrefabInstance:
     - target: {fileID: 2234263792308268532, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Setresolution
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_Size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 760023416}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Options_Menu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411932166930894000, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5095121878684437394, guid: 61b2470e765dbe24caada91b1bdc7015, type: 3}
       propertyPath: m_Name

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0802d12a13553264596eab36ef27115c, type: 3}
+  m_Name: Sounds
+  m_EditorClassIdentifier: 
+  sounds:
+  - clipname: Cardapio
+    clip: {fileID: 8300000, guid: a7aa8646016c5074e85872e1f23016f1, type: 3}
+  - clipname: Click
+    clip: {fileID: 8300000, guid: 18b05e7a881da58489d733dfb4f76b37, type: 3}
+  - clipname: Click_negativo
+    clip: {fileID: 8300000, guid: 2690ff1fc6d987f4490dbbac54922ce5, type: 3}
+  - clipname: Put_on_the_table
+    clip: {fileID: 8300000, guid: c12e19be405cd5349b187ceddc95f499, type: 3}
+  - clipname: Close_the_menu
+    clip: {fileID: 8300000, guid: cece43662aa918249a7203e8748efbb4, type: 3}
+  - clipname: Whoosh
+    clip: {fileID: 8300000, guid: a3682ce9684c99e498e68c142fdb464b, type: 3}
