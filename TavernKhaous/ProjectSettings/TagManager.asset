@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Counter
+  - Obstacle
+  - FxTemporaire
+  - Bowl
+  - Interactable
   layers:
   - Default
   - TransparentFX

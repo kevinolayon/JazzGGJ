@@ -1,40 +1,49 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float movementSpeed = 10f;
-    [SerializeField] float rotationSpeed = 5f;
-    [SerializeField] float jumpForce = 5f;
+    [SerializeField] float timeToStable = 1;
 
     [Header("References")]
-    [SerializeField] Rigidbody rb;
+    [SerializeField] Transform bowlSocket;
     [SerializeField] ConfigurableJoint rLegJoint;
     [SerializeField] ConfigurableJoint lLegJoint;
-    [SerializeField] ConfigurableJoint cj;
 
+    Rigidbody rb;
+    ConfigurableJoint cj;
+    IInteractable interactableInterface;
+
+    float stability;
+    float initialStability;
+
+    bool dragging;
     bool isMoving;
     bool canWalk = true;
-    bool canInteract = false;
-    Coroutine legRoutine;
+    bool canInteract = true;
 
-    CanvasManager canvas;
+    Coroutine legRoutine;
+    Coroutine loseStability;
 
     private void Start()
     {
-        canvas = CanvasManager.Instance;        
+        rb = GetComponent<Rigidbody>();
+        cj = GetComponent<ConfigurableJoint>();
+        initialStability = stability;
     }
 
     private void OnEnable()
     {
-        CanvasManager.enableWalk += CanWalk;
+        CanvasManager.enableWalk += DisablePlayer;
+        InteractableDragItem.draggableObject += DragItem; 
     }
 
     private void OnDisable()
     {
-        CanvasManager.enableWalk -= CanWalk;
+        CanvasManager.enableWalk -= DisablePlayer;
+        InteractableDragItem.draggableObject -= DragItem;
     }
 
     private void FixedUpdate()
@@ -44,11 +53,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Jump();
         Interact();
     }
 
-    public void CanWalk(bool value)
+    public void DisablePlayer(bool value)
     {
         canWalk = value;
         canInteract = value;
@@ -72,7 +80,7 @@ public class PlayerController : MonoBehaviour
             legRoutine = StartCoroutine("LegAnimation");
         }
         if (isMoving)
-        {  
+        {
             Vector3 rotDir = dir;
             rotDir.x = -dir.x;
             Quaternion rotTarget = Quaternion.LookRotation(rotDir);
@@ -85,7 +93,6 @@ public class PlayerController : MonoBehaviour
             lLegJoint.targetRotation = Quaternion.identity;
             rLegJoint.targetRotation = Quaternion.identity;
         }
-        Debug.Log(isMoving +" "+ legRoutine);
     }
 
     IEnumerator LegAnimation()
@@ -104,35 +111,68 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Counter"))
+        if (other.CompareTag("Interactable"))
         {
-            canInteract = true;
+            if (other.TryGetComponent<IInteractable>(out IInteractable interactable))
+            {
+                interactableInterface = interactable;
+            }
+        }
+
+        if (other.CompareTag("Obstacle"))
+        {
+            if (loseStability == null)
+                loseStability = StartCoroutine("LoseStability");
+            else
+            {
+                StopCoroutine(loseStability);
+                loseStability = null;
+                loseStability = StartCoroutine("LoseStability");
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Counter"))
+        if (other.CompareTag("Interactable"))
         {
-            canInteract = false;
+            interactableInterface = null;
         }
     }
 
     void Interact()
     {
-        if (!canInteract) return;
+        if (!canInteract || interactableInterface == null) return;
 
         if (Input.GetKeyDown(KeyCode.E))
-            canvas.ShowOrderMenu();
+            interactableInterface.Interact();
+    }
+
+    void DragItem(GameObject item)
+    {
+        if (dragging) return;
+        dragging = true;
+        Instantiate(item, bowlSocket);
+    }
+
+    public void ReleaseItem()
+    {
+
+    }
+
+    IEnumerator LoseStability()
+    {
+        yield return new WaitForSeconds(timeToStable);
+
+        Explode();
+    }
+
+    void Explode()
+    {
+        Debug.Log("exp");
+        Vector3 dir = Vector3.forward + Vector3.up;
+        rb.AddForce(dir * 10, ForceMode.Impulse);
     }
 }
