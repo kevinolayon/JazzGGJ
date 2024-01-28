@@ -26,11 +26,7 @@ public class PrintTree : MonoBehaviour
 
     private void PrintNodeData(TreeNode node)
     {
-<<<<<<< HEAD
         Debug.Log(node.dialogData.data);
-=======
-        Debug.Log(node.data);
->>>>>>> main
 
         for (int j = 0; j < node.children.Count; j++)
         {

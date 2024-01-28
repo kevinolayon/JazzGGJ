@@ -4,15 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreContainer : MonoBehaviour
+public class CurrencyContainer : MonoBehaviour
 {
     public Image coin;
-    public TextMeshProUGUI score;
-    public TextMeshProUGUI scoreSimbol;
+    public TextMeshProUGUI currency;
+    public TextMeshProUGUI currencySimbol;
 
     public float timeBetweenPoints;
   
-    private int _currentScore;
+    private int _currentCurrency;
     private int _newValue;
 
     private bool _isPositiveValue;
@@ -24,21 +24,21 @@ public class ScoreContainer : MonoBehaviour
 
     public void Reset()
     {
-        scoreSimbol.text = "$";
-        score.text = "0";
-        _currentScore = 0;
+        currencySimbol.text = "$";
+        currency.text = "0";
+        _currentCurrency = 0;
     }
 
     private void UpdateScore(int value)
     {
-        score.text = value.ToString();
+        currency.text = value.ToString();
     }
 
     public void StartCoinAnimation(int value)
     {
-        _newValue = _currentScore;
+        _newValue = _currentCurrency;
 
-        if (value < _currentScore)
+        if (value < _currentCurrency)
             _isPositiveValue = false;
 
         else  
@@ -53,7 +53,7 @@ public class ScoreContainer : MonoBehaviour
     {
         if(isPositiveValue)
         {
-            for (int i = _currentScore; i <= newValue; i++)
+            for (int i = _currentCurrency; i <= newValue; i++)
             {
                 UpdateScore(i);
                 yield return new WaitForSeconds(timeBetweenPoints);
@@ -61,13 +61,13 @@ public class ScoreContainer : MonoBehaviour
         }
         else
         {
-            for (int i = (int)_currentScore; i >= _newValue; i--)
+            for (int i = (int)_currentCurrency; i >= _newValue; i--)
             {
                 UpdateScore(i);
                 yield return new WaitForSeconds(timeBetweenPoints);
             }
         }
 
-        _currentScore = newValue;
+        _currentCurrency = newValue;
     }
 }
