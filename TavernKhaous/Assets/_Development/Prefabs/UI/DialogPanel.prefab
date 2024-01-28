@@ -477,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836368454069744493, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnEndDialog
+      value: OnContinueDialog
       objectReference: {fileID: 0}
     - target: {fileID: 1836368454069744493, guid: fcfb1b6f2b63f0540a05cd526169bc7e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

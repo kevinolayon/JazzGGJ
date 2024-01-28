@@ -32,7 +32,7 @@ public class DialogTrigger : MonoBehaviour
                 {
                     Debug.Log("Trigger Player");
                     hasDialogStarted = true;
-                    GameManager.Instance.DialogManager.DialogStart(dialog.root, dialog.name);
+                    GameManager.Instance.DialogManager.DialogStart(dialog.root);
                 }
             }           
         }

@@ -21,13 +21,13 @@ MonoBehaviour:
     children:
     - data: "[Op\xE7\xE3o 1] Como posso chegar \xE0 Cidade dos Magos?"
       nodeId: 0
-      characterPortrait: {fileID: 21300000, guid: 0409e593fbc537e42aa1d1d209c6c99c, type: 3}
+      characterPortrait: {fileID: 0}
       isLastNode: 0
       children:
       - data: "Voc\xEA pode chegar \xE0 Cidade dos Magos atravessando a Floresta
           Encantada"
         nodeId: 0
-        characterPortrait: {fileID: 0}
+        characterPortrait: {fileID: 21300000, guid: 0409e593fbc537e42aa1d1d209c6c99c, type: 3}
         isLastNode: 0
         children:
         - data: ("[Opcao 1.1.1] Pode me dar um mapa?"
@@ -37,7 +37,7 @@ MonoBehaviour:
           children:
           - data: "Claro! Ir\xE1 te custar 1000 Rupes, e ainda est\xE1 com desconto"
             nodeId: 0
-            characterPortrait: {fileID: 0}
+            characterPortrait: {fileID: 21300000, guid: 5999b90e00164ea4ea70fa4d36d51ad8, type: 3}
             isLastNode: 0
             children:
             - data: Nao tenho tanto dinheiro assim, poderia me ajudar sr mago? faz
@@ -48,7 +48,7 @@ MonoBehaviour:
               children:
               - data: Sinto muito, aqui nao fazemos fiado normas da loja
                 nodeId: 0
-                characterPortrait: {fileID: 0}
+                characterPortrait: {fileID: 21300000, guid: 774d299d63e15df47bb59fb23a906a2f, type: 3}
                 isLastNode: 0
                 children: []
             - data: Ah entao vou procurar em outro lugar, passar bem!

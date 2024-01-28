@@ -7,6 +7,5 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Dialogue")]
 public class SODialog : ScriptableObject
 {
-    public string name;
     public TreeNode root;
 }

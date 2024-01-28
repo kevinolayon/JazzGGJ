@@ -8,17 +8,17 @@ using UnityEngine.UI;
 [System.Serializable]
 public class TreeNode
 {
-    public string data;
     public int nodeId;
-    public Sprite characterPortrait;
     public bool isLastNode;
-
+    public List<DialogData> normalDialogs = new List<DialogData>();
+    public DialogData dialogData;
     public List<TreeNode> children = new List<TreeNode>();
 
     public TreeNode AddChild(string value)
     {
         var newChild = new TreeNode();
-        newChild.data = value;
+
+        newChild.dialogData.data = value;
 
         children.Add(newChild);
 
@@ -37,4 +37,12 @@ public class TreeNode
 
         return null;
     }
+}
+
+[System.Serializable]
+public class DialogData
+{
+    public string data;
+    public string name;
+    public Sprite characterPortrait;
 }

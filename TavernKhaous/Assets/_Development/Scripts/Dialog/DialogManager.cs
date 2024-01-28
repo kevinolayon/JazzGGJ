@@ -16,7 +16,7 @@ public class DialogManager : MonoBehaviour
     private TreeNode _currentNodeDialog;
 
     [SerializeField]
-    private SOText dialogText;
+    private SOText _dialogText;
     [SerializeField]
     private SOText _dialogName;
 
@@ -30,6 +30,7 @@ public class DialogManager : MonoBehaviour
 
     private bool _hasAnswered;
     private List<Option> _currentDialogOptions;
+    private int _dialogIndex;
 
     public void Start()
     {
@@ -50,6 +51,9 @@ public class DialogManager : MonoBehaviour
     {
         _isWriting = false;
         _hasAnswered = false;
+        _dialogIndex = 0;
+        _dialogName.value = "";
+        _dialogText.value = "";
 
         _currentNodeDialog = null;
 
@@ -65,13 +69,11 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void DialogStart(TreeNode tree, string characterName)
+    public void DialogStart(TreeNode tree)
     {
         Debug.Log("Dialog Start");
-
         _isWriting = true;
         _currentNodeDialog = tree;
-        _dialogName.value = characterName;
 
         Write();
     }
@@ -79,7 +81,6 @@ public class DialogManager : MonoBehaviour
     private void Write()
     {
         Debug.Log("Write");
-
         if (_currentCoroutine != null)
         {
             Debug.Log("Coroutine != null");
@@ -97,25 +98,47 @@ public class DialogManager : MonoBehaviour
         while(_currentNodeDialog != null)
         {
             Debug.Log("_currentNodeDialog != null");
-
             _hasAnswered = false;
-            _dialogLetters = _currentNodeDialog.data.ToCharArray();
 
-            dialogText.value = "";
+            _dialogName.value = "";
+            _dialogText.value = "";
 
+            if (_currentNodeDialog.normalDialogs.Count > 0 && _dialogIndex < _currentNodeDialog.normalDialogs.Count)
+            {      
+                _dialogLetters = _currentNodeDialog.normalDialogs[_dialogIndex].data.ToCharArray();
+                _dialogName.value = _currentNodeDialog.normalDialogs[_dialogIndex].name;
+
+                if (_currentNodeDialog.normalDialogs[_dialogIndex].characterPortrait != null)
+                    onChangePortrait?.Invoke(_currentNodeDialog.normalDialogs[_dialogIndex].characterPortrait);
+
+                _dialogIndex++;
+
+            }
+            else
+            {
+                _dialogIndex = 0;
+
+                if (_currentNodeDialog.dialogData.characterPortrait != null)
+                    onChangePortrait?.Invoke(_currentNodeDialog.dialogData.characterPortrait);
+
+                else
+                    onChangePortrait?.Invoke(null);
+
+                _dialogLetters = _currentNodeDialog.dialogData.data.ToCharArray();
+                _dialogName.value = _currentNodeDialog.dialogData.name;
+            }
+   
             ResetOptions();
 
-            if (_currentNodeDialog.characterPortrait != null)
-                onChangePortrait?.Invoke(_currentNodeDialog.characterPortrait);
-
-            if (_currentNodeDialog.children.Count > 0)
+            if (_currentNodeDialog.children.Count > 0 && _dialogIndex == 0)
                 OnUpdateOptions(_currentNodeDialog.children);
+
             else
                 onEnableNextButton?.Invoke();
                 
             foreach (char letter in _dialogLetters)
             {
-                dialogText.value = dialogText.value + letter;
+                _dialogText.value = _dialogText.value + letter;
                 yield return new WaitForSeconds(_timeBetweenwords);
             }
    
@@ -132,10 +155,9 @@ public class DialogManager : MonoBehaviour
         for (int i = 0; i < answers.Count; i++)
         {      
             _currentDialogOptions[i].text = "";
-            _currentDialogOptions[i].text = answers[i].data;
+            _currentDialogOptions[i].text = answers[i].dialogData.data;
 
-            _currentDialogOptions[i].index = i;
-            
+            _currentDialogOptions[i].index = i;     
             Debug.Log($"answers: {_currentDialogOptions[i].text}");
         }
 
@@ -144,7 +166,7 @@ public class DialogManager : MonoBehaviour
 
     private void ChangeCurrentNode(int index)
     {
-        if (_currentNodeDialog.children.Count > 0)
+        if (_currentNodeDialog.children.Count > 0 && _currentNodeDialog.normalDialogs.Count != 0)
         {
             var choosedOption = _currentNodeDialog.children[index];
 
@@ -160,7 +182,18 @@ public class DialogManager : MonoBehaviour
                 OnEndDialog();
         }
         else
-            OnEndDialog();             
+        {
+            if (_currentNodeDialog.normalDialogs.Count != 0 && _dialogIndex < _currentNodeDialog.normalDialogs.Count && !_currentNodeDialog.isLastNode)
+                _hasAnswered = true;
+            
+            else
+            {
+                if(_currentNodeDialog.isLastNode)
+                {
+                    OnEndDialog();
+                }
+            }          
+        }                      
     }
 
     public void ChangeToNextDialog(int index)
@@ -168,10 +201,16 @@ public class DialogManager : MonoBehaviour
         ChangeCurrentNode(index);
     }
 
+    public void OnContinueDialog()
+    {
+        _hasAnswered = true;
+    }
+
     public void OnEndDialog()
     {
         _hasAnswered = false;
         _currentNodeDialog = null;
+        _dialogIndex = 0;
 
         StopCoroutine(WriteCoroutine());
 

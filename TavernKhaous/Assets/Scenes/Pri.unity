@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39206f2a29add24d8712cf7d8fad5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 11400000, guid: 4163127efc6959341bf2287cdbf48bb0, type: 2}
+  dialog: {fileID: 11400000, guid: 53f4a07b4ee0a2447a184228a0aff3e3, type: 2}
   client: {fileID: 11400000, guid: fb072b06857055144b19529baf88081e, type: 2}
   _dialogKey: 32
 --- !u!65 &120481986
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsWriting: 0
   _timeBetweenwords: 0.036
-  dialogText: {fileID: 11400000, guid: 717960214de5a0644a20412e443a096d, type: 2}
+  _dialogText: {fileID: 11400000, guid: 717960214de5a0644a20412e443a096d, type: 2}
   _dialogName: {fileID: 11400000, guid: 3fe292d364cd03647a4ad84da86d5237, type: 2}
 --- !u!4 &1760405634
 Transform:
@@ -851,7 +851,7 @@ Transform:
   m_GameObject: {fileID: 1928026544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1567678, y: 3.1, z: 15.6}
+  m_LocalPosition: {x: -3.1567678, y: 3.1, z: 14.9}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
