@@ -8,7 +8,7 @@ public class BalanceBar : MonoBehaviour
     
     public Slider balanceBarFill;
 
-    public void SetInitialMaxBalance (Component sender, object data)
+    public void SetInitialMaxBalance(Component sender, object data)
     {
         if (data is int)
         {
