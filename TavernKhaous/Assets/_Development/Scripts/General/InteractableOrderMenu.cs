@@ -11,13 +11,22 @@ public class InteractableOrderMenu : MonoBehaviour, IInteractable
         canvas = CanvasManager.Instance;
     }
 
+    private void OnEnable()
+    {
+        CanvasManager.canOrder += EnableOrder;
+    }
+
     public void Interact()
     {
         if (!canOrder) return;
 
         canvas.ShowOrderMenu();
-        float value;
-        SoundManager.Instance.audioMixer.GetFloat("volume", out value);
+        SoundManager.Instance.audioMixer.GetFloat("volume", out float value);
         AudioSource.PlayClipAtPoint(SoundManager.Instance.GetSFXByName("cardapio"), Vector3.zero, value);   
+    }
+
+    void EnableOrder(bool value)
+    {
+        canOrder = value;
     }
 }

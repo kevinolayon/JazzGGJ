@@ -20,8 +20,13 @@ public class InteractableDragItem : MonoBehaviour, IInteractable
         CanvasManager.enableDrag += EnableDrag;
     }
 
+    private void OnDisable()
+    {
+        CanvasManager.enableDrag -= EnableDrag;
+    }
+
     void EnableDrag(bool value)
     {
-        canDrag = true;
+        canDrag = value;
     }
 }

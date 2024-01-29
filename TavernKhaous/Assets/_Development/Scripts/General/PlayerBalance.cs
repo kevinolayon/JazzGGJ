@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBalance : MonoBehaviour
 {
     public int initialBalance = 100;
+    PlayerController player;
 
     [Header("Events")]
     public GameEvent onPlayerBalanceChanges;
@@ -33,14 +35,15 @@ public class PlayerBalance : MonoBehaviour
 
     private void Start()
     {
-        onPlayerBalanceInitializes.Raise(this, currentBalance);
+        player = GetComponent<PlayerController>();
+        //onPlayerBalanceInitializes.Raise(this, currentBalance);
     }
 
     private void Update()
     {
         // Just to test if methods are working. Ideally 'DecreaseBalance' and 'ResetBalace' should be called by events
         // through 'HandleDecreaseBalance' and 'ResetBalance'
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             int decreaseAmount = Random.Range(5, 25);
             DecreaseBalance(decreaseAmount);
@@ -49,7 +52,17 @@ public class PlayerBalance : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetBalance();
-        }
+        }*/
+
+        if (currentBalance <= 0)
+            StartCoroutine("ReloadScene");
+    }
+
+    IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene("Game");
     }
 
     public void HandleDecreaseBalance(Component sender, object data)

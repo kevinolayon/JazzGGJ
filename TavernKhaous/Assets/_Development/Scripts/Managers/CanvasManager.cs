@@ -9,8 +9,12 @@ public class CanvasManager : Singleton<CanvasManager>
 
     public static Action<bool> enableWalk;
     public static Action<bool> enableDrag;
+    public static Action<bool> canOrder;
 
     public List<int> idOrderList = new();
+
+    int currentCountOrder;
+    int maxOrder;
 
     private void OnEnable()
     {
@@ -41,12 +45,20 @@ public class CanvasManager : Singleton<CanvasManager>
     public void OrderMenu()
     {
         enableDrag?.Invoke(true);
+        canOrder?.Invoke(false);
         HideOrderMenu();
     }
 
     void AddOrder(int id)
     {
+        currentCountOrder++;
+
         idOrderList.Add(id);
+
+        if (currentCountOrder >= maxOrder)
+        {
+            OrderMenu();
+        }        
     }
 
     public void ClearOrder()

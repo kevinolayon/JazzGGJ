@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
 
     public void ReleaseItem()
     {
-
+        dragging = false;
+        Destroy(bowlSocket.GetChild(0).gameObject);
     }
 }
