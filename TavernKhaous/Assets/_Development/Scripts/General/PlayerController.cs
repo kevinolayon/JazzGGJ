@@ -111,8 +111,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
+            Debug.Log("try");
             if (other.TryGetComponent<IInteractable>(out IInteractable interactable))
             {
+                Debug.Log("got");
                 interactableInterface = interactable;
             }
         }

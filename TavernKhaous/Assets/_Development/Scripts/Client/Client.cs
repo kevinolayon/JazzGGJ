@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Client : InteractableClientOrder
+public class Client : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private SOClient _clientData;
@@ -49,11 +50,11 @@ public class Client : InteractableClientOrder
         _currencyGiven += value;
     }
 
-    public override void Interact()
+    public void Interact()
     {
         // Call dialog
         if(!_hasOrdered)
-        GameManager.Instance.DialogManager.DialogStart(_firstDialog.root);
+            GameManager.Instance.DialogManager.DialogStart(_firstDialog.root);
 
         else
             GameManager.Instance.DialogManager.DialogStart(_lastDialog.root);

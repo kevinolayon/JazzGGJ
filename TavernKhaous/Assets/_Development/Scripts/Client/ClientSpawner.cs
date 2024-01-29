@@ -11,6 +11,11 @@ public class ClientSpawner : MonoBehaviour
 
     private int _index;
 
+    private void Start()
+    {
+        Spawn(0);
+    }
+
     public void Init()
     {
         clients = new Client[clientQtd];
@@ -34,13 +39,5 @@ public class ClientSpawner : MonoBehaviour
         }
 
         _index++;
-    }
-
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            Spawn(0);
-        }    
     }
 }

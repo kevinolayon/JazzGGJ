@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5870271284743723501}
   - component: {fileID: 5263488483553112333}
+  - component: {fileID: 4326867999153332043}
   m_Layer: 0
   m_Name: Cadeira
   m_TagString: Obstacle
@@ -54,6 +55,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6543287, y: 0.7988633, z: 0.65947145}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4326867999153332043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687106337742031205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b70eae025636842baccfcafd7f712c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 15
 --- !u!1 &9192313717915984297
 GameObject:
   m_ObjectHideFlags: 0

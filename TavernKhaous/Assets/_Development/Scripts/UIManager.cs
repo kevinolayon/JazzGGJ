@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     public void Init()
     {
         GameManager.Instance.DialogManager.onStartDialog += OpenDialogBox;
-        GameManager.Instance.DialogManager.onEndDialog += CloseDialogBox;
+        DialogManager.onEndDialog += CloseDialogBox;
         GameManager.Instance.DialogManager.onUpdateOptions += SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton += HideOptions;
         GameManager.Instance.NightCurrencyManager.onUpdateCurrency += UpdatePoints;
@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     private void OnDisable()
     {
         GameManager.Instance.DialogManager.onStartDialog -= OpenDialogBox;
-        GameManager.Instance.DialogManager.onEndDialog -= CloseDialogBox;
+        DialogManager.onEndDialog -= CloseDialogBox;
         GameManager.Instance.DialogManager.onUpdateOptions -= SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton -= HideOptions;
         GameManager.Instance.NightCurrencyManager.onUpdateCurrency -= UpdatePoints;

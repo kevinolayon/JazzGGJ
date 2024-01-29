@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BreakBalance : MonoBehaviour, IBreakBalance
 {
-    [SerializeField] float damage;
+    [SerializeField] int damage;
 
-    public float Damage()
+    public int Damage()
     {
         return damage;
     }

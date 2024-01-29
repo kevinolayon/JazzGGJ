@@ -14,6 +14,13 @@ public class InteractableOrderMenu : MonoBehaviour, IInteractable
     private void OnEnable()
     {
         CanvasManager.canOrder += EnableOrder;
+        DialogManager.onEndDialog += EnableOrder;
+    }
+
+    private void OnDisable()
+    {
+        CanvasManager.canOrder -= EnableOrder;
+        DialogManager.onEndDialog -= EnableOrder;
     }
 
     public void Interact()
@@ -28,5 +35,10 @@ public class InteractableOrderMenu : MonoBehaviour, IInteractable
     void EnableOrder(bool value)
     {
         canOrder = value;
+    }
+
+    void EnableOrder()
+    {
+        canOrder = true;
     }
 }

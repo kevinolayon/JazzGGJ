@@ -39,6 +39,32 @@ public class PlayerBalance : MonoBehaviour
         //onPlayerBalanceInitializes.Raise(this, currentBalance);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            if (other.TryGetComponent<IBreakBalance>(out IBreakBalance obs))
+            {
+                currentBalance -= obs.Damage();
+            }
+        }
+    }
+
+    void StartBalance()
+    {
+        onPlayerBalanceInitializes.Raise(this, currentBalance);
+    }
+
+    private void OnEnable()
+    {
+        DialogManager.onEndDialog += StartBalance;
+    }
+
+    private void OnDisable()
+    {
+        DialogManager.onEndDialog -= StartBalance;
+    }
+
     private void Update()
     {
         // Just to test if methods are working. Ideally 'DecreaseBalance' and 'ResetBalace' should be called by events

@@ -21,7 +21,7 @@ public class DialogManager : MonoBehaviour
     private SOText _dialogName;
 
     public Action onStartDialog;
-    public Action onEndDialog;
+    public static Action onEndDialog;
     public Action<List<Option>> onUpdateOptions;
     public Action onEnableNextButton;
     public Action<Sprite> onChangePortrait;

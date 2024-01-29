@@ -10,6 +10,16 @@ public class ObstaclesManager : MonoBehaviour
 
     List<GameObject> obstaclesList = new();
 
+    private void OnEnable()
+    {
+        DialogManager.onEndDialog += SpawnObstacles;
+    }
+
+    private void OnDisable()
+    {
+        DialogManager.onEndDialog -= SpawnObstacles;
+    }
+
     public void SpawnObstacles()
     {
         int spawnCount = Random.Range(minSpawn, spawns.Length);

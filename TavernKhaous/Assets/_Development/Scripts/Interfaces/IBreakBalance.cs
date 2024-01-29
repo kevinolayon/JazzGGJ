@@ -1,4 +1,4 @@
 public interface IBreakBalance
 {
-    float Damage();
+    int Damage();
 }
