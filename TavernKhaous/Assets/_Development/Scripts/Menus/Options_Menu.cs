@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.Mathematics;
+using System.Drawing;
 public class Options_Menu : MonoBehaviour
 {
     public GameObject Pausemenu;
@@ -14,7 +15,6 @@ public class Options_Menu : MonoBehaviour
 
     public AudioMixer audioMixer;
     public TMPro.TMP_Dropdown resolutionDropdown;
-
     private bool gamestart;
     Resolution[] resolutions;
     void Start()
