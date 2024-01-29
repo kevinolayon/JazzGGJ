@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableClientOrder : MonoBehaviour, IInteractable
 {
-    public void Interact()
+    public virtual void Interact()
     {
         // Call dialog
         Debug.Log("Dialog");

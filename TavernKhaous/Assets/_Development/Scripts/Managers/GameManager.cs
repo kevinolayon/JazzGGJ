@@ -13,8 +13,15 @@ public class GameManager : Singleton<GameManager>
     public UIManager UIController { get { return _uiController; } }
 
     [SerializeField]
-    public NightCurrencyManager _nightCurrentManager;
-    public NightCurrencyManager ScoreManager { get { return _nightCurrentManager; } }
+    private NightCurrencyManager _nightCurrencyManager;
+    public NightCurrencyManager NightCurrencyManager { get { return _nightCurrencyManager; } }
+
+    [SerializeField]
+    private ClientSpawner _clientSpawner;
+    public ClientSpawner ClientSpawner { get { return _clientSpawner; } }
+
+    private ClientManager _clientManager;
+    public ClientManager ClientManager { get { return _clientManager; } }
 
     public void Start()
     {
@@ -24,8 +31,12 @@ public class GameManager : Singleton<GameManager>
     private void Init()
     {
         DialogManager.Init();
-        _nightCurrentManager = new NightCurrencyManager();
-        _nightCurrentManager.Int();
+
+        _nightCurrencyManager = new NightCurrencyManager();
+        _nightCurrencyManager.Int();
+
+        _clientManager = new ClientManager();
+        _clientManager.Init();
     }
 
     public void Update()
@@ -33,12 +44,12 @@ public class GameManager : Singleton<GameManager>
         #region Test PointsType
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _nightCurrentManager.UpdateCurrency(10);
+            _nightCurrencyManager.UpdateCurrency(10);
         }
 
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            _nightCurrentManager.UpdateCurrency(-10);
+            _nightCurrencyManager.UpdateCurrency(-10);
         }
         #endregion
     }
