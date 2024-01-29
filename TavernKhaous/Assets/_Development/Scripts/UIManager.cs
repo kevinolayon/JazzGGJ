@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.DialogManager.onEndDialog += CloseDialogBox;
         GameManager.Instance.DialogManager.onUpdateOptions += SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton += HideOptions;
-        GameManager.Instance.ScoreManager.onUpdateCurrency += UpdatePoints;
+        GameManager.Instance.NightCurrencyManager.onUpdateCurrency += UpdatePoints;
         GameManager.Instance.DialogManager.onChangePortrait += UpdatePortrait;
 
         DialogOption.onChooseOption += SelectOption;
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.DialogManager.onEndDialog -= CloseDialogBox;
         GameManager.Instance.DialogManager.onUpdateOptions -= SetDialogOptions;
         GameManager.Instance.DialogManager.onEnableNextButton -= HideOptions;
-        GameManager.Instance.ScoreManager.onUpdateCurrency -= UpdatePoints;
+        GameManager.Instance.NightCurrencyManager.onUpdateCurrency -= UpdatePoints;
         GameManager.Instance.DialogManager.onChangePortrait -= UpdatePortrait;
 
         DialogOption.onChooseOption -= SelectOption;

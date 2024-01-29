@@ -6,7 +6,9 @@ using UnityEngine;
 public class SOClient : ScriptableObject
 {
     public string clientName;
-    public bool hasClientStartedOrder = false;
-    public string secretOrder;
-    public string normalOrder;
+    public List<int> orders;
+
+    public int Satisfied;
+    public int dissatisfied;
+    public int verySatisfied;
 }

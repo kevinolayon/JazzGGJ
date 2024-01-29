@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class InteractableClientOrder : MonoBehaviour, IInteractable
 {
-    [SerializeField] SODialog dialog;
-    public void Interact()
+    public virtual void Interact()
     {
         // Call dialog
         Debug.Log("Dialog");
-        GameManager.Instance.DialogManager.DialogStart(dialog.root);
     }
 }

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c939bdfb6b4c4f645a1ddc71a18ebc44, type: 3}
   m_Name: SOClienteMage
   m_EditorClassIdentifier: 
-  name: mage
-  hasClientStartedOrder: 0
-  secretOrder: Bacon with eggs
-  normalOrder: magic onions
+  clientName: Ana
+  secretOrder: 0
+  normalOrder: 1
