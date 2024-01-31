@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerBalance : MonoBehaviour
 {
     public int initialBalance = 100;
+    PlayerController player;
 
     [Header("Events")]
     public GameEvent onPlayerBalanceChanges;
@@ -35,14 +35,15 @@ public class PlayerBalance : MonoBehaviour
 
     private void Start()
     {
-        onPlayerBalanceInitializes.Raise(this, currentBalance);
+        player = GetComponent<PlayerController>();
+        //onPlayerBalanceInitializes.Raise(this, currentBalance);
     }
 
     private void Update()
     {
         // Just to test if methods are working. Ideally 'DecreaseBalance' and 'ResetBalace' should be called by events
         // through 'HandleDecreaseBalance' and 'ResetBalance'
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             int decreaseAmount = Random.Range(5, 25);
             DecreaseBalance(decreaseAmount);
@@ -51,7 +52,17 @@ public class PlayerBalance : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetBalance();
-        }
+        }*/
+
+        if (currentBalance <= 0)
+            StartCoroutine("ReloadScene");
+    }
+
+    IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene("Game");
     }
 
     public void HandleDecreaseBalance(Component sender, object data)
@@ -59,13 +70,13 @@ public class PlayerBalance : MonoBehaviour
         // If the event did not have a multiplier
         if (data is int)
         {
-            int amount = (int) data;
+            int amount = (int)data;
             DecreaseBalance(amount);
         }
         // If the event did have a multiplier (in this case it should send the values as a BalaceStruct)
         else if (data is BalanceStruct)
         {
-            BalanceStruct balanceValues = (BalanceStruct) data;
+            BalanceStruct balanceValues = (BalanceStruct)data;
             DecreaseBalance(balanceValues.Amount, balanceValues.Multiplier);
         }
     }
@@ -82,7 +93,7 @@ public class PlayerBalance : MonoBehaviour
         {
             // We could add some validation to see if the multplier value received is reasonable
 
-            int value = (int) data;
+            int value = (int)data;
             SetContinuousBalanceDecreaseMultiplier(value);
         }
     }

@@ -14,10 +14,8 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rb;
     ConfigurableJoint cj;
-    IInteractable interactableInterface;
 
-    float stability;
-    float initialStability;
+    IInteractable interactableInterface;
 
     bool dragging;
     bool isMoving;
@@ -25,13 +23,11 @@ public class PlayerController : MonoBehaviour
     bool canInteract = true;
 
     Coroutine legRoutine;
-    Coroutine loseStability;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         cj = GetComponent<ConfigurableJoint>();
-        initialStability = stability;
     }
 
     private void OnEnable()
@@ -120,18 +116,6 @@ public class PlayerController : MonoBehaviour
                 interactableInterface = interactable;
             }
         }
-
-        if (other.CompareTag("Obstacle"))
-        {
-            if (loseStability == null)
-                loseStability = StartCoroutine("LoseStability");
-            else
-            {
-                StopCoroutine(loseStability);
-                loseStability = null;
-                loseStability = StartCoroutine("LoseStability");
-            }
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -160,20 +144,7 @@ public class PlayerController : MonoBehaviour
 
     public void ReleaseItem()
     {
-
-    }
-
-    IEnumerator LoseStability()
-    {
-        yield return new WaitForSeconds(timeToStable);
-
-        Explode();
-    }
-
-    void Explode()
-    {
-        Debug.Log("exp");
-        Vector3 dir = Vector3.forward + Vector3.up;
-        rb.AddForce(dir * 10, ForceMode.Impulse);
+        dragging = false;
+        Destroy(bowlSocket.GetChild(0).gameObject);
     }
 }

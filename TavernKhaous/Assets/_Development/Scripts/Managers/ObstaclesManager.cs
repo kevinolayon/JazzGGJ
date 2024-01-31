@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,18 +10,6 @@ public class ObstaclesManager : MonoBehaviour
 
     List<GameObject> obstaclesList = new();
 
-    private void Start()
-    {
-        SpawnObstacles();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            RemoveObstacles();
-        }
-    }
     public void SpawnObstacles()
     {
         int spawnCount = Random.Range(minSpawn, spawns.Length);
