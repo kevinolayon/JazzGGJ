@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315d0843cdca6e349b641bbca2224739, type: 3}
+  m_Name: SOTutorialDialog
+  m_EditorClassIdentifier: 
+  root:
+    nodeId: 0
+    isLastNode: 1
+    normalDialogs:
+    - data: HEY ROOKIE!
+      name: ZECA
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    - data: Yes, Boss.
+      name: MR. WAITER
+      characterPortrait: {fileID: 21300000, guid: 5999b90e00164ea4ea70fa4d36d51ad8, type: 3}
+    - data: ZECA
+      name: We're opening soon, you were terrible in the test, but it's all we have
+        for today.
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    - data: ZECA
+      name: You'll take the last table, remember that.
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    - data: ZECA
+      name: The job is simple; you go there, attend to the customers politely, and
+        take orders from the menu.
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    - data: ZECA
+      name: Once you place the order, we'll start preparing the dishes. Take the
+        opportunity to serve drinks in the meantime
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    - data: ZECA
+      name: Everything you order is prepared on the spot, and you can pick it up
+        on the tray to the right of the counter.
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    - data: MR. WAITER
+      name: Leave it to me, Boss.
+      characterPortrait: {fileID: 21300000, guid: 5999b90e00164ea4ea70fa4d36d51ad8, type: 3}
+    - data: ZECA
+      name: Hmm, make sure you don't mess everything up, and if you cause us a loss,
+        you pay... GOT IT?
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    - data: MR. WAITER
+      name: YES, BOSS!
+      characterPortrait: {fileID: 21300000, guid: 5999b90e00164ea4ea70fa4d36d51ad8, type: 3}
+    - data: ZECA
+      name: Now, get to work; I didn't hire you to keep repeating "Yes, boss," "Yes,
+        boss."
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    dialogData:
+      data: You're a dog, not a parrot.
+      name: ZECA
+      characterPortrait: {fileID: 21300000, guid: f58e13e5faa5fb2478272c1861b2c133, type: 3}
+    _dialogPoint: 0
+    children: []

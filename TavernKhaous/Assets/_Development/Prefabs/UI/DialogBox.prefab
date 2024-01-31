@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -70, y: 72}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -97, y: 95}
+  m_SizeDelta: {x: 71.9513, y: 71.9513}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7235088119531298843
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b0394665e16ef504bb922274dd606020, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 768bd273015d46e42a4da41385a99029, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -75.01398, y: -30}
-  m_SizeDelta: {x: -149.97205, y: -80}
+  m_AnchoredPosition: {x: -23.456482, y: -30}
+  m_SizeDelta: {x: -208.2031, y: -80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5117689018294357818
 CanvasRenderer:
@@ -188,15 +188,15 @@ MonoBehaviour:
   m_text: "Ol\xE1 meu nome \xE9 henry e sou um cavaleiro de uma terra distante em
     busca de aventuras"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1fb51471cdf057409a7af8d5bcfadb7, type: 2}
+  m_sharedMaterial: {fileID: -7656882855534884300, guid: b1fb51471cdf057409a7af8d5bcfadb7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -313,14 +313,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.022249905, g: 0.048189964, b: 0.18867922, a: 0.31764707}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ac8c1944f3d50394da6402521e41e64b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -401,8 +401,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 281.4173, y: -35.5}
-  m_SizeDelta: {x: 560.8346, y: 69}
+  m_AnchoredPosition: {x: 321.23975, y: -35.5}
+  m_SizeDelta: {x: 481.19, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7437993575366091390
 CanvasRenderer:
@@ -434,15 +434,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Henry
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1fb51471cdf057409a7af8d5bcfadb7, type: 2}
+  m_sharedMaterial: {fileID: -7656882855534884300, guid: b1fb51471cdf057409a7af8d5bcfadb7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -3.7004547, w: -0.29106143}
+  m_margin: {x: -1.9196472, y: 0, z: -3.7004547, w: -0.29106143}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -556,7 +556,6 @@ MonoBehaviour:
   dialog: {fileID: 670741416863958221}
   nextButton: {fileID: 1836368454069744493}
   dialogBackground: {fileID: 2170208632080514847}
-  optionsBackground: {fileID: 0}
   portrait: {fileID: 0}
   dialogText: {fileID: 11400000, guid: 717960214de5a0644a20412e443a096d, type: 2}
   dialogName: {fileID: 11400000, guid: 3fe292d364cd03647a4ad84da86d5237, type: 2}
