@@ -245,7 +245,7 @@ public class DialogManager : MonoBehaviour
                         _hasAnswered = true;
                 }
                 else
-                                _hasAnswered = true;
+                    _hasAnswered = true;
             }           
             else if(_hasReadBrachDialogData)
             {
