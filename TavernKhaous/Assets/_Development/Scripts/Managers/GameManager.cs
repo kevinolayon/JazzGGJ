@@ -22,6 +22,8 @@ public class GameManager : Singleton<GameManager>
     private InitializeDialogs _initializeDialogs;
     public InitializeDialogs InitializeDialogs { get { return _initializeDialogs; } }
 
+    public TextAsset dialogFile;
+
     public void Start()
     {
         Init();
@@ -29,13 +31,13 @@ public class GameManager : Singleton<GameManager>
 
     private void Init()
     {
-        DialogManager.Init();
-
         _nightCurrencyManager = new NightCurrencyManager();
         _nightCurrencyManager.Int();
 
         _initializeDialogs = new InitializeDialogs();
-        _initializeDialogs.Load();
+        _initializeDialogs.Load(dialogFile);
+
+        DialogManager.Init();
     }
 
     public void Update()

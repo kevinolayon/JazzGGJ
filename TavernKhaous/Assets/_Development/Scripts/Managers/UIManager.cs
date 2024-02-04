@@ -13,14 +13,6 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance.DialogManager.onStartDialog += OpenDialogBox;
-        GameManager.Instance.DialogManager.onEndDialog += CloseDialogBox;
-        GameManager.Instance.DialogManager.onUpdateOptions += SetDialogOptions;
-        GameManager.Instance.DialogManager.onEnableNextButton += HideOptions;
-        GameManager.Instance.NightCurrencyManager.onUpdateCurrency += UpdatePoints;
-        GameManager.Instance.DialogManager.onChangePortrait += UpdatePortrait;
-
-        DialogOption.onChooseOption += SelectOption;
     }
 
     public void Start()
@@ -29,7 +21,16 @@ public class UIManager : MonoBehaviour
     }
 
     public void Init()
-    {     
+    {
+        GameManager.Instance.DialogManager.onStartDialog += OpenDialogBox;
+        GameManager.Instance.DialogManager.onEndDialog += CloseDialogBox;
+        GameManager.Instance.DialogManager.onUpdateOptions += SetDialogOptions;
+        GameManager.Instance.DialogManager.onEnableNextButton += HideOptions;
+        GameManager.Instance.NightCurrencyManager.onUpdateCurrency += UpdatePoints;
+        GameManager.Instance.DialogManager.onChangePortrait += UpdatePortrait;
+
+        DialogOption.onChooseOption += SelectOption;
+
         _dialogBox.Init();
         _currencyContainer.Init();
     }

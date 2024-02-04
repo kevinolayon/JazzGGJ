@@ -33,13 +33,11 @@ public class DialogManager : MonoBehaviour
     private Coroutine _currentCoroutine;
 
     private int _nextNode;
-    private int _currentAnswer;
 
     private bool _hasAnswered;
     private List<Option> _currentDialogOptions;
     private int _dialogIndex;
     private int _dialogPoints;
-    private bool _hasReadBrachDialogData;
 
     private InitializeDialogs _dialogReference;
 
@@ -64,7 +62,6 @@ public class DialogManager : MonoBehaviour
     {
         _isWriting = false;
         _hasAnswered = false;
-        _hasReadBrachDialogData = false;
         _dialogPoints = 0;
         _dialogIndex = 0;
         _dialogName.value = "";
@@ -115,13 +112,12 @@ public class DialogManager : MonoBehaviour
                 _dialogIndex++;
 
                 onEnableNextButton?.Invoke();
-                _hasReadBrachDialogData = false;
             }
             else
             {
                 _dialogIndex = 0;
 
-                if (_currentNodeDialog.nextNode == -1 && _currentNodeDialog.answers.Length == 0)
+                if (_currentNodeDialog.nextNode == 0 && _currentNodeDialog.answers.Length == 0)
                     OnEndDialog();
 
                 else
@@ -129,27 +125,22 @@ public class DialogManager : MonoBehaviour
                     UpdateDialog(_currentNodeDialog.normalDialogs[_dialogIndex].dialog.ToCharArray(), _currentNodeDialog.normalDialogs[_dialogIndex].nodePortrait);
                     ResetOptions();
                     OnUpdateOptions(_currentNodeDialog.answers);
-
-                    //_nextNode = _currentNodeDialog.answers[_currentAnswer].nodeLinkID;
-                    //_dialogPoints += _currentNodeDialog.answers[_currentAnswer].point;
-
-                    _hasReadBrachDialogData = true;
-
-                    _isWriting = true;
-
-                    foreach (char letter in _dialogLetters)
-                    {
-                        _dialogText.value = _dialogText.value + letter;
-                        yield return new WaitForSeconds(_timeBetweenwords);
-                    }
-
-                    _isWriting = false;
-
-                    Debug.Log("waiting for answer...");
-                    yield return new WaitUntil(() => _hasAnswered || _currentNodeDialog == null);
-                    Debug.Log("answered");
                 }
             }
+
+            _isWriting = true;
+
+            foreach (char letter in _dialogLetters)
+            {
+                _dialogText.value = _dialogText.value + letter;
+                yield return new WaitForSeconds(_timeBetweenwords);
+            }
+
+            _isWriting = false;
+
+            Debug.Log("waiting for answer...");
+            yield return new WaitUntil(() => _hasAnswered || _currentNodeDialog == null);
+            Debug.Log("answered");
         }     
     }
 
@@ -166,86 +157,59 @@ public class DialogManager : MonoBehaviour
         onUpdateOptions?.Invoke(_currentDialogOptions);
     }
 
-    //private void ChangeCurrentNode(int index)
-    //{
-    //    if (_currentNodeDialog.children.Count > 0)
-    //    {
-    //        var choosedOption = _currentNodeDialog.children[index];
+    private void ChangeCurrentNode(int selectedAnswer)
+    {
+        if (_currentNodeDialog.answers.Length > 0)
+        {
+            _nextNode = _currentNodeDialog.answers[selectedAnswer].nodeLinkID;
+            _dialogPoints += _currentNodeDialog.answers[selectedAnswer].point;
 
-    //        if (choosedOption.children.Count > 0)
-    //        {
-    //            if (choosedOption.normalDialogs.Count != 0)
-    //            {
-    //                _currentNodeDialog = choosedOption;
-    //            }
-    //            else
-    //            {
-    //                _currentNodeDialog = choosedOption.children[0];
-    //                Debug.Log(_currentNodeDialog);
-    //            }
+            if (_nextNode != -1)
+            {
+                _currentNodeDialog = _dialogReference.dialogNodes.nodes[_nextNode];
+                _hasAnswered = true;
+            }
+            else
+                OnEndDialog();
+        }
+    }
 
-    //            _hasAnswered = true;
-    //            Debug.Log("change node");
-    //        }
-    //        else
-    //            OnEndDialog();
-    //    }
-    //    else
-    //    {
-    //        if(_currentNodeDialog.normalDialogs.Count != 0)
-    //        {
-    //            if (_dialogIndex < _currentNodeDialog.normalDialogs.Count && !_currentNodeDialog.isLastNode)
-    //                _hasAnswered = true;
+    //Used when selecting answer
+    public void ChangeToNextDialog(int index)
+    {
+        ChangeCurrentNode(index);
+    }
 
-    //            else
-    //                OnEndDialog();
-    //        }       
-    //        else
-    //        {
-    //            if(_currentNodeDialog.isLastNode)
-    //            {
-    //                OnEndDialog();
-    //            }
-    //        }          
-    //    }                      
-    //}
+    //Used for normal dialog
+    public void OnContinueDialog()
+    {
+        if (!_isWriting)
+        {
+            if (_currentNodeDialog.normalDialogs.Length > 0)
+            {
+                if (_dialogIndex <= _currentNodeDialog.normalDialogs.Length)
+                    _hasAnswered = true;
+    
+                else
+                {
+                    if (_currentNodeDialog.answers.Length > 0)
+                        _hasAnswered = true;
 
-    //public void ChangeToNextDialog(int index)
-    //{
-    //    ChangeCurrentNode(index);
-    //}
+                    else if (_currentNodeDialog.nextNode == 0)
+                        OnEndDialog();
 
-    ////Used for normal dialog
-    //public void OnContinueDialog()
-    //{
-    //    if(!_isWriting)
-    //    {
-    //        if (_currentNodeDialog.normalDialogs.Count > 0)
-    //        {
-    //            if(_dialogIndex >= _currentNodeDialog.normalDialogs.Count)
-    //            {
-    //                if (_hasReadBrachDialogData)
-    //                    OnEndDialog();
-
-    //                else
-    //                    _hasAnswered = true;
-    //            }
-    //            else
-    //                _hasAnswered = true;
-    //        }           
-    //        else if(_hasReadBrachDialogData)
-    //        {
-    //            OnEndDialog();
-    //        }
-    //    } 
-    //}
+                    else
+                        _hasAnswered = true;
+                }                
+            }
+        }
+    }
 
     public void OnEndDialog()
     {
         _hasAnswered = false;
         _currentNodeDialog = null;
         _dialogIndex = 0;
-        _hasReadBrachDialogData = false;
 
         StopCoroutine(WriteCoroutine());
 
@@ -256,7 +220,7 @@ public class DialogManager : MonoBehaviour
 
     private void ChangePortrait()
     {
-        _nodePortrait = _dialogReference.GetPortrait(_dialogName.ToString());
+        _nodePortrait = _dialogReference.GetPortrait(_dialogName.value.ToString());
 
         if (_nodePortrait != null)
             onChangePortrait?.Invoke(_nodePortrait);

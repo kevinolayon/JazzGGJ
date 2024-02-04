@@ -2,32 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InitializeDialogs : MonoBehaviour
+public class InitializeDialogs
 {
-    public TextAsset dialogFile;
-
-    [SerializeField]
+    [HideInInspector]
     public DialogNodes dialogNodes;
     [SerializeField]
     public Sprite [] dialogPortraits;
 
-    public void Update()
+    public void Load(TextAsset dialogFile)
     {
-        if(Input.GetKeyDown(KeyCode.Numlock))
-        {
-            Read();
-        }
-    }
-
-    public void Load()
-    {
-        Read();
+        Read(dialogFile.text);
         LoadPortraits();
     }
 
-    private void Read()
+    private void Read(string dialogText)
     {
-        dialogNodes = JsonUtility.FromJson<DialogNodes>(dialogFile.text);
+        dialogNodes = JsonUtility.FromJson<DialogNodes>(dialogText);
     }
 
     private void LoadPortraits()
