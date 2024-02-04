@@ -239,17 +239,17 @@
             ],
             "answers":[
                 {
-                    "answer": "",
+                    "answer": "Grrr. Your orders, sir.",
                     "point": 5,
                     "nodeLinkID": 0
                 },   
                 {
-                    "answer": "I'd go for the mead if I were you.",
+                    "answer": "I should make you go get it yourself... but I need the money.",
                     "point": 0,
                     "nodeLinkID": 0
                 },
                 {
-                    "answer": "No alcohol for you; you talk too much when you're sober.",
+                    "answer": "I'll bring what you want, but try to keep quiet until then.",
                     "point": -5,
                     "nodeLinkID": 0
                 }         

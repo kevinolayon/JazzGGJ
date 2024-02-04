@@ -5,20 +5,21 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    private bool _isWriting;
-    public bool IsWriting;
+    [SerializeField]
+    private SOText _dialogText;
+
+    [SerializeField]
+    private SOText _dialogName;
 
     [SerializeField]
     private float _timeBetweenwords = 0.03f;
 
     private char[] _dialogLetters;
 
-    private TreeNode _currentNodeDialog;
-
-    [SerializeField]
-    private SOText _dialogText;
-    [SerializeField]
-    private SOText _dialogName;
+    private Node _currentNodeDialog;
+  
+    private bool _isWriting;
+    public bool IsWriting { get { return _isWriting; } }
 
     public Action onStartDialog;
     public Action onEndDialog;
@@ -35,6 +36,8 @@ public class DialogManager : MonoBehaviour
     private int _dialogPoints;
     private bool _hasReadBrachDialogData;
 
+    private InitializeDialogs _dialogReference;
+
     public void Start()
     {
        
@@ -42,6 +45,8 @@ public class DialogManager : MonoBehaviour
 
     public void Init()
     {
+        _dialogReference = GameManager.Instance.InitializeDialogs;
+
         _currentDialogOptions = new List<Option>();
         _currentDialogOptions.Add(new Option());
         _currentDialogOptions.Add(new Option());
@@ -74,11 +79,11 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void DialogStart(TreeNode tree)
+    public void DialogStart(int startNode)
     {
         Debug.Log("Dialog Start");
         _isWriting = true;
-        _currentNodeDialog = tree;
+        _currentNodeDialog = _dialogReference.dialogNodes.nodes[startNode];
         _dialogPoints = 0;
 
         Write();

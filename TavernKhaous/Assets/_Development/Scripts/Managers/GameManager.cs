@@ -13,15 +13,14 @@ public class GameManager : Singleton<GameManager>
     public UIManager UIController { get { return _uiController; } }
 
     [SerializeField]
-    private NightCurrencyManager _nightCurrencyManager;
-    public NightCurrencyManager NightCurrencyManager { get { return _nightCurrencyManager; } }
-
-    [SerializeField]
     private ClientSpawner _clientSpawner;
     public ClientSpawner ClientSpawner { get { return _clientSpawner; } }
 
-    private ClientManager _clientManager;
-    public ClientManager ClientManager { get { return _clientManager; } }
+    private NightCurrencyManager _nightCurrencyManager;
+    public NightCurrencyManager NightCurrencyManager { get { return _nightCurrencyManager; } }
+
+    private InitializeDialogs _initializeDialogs;
+    public InitializeDialogs InitializeDialogs { get { return _initializeDialogs; } }
 
     public void Start()
     {
@@ -35,8 +34,8 @@ public class GameManager : Singleton<GameManager>
         _nightCurrencyManager = new NightCurrencyManager();
         _nightCurrencyManager.Int();
 
-        _clientManager = new ClientManager();
-        _clientManager.Init();
+        _initializeDialogs = new InitializeDialogs();
+        _initializeDialogs.Load();
     }
 
     public void Update()
