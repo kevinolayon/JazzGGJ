@@ -11,12 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private CurrencyContainer _currencyContainer;
 
-    public void Start()
-    {
-        Init();
-    }
-
-    public void Init()
+    private void OnEnable()
     {
         GameManager.Instance.DialogManager.onStartDialog += OpenDialogBox;
         GameManager.Instance.DialogManager.onEndDialog += CloseDialogBox;
@@ -26,7 +21,15 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.DialogManager.onChangePortrait += UpdatePortrait;
 
         DialogOption.onChooseOption += SelectOption;
+    }
 
+    public void Start()
+    {
+        Init();
+    }
+
+    public void Init()
+    {     
         _dialogBox.Init();
         _currencyContainer.Init();
     }
@@ -75,13 +78,15 @@ public class UIManager : MonoBehaviour
         _dialogBox.ChangePortrait(newPortrait);
     }
 
-    #endregion
-
     public void SelectOption(int option)
     {
         Debug.Log($"next dialog index: {option}");
-        GameManager.Instance.DialogManager.ChangeToNextDialog(option);
+        //GameManager.Instance.DialogManager.ChangeToNextDialog(option);
     }
+
+
+    #endregion
+
 
     #region Score
     public void UpdatePoints(int value)

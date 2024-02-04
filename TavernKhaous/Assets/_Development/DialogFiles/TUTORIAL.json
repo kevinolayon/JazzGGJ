@@ -2,7 +2,7 @@
     "nodes":[
         {
             "nodeId" : 0,
-            "nextNode": 0,
+            "nextNode": -1,
             "normalDialogs": [
                 {
                     "dialog":"HEY ROOKIE!",

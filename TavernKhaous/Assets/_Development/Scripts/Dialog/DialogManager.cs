@@ -17,6 +17,8 @@ public class DialogManager : MonoBehaviour
     private char[] _dialogLetters;
 
     private Node _currentNodeDialog;
+
+    private Sprite _nodePortrait;
   
     private bool _isWriting;
     public bool IsWriting { get { return _isWriting; } }
@@ -29,6 +31,9 @@ public class DialogManager : MonoBehaviour
     public Action<int> onSendDialogPoints;
 
     private Coroutine _currentCoroutine;
+
+    private int _nextNode;
+    private int _currentAnswer;
 
     private bool _hasAnswered;
     private List<Option> _currentDialogOptions;
@@ -79,185 +84,161 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void DialogStart(int startNode)
+    public void StartDialog(int startNode)
     {
-        Debug.Log("Dialog Start");
         _isWriting = true;
         _currentNodeDialog = _dialogReference.dialogNodes.nodes[startNode];
         _dialogPoints = 0;
 
-        Write();
-    }
-
-    private void Write()
-    {
-        Debug.Log("Write");
         if (_currentCoroutine != null)
-        {
-            Debug.Log("Coroutine != null");
             StopCoroutine(_currentCoroutine);
-        }
 
         _currentCoroutine = StartCoroutine(WriteCoroutine());
-    }
+    }   
 
     private  IEnumerator WriteCoroutine()
     {
-        Debug.Log("Write Coroutine");
         onStartDialog.Invoke();
 
         while(_currentNodeDialog != null)
         {
-            Debug.Log("_currentNodeDialog != null");
             _hasAnswered = false;
 
             _dialogName.value = "";
             _dialogText.value = "";
 
-            if (_currentNodeDialog.normalDialogs.Count > 0 && _dialogIndex < _currentNodeDialog.normalDialogs.Count)
-            {      
-                _dialogLetters = _currentNodeDialog.normalDialogs[_dialogIndex].data.ToCharArray();
-                _dialogName.value = _currentNodeDialog.normalDialogs[_dialogIndex].name;
-
-                if (_currentNodeDialog.normalDialogs[_dialogIndex].characterPortrait != null)
-                    onChangePortrait?.Invoke(_currentNodeDialog.normalDialogs[_dialogIndex].characterPortrait);
+            if (_currentNodeDialog.normalDialogs.Length > 0 && _dialogIndex < _currentNodeDialog.normalDialogs.Length)
+            {
+                UpdateDialog(_currentNodeDialog.normalDialogs[_dialogIndex].dialog.ToCharArray(), _currentNodeDialog.normalDialogs[_dialogIndex].nodePortrait);
+                ChangePortrait();
 
                 _dialogIndex++;
 
                 onEnableNextButton?.Invoke();
-
                 _hasReadBrachDialogData = false;
             }
             else
             {
-                if (!_currentNodeDialog.isLastNode)
-                    _dialogIndex = 0;
+                _dialogIndex = 0;
 
-                if (_currentNodeDialog.dialogData.characterPortrait != null)
-                    onChangePortrait?.Invoke(_currentNodeDialog.dialogData.characterPortrait);
+                if (_currentNodeDialog.nextNode == -1 && _currentNodeDialog.answers.Length == 0)
+                    OnEndDialog();
 
                 else
-                    onChangePortrait?.Invoke(null);
+                {
+                    UpdateDialog(_currentNodeDialog.normalDialogs[_dialogIndex].dialog.ToCharArray(), _currentNodeDialog.normalDialogs[_dialogIndex].nodePortrait);
+                    ResetOptions();
+                    OnUpdateOptions(_currentNodeDialog.answers);
 
-                _dialogLetters = _currentNodeDialog.dialogData.data.ToCharArray();
-                _dialogName.value = _currentNodeDialog.dialogData.name;
+                    //_nextNode = _currentNodeDialog.answers[_currentAnswer].nodeLinkID;
+                    //_dialogPoints += _currentNodeDialog.answers[_currentAnswer].point;
 
-                _hasReadBrachDialogData = true;
+                    _hasReadBrachDialogData = true;
 
-                ResetOptions();
+                    _isWriting = true;
 
-                if (_currentNodeDialog.children.Count > 0)
-                    OnUpdateOptions(_currentNodeDialog.children);
+                    foreach (char letter in _dialogLetters)
+                    {
+                        _dialogText.value = _dialogText.value + letter;
+                        yield return new WaitForSeconds(_timeBetweenwords);
+                    }
 
-                if (_currentNodeDialog._dialogPoint != 0)
-                    _dialogPoints += _currentNodeDialog._dialogPoint;
-            }          
+                    _isWriting = false;
 
-            _isWriting = true;
-
-            foreach (char letter in _dialogLetters)
-            {
-                _dialogText.value = _dialogText.value + letter;
-                yield return new WaitForSeconds(_timeBetweenwords);
+                    Debug.Log("waiting for answer...");
+                    yield return new WaitUntil(() => _hasAnswered || _currentNodeDialog == null);
+                    Debug.Log("answered");
+                }
             }
-
-            _isWriting = false;
-   
-            Debug.Log("waiting for answer...");
-            yield return new WaitUntil(() => _hasAnswered || _currentNodeDialog == null);
-            Debug.Log("answered");
         }     
     }
 
-    private void OnUpdateOptions(List<TreeNode> answers)
+    private void OnUpdateOptions(Answer[] answers)
     {
-        Debug.Log("Set Node Answers");
-
-        for (int i = 0; i < answers.Count; i++)
+        for (int i = 0; i < answers.Length; i++)
         {      
             _currentDialogOptions[i].text = "";
-            _currentDialogOptions[i].text = answers[i].dialogData.data;
+            _currentDialogOptions[i].text = answers[i].answer;
 
             _currentDialogOptions[i].index = i;     
-            Debug.Log($"answers: {_currentDialogOptions[i].text}");
         }
 
         onUpdateOptions?.Invoke(_currentDialogOptions);
     }
 
-    private void ChangeCurrentNode(int index)
-    {
-        if (_currentNodeDialog.children.Count > 0)
-        {
-            var choosedOption = _currentNodeDialog.children[index];
+    //private void ChangeCurrentNode(int index)
+    //{
+    //    if (_currentNodeDialog.children.Count > 0)
+    //    {
+    //        var choosedOption = _currentNodeDialog.children[index];
 
-            if (choosedOption.children.Count > 0)
-            {
-                if (choosedOption.normalDialogs.Count != 0)
-                {
-                    _currentNodeDialog = choosedOption;
-                }
-                else
-                {
-                    _currentNodeDialog = choosedOption.children[0];
-                    Debug.Log(_currentNodeDialog);
-                }
+    //        if (choosedOption.children.Count > 0)
+    //        {
+    //            if (choosedOption.normalDialogs.Count != 0)
+    //            {
+    //                _currentNodeDialog = choosedOption;
+    //            }
+    //            else
+    //            {
+    //                _currentNodeDialog = choosedOption.children[0];
+    //                Debug.Log(_currentNodeDialog);
+    //            }
 
-                _hasAnswered = true;
-                Debug.Log("change node");
-            }
-            else
-                OnEndDialog();
-        }
-        else
-        {
-            if(_currentNodeDialog.normalDialogs.Count != 0)
-            {
-                if (_dialogIndex < _currentNodeDialog.normalDialogs.Count && !_currentNodeDialog.isLastNode)
-                    _hasAnswered = true;
+    //            _hasAnswered = true;
+    //            Debug.Log("change node");
+    //        }
+    //        else
+    //            OnEndDialog();
+    //    }
+    //    else
+    //    {
+    //        if(_currentNodeDialog.normalDialogs.Count != 0)
+    //        {
+    //            if (_dialogIndex < _currentNodeDialog.normalDialogs.Count && !_currentNodeDialog.isLastNode)
+    //                _hasAnswered = true;
 
-                else
-                    OnEndDialog();
-            }       
-            else
-            {
-                if(_currentNodeDialog.isLastNode)
-                {
-                    OnEndDialog();
-                }
-            }          
-        }                      
-    }
+    //            else
+    //                OnEndDialog();
+    //        }       
+    //        else
+    //        {
+    //            if(_currentNodeDialog.isLastNode)
+    //            {
+    //                OnEndDialog();
+    //            }
+    //        }          
+    //    }                      
+    //}
 
-    public void ChangeToNextDialog(int index)
-    {
-        ChangeCurrentNode(index);
-    }
+    //public void ChangeToNextDialog(int index)
+    //{
+    //    ChangeCurrentNode(index);
+    //}
 
-    //Used for normal dialog
-    public void OnContinueDialog()
-    {
-        if(!_isWriting)
-        {
-            if (_currentNodeDialog.normalDialogs.Count > 0)
-            {
-                if(_dialogIndex >= _currentNodeDialog.normalDialogs.Count)
-                {
-                    if (_hasReadBrachDialogData)
-                        OnEndDialog();
+    ////Used for normal dialog
+    //public void OnContinueDialog()
+    //{
+    //    if(!_isWriting)
+    //    {
+    //        if (_currentNodeDialog.normalDialogs.Count > 0)
+    //        {
+    //            if(_dialogIndex >= _currentNodeDialog.normalDialogs.Count)
+    //            {
+    //                if (_hasReadBrachDialogData)
+    //                    OnEndDialog();
 
-                    else
-                        _hasAnswered = true;
-                }
-                else
-                    _hasAnswered = true;
-            }           
-            else if(_hasReadBrachDialogData)
-            {
-                OnEndDialog();
-            }
-        } 
-    }
+    //                else
+    //                    _hasAnswered = true;
+    //            }
+    //            else
+    //                _hasAnswered = true;
+    //        }           
+    //        else if(_hasReadBrachDialogData)
+    //        {
+    //            OnEndDialog();
+    //        }
+    //    } 
+    //}
 
     public void OnEndDialog()
     {
@@ -268,11 +249,23 @@ public class DialogManager : MonoBehaviour
 
         StopCoroutine(WriteCoroutine());
 
-        if (_dialogPoints != 0)
-            onSendDialogPoints?.Invoke(_dialogPoints);
-
+        onSendDialogPoints?.Invoke(_dialogPoints);
         onEndDialog.Invoke();     
         _isWriting = false;
+    }
+
+    private void ChangePortrait()
+    {
+        _nodePortrait = _dialogReference.GetPortrait(_dialogName.ToString());
+
+        if (_nodePortrait != null)
+            onChangePortrait?.Invoke(_nodePortrait);
+    }
+
+    private void UpdateDialog(char[] dialog, string portraitName)
+    {
+        _dialogLetters = dialog;
+        _dialogName.value = portraitName;
     }
 }
 

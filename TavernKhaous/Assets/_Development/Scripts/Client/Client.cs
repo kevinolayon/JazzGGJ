@@ -31,9 +31,9 @@ public class Client : InteractableClientOrder
         _clientStatus = ClientStatus.None;
 
         lastDialog = new Dictionary<ClientStatus, int>();
-        lastDialog.Add(ClientStatus.Satisfied, 1);
-        lastDialog.Add(ClientStatus.Dissatisfied, 2);
-        lastDialog.Add(ClientStatus.verySatisfied, 3);
+        lastDialog.Add(ClientStatus.Satisfied, 0);
+        lastDialog.Add(ClientStatus.Dissatisfied, 1);
+        lastDialog.Add(ClientStatus.verySatisfied, 2);
     }
 
     public void Reset()
@@ -55,14 +55,13 @@ public class Client : InteractableClientOrder
 
     public override void Interact()
     {
-        // Call dialog
         if(!_hasOrdered)
-        GameManager.Instance.DialogManager.DialogStart(_clientData.firstDialog);
+        GameManager.Instance.DialogManager.StartDialog(_clientData.firstDialog);
 
         else
         {
             int lastDialogNode = lastDialog[_clientStatus];
-            GameManager.Instance.DialogManager.DialogStart(lastDialogNode);
+            GameManager.Instance.DialogManager.StartDialog(lastDialogNode);
         }
     }
 }
