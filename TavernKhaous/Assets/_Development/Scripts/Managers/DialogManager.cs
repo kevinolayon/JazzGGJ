@@ -111,7 +111,13 @@ public class DialogManager : MonoBehaviour
 
                 _dialogIndex++;
 
-                onEnableNextButton?.Invoke();
+                if(_dialogIndex >= _currentNodeDialog.normalDialogs.Length)
+                {
+                    ResetOptions();
+                    OnUpdateOptions(_currentNodeDialog.answers);
+                }
+                else
+                    onEnableNextButton?.Invoke();      
             }
             else
             {
@@ -159,14 +165,26 @@ public class DialogManager : MonoBehaviour
 
     private void ChangeCurrentNode(int selectedAnswer)
     {
+        _dialogIndex = 0;
+
         if (_currentNodeDialog.answers.Length > 0)
         {
             _nextNode = _currentNodeDialog.answers[selectedAnswer].nodeLinkID;
             _dialogPoints += _currentNodeDialog.answers[selectedAnswer].point;
 
-            if (_nextNode != -1)
+            if (_nextNode != 0)
             {
                 _currentNodeDialog = _dialogReference.dialogNodes.nodes[_nextNode];
+                _hasAnswered = true;
+            }
+            else
+                OnEndDialog();
+        }
+        else
+        {
+            if(_currentNodeDialog.nextNode > 0)
+            {
+                _currentNodeDialog = _dialogReference.dialogNodes.nodes[selectedAnswer];
                 _hasAnswered = true;
             }
             else
@@ -187,20 +205,22 @@ public class DialogManager : MonoBehaviour
         {
             if (_currentNodeDialog.normalDialogs.Length > 0)
             {
-                if (_dialogIndex <= _currentNodeDialog.normalDialogs.Length)
+                if (_dialogIndex < _currentNodeDialog.normalDialogs.Length)
                     _hasAnswered = true;
-    
+
+                else if(_currentNodeDialog.answers.Length > 0)
+                    return;
+       
+                else if (_currentNodeDialog.nextNode == 0)
+                    OnEndDialog();
+                    
                 else
                 {
-                    if (_currentNodeDialog.answers.Length > 0)
-                        _hasAnswered = true;
-
-                    else if (_currentNodeDialog.nextNode == 0)
-                        OnEndDialog();
-
-                    else
-                        _hasAnswered = true;
-                }                
+                    _nextNode = _currentNodeDialog.nextNode;
+                    _currentNodeDialog = _dialogReference.dialogNodes.nodes[_nextNode];
+                    _dialogIndex = 0;
+                    _hasAnswered = true;
+                }                                 
             }
         }
     }

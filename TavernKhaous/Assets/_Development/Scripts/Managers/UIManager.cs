@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
     public void SelectOption(int option)
     {
         Debug.Log($"next dialog index: {option}");
-        //GameManager.Instance.DialogManager.ChangeToNextDialog(option);
+        GameManager.Instance.DialogManager.ChangeToNextDialog(option);
     }
 
 

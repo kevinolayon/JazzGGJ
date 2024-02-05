@@ -71,7 +71,7 @@
                 },
                 {
                     "dialog":"Waiter? Is that really you?",
-                    "nodePortrait":"redman"                   
+                    "nodePortrait":"Redman"                   
                 },
                 {
                     "dialog":"Oh, darn.",
@@ -80,7 +80,7 @@
                 ,
                 {
                     "dialog":"I can't believe it! I heard you were working in the kitchen, but well, I didn't imagine it was like this...",
-                    "nodePortrait":"redman"                   
+                    "nodePortrait":"Redman"                   
                 },
                 {
                     "dialog":"Shhh, idiot, not here.",
@@ -88,11 +88,11 @@
                 },
                 {
                     "dialog":"Alright, alright, I'm tired anyway. I've been working in the fields since you left the business.",
-                    "nodePortrait":"redman"                   
+                    "nodePortrait":"Redman"                   
                 },
                 {
                     "dialog":"Is the food here good? I'm starving.",
-                    "nodePortrait":"redman"                   
+                    "nodePortrait":"Redman"                   
                 }
             ],
             "answers":[
@@ -104,12 +104,12 @@
                 {
                     "answer": "Choose anything and get out of here before you open your mouth again.",
                     "point": 0,
-                    "nodeLinkID": 0
+                    "nodeLinkID": 3
                 },
                 {
                     "answer": "I heard that Zeca does side jobs with the coroner whenever there's a battle, so at least he knows about cutting, hahaha!",
                     "point": -5,
-                    "nodeLinkID": 0
+                    "nodeLinkID": 4
                 }
             ]
         },
@@ -162,17 +162,17 @@
                 {
                     "answer": "According to Zeca, the beer here tastes like piss, so you might like it.",
                     "point": 5,
-                    "nodeLinkID": 0
+                    "nodeLinkID": 6
                 },   
                 {
                     "answer": "I'd go for the mead if I were you.",
                     "point": 0,
-                    "nodeLinkID": 0
+                    "nodeLinkID": 7
                 },
                 {
                     "answer": "No alcohol for you; you talk too much when you're sober.",
                     "point": -5,
-                    "nodeLinkID": 0
+                    "nodeLinkID": 8
                 }         
             ]
         },
