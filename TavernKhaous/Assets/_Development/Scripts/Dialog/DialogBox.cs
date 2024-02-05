@@ -12,7 +12,6 @@ public class DialogBox : MonoBehaviour
     public Button nextButton;
 
     public Image dialogBackground;
-    public Image optionsBackground;
     public Image portrait;
 
     public SOText dialogText;
@@ -33,7 +32,6 @@ public class DialogBox : MonoBehaviour
 
         this.gameObject.SetActive(isVisible);
         dialogBackground.gameObject.SetActive(isVisible);
-        optionsBackground.gameObject.SetActive(isVisible);
         portrait.enabled = isVisible;
     }
 
@@ -46,7 +44,6 @@ public class DialogBox : MonoBehaviour
     {
         ResetOptions();
         EnableDialogOptions(false);
-        optionsBackground.gameObject.SetActive(false);
 
         EnableNextButton(true);     
     }
@@ -106,8 +103,6 @@ public class DialogBox : MonoBehaviour
 
     public void SetOptions(List<Option> options)
     {
-        optionsBackground.gameObject.SetActive(true);
-
         ResetOptions();
 
         for (int i = 0; i < _options.Length; i++)

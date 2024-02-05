@@ -7,7 +7,7 @@ public class DialogTrigger : MonoBehaviour
     private bool hasDialogStarted = false;
 
     [SerializeField]
-    private SODialog dialog;
+    private int _dialogRoot;
 
     [SerializeField]
     private SOClient client;
@@ -22,7 +22,7 @@ public class DialogTrigger : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     { 
-        if (dialog != null)
+        if (_dialogRoot != -1)
         {
             if (!hasDialogStarted && Input.GetKeyDown(_dialogKey))
             {
@@ -30,7 +30,7 @@ public class DialogTrigger : MonoBehaviour
                 {
                     Debug.Log("Trigger Player");
                     hasDialogStarted = true;
-                    GameManager.Instance.DialogManager.DialogStart(dialog.root);
+                    GameManager.Instance.DialogManager.StartDialog(_dialogRoot);
                 }
             }           
         }

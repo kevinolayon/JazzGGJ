@@ -2,41 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ClientStatus
+{
+    None,
+    Satisfied,
+    Dissatisfied,
+    verySatisfied
+}
+
 public class Client : InteractableClientOrder
 {
     [SerializeField]
     private SOClient _clientData;
     public SOClient ClientData { get { return _clientData; } }
 
-    [SerializeField]
-    private SODialog _firstDialog;
+    private ClientStatus _clientStatus;
+    public ClientStatus ClientStatus { get { return _clientStatus; } }
 
-    [SerializeField]
-    private SODialog _lastDialog;
+    private Dictionary<ClientStatus, int> lastDialog;
 
     private bool _hasOrdered;
     private int _currencyGiven;
-
-    private int _clientIndex;
-    public int ClientIndex { get { return _clientIndex; } set { _clientIndex = value; } }
 
     public void Init(int value)
     {
         _hasOrdered = false;
         _currencyGiven = 0;
-        _clientIndex = value;
+        _clientStatus = ClientStatus.None;
+
+        lastDialog = new Dictionary<ClientStatus, int>();
+        lastDialog.Add(ClientStatus.Satisfied, 0);
+        lastDialog.Add(ClientStatus.Dissatisfied, 1);
+        lastDialog.Add(ClientStatus.verySatisfied, 2);
     }
 
     public void Reset()
     {
         _hasOrdered = false;
         _currencyGiven = 0;
-        _clientIndex = 0;
-    }
-
-    public void SetIndex(int value)
-    {
-        _clientIndex = value;
+        _clientStatus = ClientStatus.None;
     }
 
     public void PayOrder()
@@ -51,11 +55,13 @@ public class Client : InteractableClientOrder
 
     public override void Interact()
     {
-        // Call dialog
         if(!_hasOrdered)
-        GameManager.Instance.DialogManager.DialogStart(_firstDialog.root);
+        GameManager.Instance.DialogManager.StartDialog(_clientData.firstDialog);
 
         else
-            GameManager.Instance.DialogManager.DialogStart(_lastDialog.root);
+        {
+            int lastDialogNode = lastDialog[_clientStatus];
+            GameManager.Instance.DialogManager.StartDialog(lastDialogNode);
+        }
     }
 }

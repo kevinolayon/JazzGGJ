@@ -29,7 +29,6 @@ public class ClientSpawner : MonoBehaviour
             if (newClient != null)
             {
                 newClient.Init(_index);
-                GameManager.Instance.ClientManager.AddClient(newClient, index);
             }         
         }
 

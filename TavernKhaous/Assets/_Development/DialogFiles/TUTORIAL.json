@@ -1,0 +1,260 @@
+{
+    "nodes":[
+        {
+            "nodeId" : 0,
+            "nextNode": 0,
+            "normalDialogs": [
+                {
+                    "dialog":"HEY ROOKIE!",
+                    "nodePortrait":"Zeca"                 
+                },
+                {
+                    "dialog":"Yes, Boss.",
+                    "nodePortrait":"Waiter"                   
+                },
+                {
+                    "dialog":"We're opening soon, you were terrible in the test, but it's all we have for today.",
+                    "nodePortrait":"Zeca"                
+                }
+                ,
+                {
+                    "dialog":"You'll take the last table, remember that.",
+                    "nodePortrait":"Zeca"                   
+                },
+                {
+                    "dialog":"The job is simple; you go there, attend to the customers politely, and take orders from the menu.",
+                    "nodePortrait":"Zeca"                   
+                },
+                {
+                    "dialog":"Once you place the order, we'll start preparing the dishes. Take the opportunity to serve drinks in the meantime.",
+                    "nodePortrait":"Zeca"                   
+                },
+                {
+                    "dialog":"Everything you order is prepared on the spot, and you can pick it up on the tray to the right of the counter.",
+                    "nodePortrait":"Zeca"                   
+                },
+                {
+                    "dialog":"Leave it to me, Boss.",
+                    "nodePortrait":"Waiter"                   
+                },
+                {
+                    "dialog":"Hmm, make sure you don't mess everything up, and if you cause us a loss, you pay... GOT IT?",
+                    "nodePortrait":"Zeca"                   
+                },
+                {
+                    "dialog":"YES, BOSS!",
+                    "nodePortrait":"Waiter"                   
+                },
+                {
+                    "dialog":"Now, get to work; I didn't hire you to keep repeating",
+                    "nodePortrait":"Zeca"                   
+                },
+                {
+                    "dialog":"Yes, boss, Yes, boss.",
+                    "nodePortrait":"Waiter"                   
+                },
+                {
+                    "dialog":"You're a dog, not a parrot.",
+                    "nodePortrait":"Zeca"                   
+                }
+            ],
+            "answers":[
+            ]
+        },   
+        {
+            "nodeId" : 1,
+            "nextNode": 0,
+            "normalDialogs": [
+                {
+                    "dialog":"Welcome to Zeca's Tavern, sir, what would you like to...!",
+                    "nodePortrait":"Waiter"                 
+                },
+                {
+                    "dialog":"Waiter? Is that really you?",
+                    "nodePortrait":"Redman"                   
+                },
+                {
+                    "dialog":"Oh, darn.",
+                    "nodePortrait":"Waiter"                
+                }
+                ,
+                {
+                    "dialog":"I can't believe it! I heard you were working in the kitchen, but well, I didn't imagine it was like this...",
+                    "nodePortrait":"Redman"                   
+                },
+                {
+                    "dialog":"Shhh, idiot, not here.",
+                    "nodePortrait":"Waiter"                   
+                },
+                {
+                    "dialog":"Alright, alright, I'm tired anyway. I've been working in the fields since you left the business.",
+                    "nodePortrait":"Redman"                   
+                },
+                {
+                    "dialog":"Is the food here good? I'm starving.",
+                    "nodePortrait":"Redman"                   
+                }
+            ],
+            "answers":[
+                {
+                    "answer": "Despite being a scoundrel, Zeca is a great cook. You can order whatever you want.",
+                    "point": 5,
+                    "nodeLinkID": 2
+                },
+                {
+                    "answer": "Choose anything and get out of here before you open your mouth again.",
+                    "point": 0,
+                    "nodeLinkID": 3
+                },
+                {
+                    "answer": "I heard that Zeca does side jobs with the coroner whenever there's a battle, so at least he knows about cutting, hahaha!",
+                    "point": -5,
+                    "nodeLinkID": 4
+                }
+            ]
+        },
+        {
+            "nodeId" : 2,
+            "nextNode": 5,
+            "normalDialogs": [
+                {
+                    "dialog":"Great! I haven't had decent food since I left my mom's house.",
+                    "nodePortrait":"Redman"                 
+                }
+            ],
+            "answers":[             
+            ]
+        },
+        {
+            "nodeId" : 3,
+            "nextNode": 5,
+            "normalDialogs": [
+                {
+                    "dialog":"Yikes, I can see that bad mood is still there.",
+                    "nodePortrait":"Redman"                 
+                }
+            ],
+            "answers":[              
+            ]
+        },
+        {
+            "nodeId" : 4,
+            "nextNode": 5,
+            "normalDialogs": [
+                {
+                    "dialog":"What's that? Are you sure this is safe?",
+                    "nodePortrait":"Redman"                 
+                }
+            ],
+            "answers":[               
+            ]
+        },
+        {
+            "nodeId" : 5,
+            "nextNode": 0,
+            "normalDialogs": [
+                {
+                    "dialog":"Okay, I've decided what I'll eat, but what about the drink? Is there one that spirals down?",
+                    "nodePortrait":"Redman"                 
+                }
+            ],
+            "answers":[
+                {
+                    "answer": "According to Zeca, the beer here tastes like piss, so you might like it.",
+                    "point": 5,
+                    "nodeLinkID": 6
+                },   
+                {
+                    "answer": "I'd go for the mead if I were you.",
+                    "point": 0,
+                    "nodeLinkID": 7
+                },
+                {
+                    "answer": "No alcohol for you; you talk too much when you're sober.",
+                    "point": -5,
+                    "nodeLinkID": 8
+                }         
+            ]
+        },
+        {
+            "nodeId" : 6,
+            "nextNode": 9,
+            "normalDialogs": [
+                {
+                    "dialog":"Man, I hope you don't talk like this to all the customers.?",
+                    "nodePortrait":"Redman"                 
+                },
+                {
+                    "dialog":"But you convinced me; I'll try your piss.",
+                    "nodePortrait":"Redman"                 
+                }
+            ],
+            "answers":[               
+            ]
+        },
+        {
+            "nodeId" : 7,
+            "nextNode": 9,
+            "normalDialogs": [
+                {
+                    "dialog":"Mead? Serve that for the posh folks in Vila Madalenta.?",
+                    "nodePortrait":"Redman"                 
+                },
+                {
+                    "dialog":"Just bring me the beer.",
+                    "nodePortrait":"Redman"                 
+                }
+            ],
+            "answers":[               
+            ]
+        },
+        {
+            "nodeId" : 8,
+            "nextNode": 9,
+            "normalDialogs": [
+                {
+                    "dialog":"I thought the customer gives the orders here.",
+                    "nodePortrait":"Redman"                 
+                },
+                {
+                    "dialog":"I worked 16-hour days like every decent villager; I'm entitled to my little beer.",
+                    "nodePortrait":"Redman"                 
+                }
+            ],
+            "answers":[               
+            ]
+        },
+        {
+            "nodeId" : 9,
+            "nextNode": 0,
+            "normalDialogs": [
+                {
+                    "dialog":"Well, you're in a hurry to get rid of me, and I'm in a hurry to eat, let's get to the order.",
+                    "nodePortrait":"Redman"                 
+                },
+                {
+                    "dialog":"Bring me those Dragon's Breath Bruschettas to start, and then you can serve me some Wyvern Wings. Oh, and don't forget my beer.",
+                    "nodePortrait":"Redman"                 
+                }
+            ],
+            "answers":[
+                {
+                    "answer": "Grrr. Your orders, sir.",
+                    "point": 5,
+                    "nodeLinkID": 0
+                },   
+                {
+                    "answer": "I should make you go get it yourself... but I need the money.",
+                    "point": 0,
+                    "nodeLinkID": 0
+                },
+                {
+                    "answer": "I'll bring what you want, but try to keep quiet until then.",
+                    "point": -5,
+                    "nodeLinkID": 0
+                }         
+            ]
+        }
+    ]
+}
+
