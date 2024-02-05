@@ -45,10 +45,15 @@ public class InitializeDialogs
     {
         for(int i = 0; i < dialogPortraits.Length; i++)
         {
-            if (dialogPortraits[i].name.Contains(portraitName))
+            if (dialogPortraits[i].name.Contains(portraitName.ToLower()))
                 return dialogPortraits[i];
         }
 
         return null;
+    }
+
+    public string CaptalizeFirstLeter(string name)
+    {
+        return char.ToUpper(name[0]) + name.Substring(1);
     }
 }

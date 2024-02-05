@@ -104,6 +104,7 @@ public class DialogManager : MonoBehaviour
             _dialogName.value = "";
             _dialogText.value = "";
 
+            #region Set Dialog Components
             if (_currentNodeDialog.normalDialogs.Length > 0 && _dialogIndex < _currentNodeDialog.normalDialogs.Length)
             {
                 UpdateDialog(_currentNodeDialog.normalDialogs[_dialogIndex].dialog.ToCharArray(), _currentNodeDialog.normalDialogs[_dialogIndex].nodePortrait);
@@ -133,7 +134,9 @@ public class DialogManager : MonoBehaviour
                     OnUpdateOptions(_currentNodeDialog.answers);
                 }
             }
+            #endregion
 
+            #region Write Dialog
             _isWriting = true;
 
             foreach (char letter in _dialogLetters)
@@ -147,6 +150,7 @@ public class DialogManager : MonoBehaviour
             Debug.Log("waiting for answer...");
             yield return new WaitUntil(() => _hasAnswered || _currentNodeDialog == null);
             Debug.Log("answered");
+            #endregion
         }     
     }
 
@@ -236,6 +240,8 @@ public class DialogManager : MonoBehaviour
         onSendDialogPoints?.Invoke(_dialogPoints);
         onEndDialog.Invoke();     
         _isWriting = false;
+
+        Debug.Log("dialog points" + _dialogPoints);
     }
 
     private void ChangePortrait()
@@ -249,7 +255,7 @@ public class DialogManager : MonoBehaviour
     private void UpdateDialog(char[] dialog, string portraitName)
     {
         _dialogLetters = dialog;
-        _dialogName.value = portraitName;
+        _dialogName.value = _dialogReference.CaptalizeFirstLeter(portraitName);
     }
 }
 
