@@ -11,13 +11,8 @@ public class InitializeDialogs
 
     public void Load(TextAsset dialogFile)
     {
-        Read(dialogFile.text);
+        dialogNodes = JsonUtils.Read<DialogNodes>(dialogFile);
         LoadPortraits();
-    }
-
-    private void Read(string dialogText)
-    {
-        dialogNodes = JsonUtility.FromJson<DialogNodes>(dialogText);
     }
 
     private void LoadPortraits()

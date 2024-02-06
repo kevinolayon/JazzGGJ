@@ -1,0 +1,196 @@
+{
+  "textComponents": [
+      {
+          "Key": "zeca_rookie",
+          "Text": "EEEI NOVATO!"
+      },
+      {
+          "Key": "waiter_response",
+          "Text": "Sim, Chefe."
+      },
+      {
+          "Key": "zeca_opening",
+          "Text": "Vamos abrir em breve, você foi horrível no teste, mas é tudo o que temos para hoje."
+      },
+      {
+          "Key": "zeca_lastTable",
+          "Text": "Você vai ficar com a última mesa, lembre-se disso."
+      },
+      {
+          "Key": "zeca_theJob",
+          "Text": "O trabalho é simples, você vai até lá, atende os clientes com educação e faz os pedidos pelo cardápio."
+      },
+      {
+          "Key": "zeca_orderInstructions",
+          "Text": "Assim que você fizer o pedido vamos começar a preparar os pratos, aproveite para ir servindo as bebidas enquanto isso."
+      },
+      {
+          "Key": "zeca_rightCounter",
+          "Text": "Tudo o que você pedir fica pronto na hora e você pode retirar na bandeja do lado direito do balcão."
+      },
+      {
+          "Key": "waiter_confident",
+          "Text": "Deixa comigo Chefe."
+      },
+      {
+          "Key": "zeca_dontMess",
+          "Text": "Hmm, vê se não vai estragar tudo, e se nos der prejuízo você paga… OUVIU?"
+      },
+      {
+          "Key": "waiter_responseYes",
+          "Text": "SIM, CHEFE!"
+      },
+      {
+          "Key": "zeca_getToWork",
+          "Text": "Agora mãos a obra, não te contratei pra ficar repetindo “Sim, chefe”, “Sim, chefe”."
+      },
+      {
+          "Key": "zeca_parrot",
+          "Text": "Você é um cachorro, não um papagaio."
+      },
+      {
+          "Key": "waiter_welcome",
+          "Text": "Bem vindo a Taverna do seu Zeca, senhor, o que gostaria de…"
+      },
+      {
+          "Key": "redman_surprised",
+          "Text": "Waiter? É você mesmo?"
+      },
+      {
+          "Key": "waiter_darn",
+          "Text": "Ah, droga."
+      },
+      {
+          "Key": "redman_shocked",
+          "Text": "Não acredito! Eu tinha ouvido falar que você estava trabalhando com cozinha, mas bem, não imaginei que era desse tipo…"
+      },
+      {
+          "Key": "waiter_idiot",
+          "Text": "Shhh, idiota, não aqui."
+      },
+      {
+          "Key": "redman_alright",
+          "Text": "Certo, certo, estou cansado de qualquer forma, tenho trabalhado no campo desde que você saiu dos negócios."
+      },
+      {
+          "Key": "redman_goodFood",
+          "Text": "A comida aqui é boa? To morrendo de fome."
+      },
+      {
+          "Key": "waiter_goodAnswerGreat",
+          "Text": "Apesar de ser um desgraçado, o Zeca é um ótimo cozinheiro, pode pedir o que quiser."
+      },
+      {
+          "Key": "waiter_normalAnswerGetOut",
+          "Text": "Escolha qualquer coisa e vá embora logo, antes que você abra mais essa sua boca."
+      },
+      {
+          "Key": "waiter_badAnswerBattle",
+          "Text": "Ouvi dizer que o Zeca faz bico com o legista sempre que tem uma batalha, então pelo menos de corte ele entende hahaha!"
+      },
+      {
+          "Key": "redman_momHouse",
+          "Text": "Maravilha! Não tenho comido nada decente desde que saí da casa da minha mãe."
+      },
+      {
+          "Key": "redman_badMood",
+          "Text": "Credo, tô vendo que ainda tem aquele mau humor."
+      },
+      {
+          "Key": "redman_safe",
+          "Text": "Como é que é? Tem certeza de que isso é seguro?"
+      },
+      {
+          "Key": "redman_decidedOrder",
+          "Text": "Tá, já decidi o que vou comer, mas e a bebida? tem aquela que desce em espiral?"
+      },
+      {
+          "Key": "waiter_goodAnswerTastePiss",
+          "Text": "Segundo o Zeca, a cerveja daqui parece mijo, então você deve gostar."
+      },
+      {
+          "Key": "waiter_normalAnswerMead",
+          "Text": "Eu pediria o hidromel se fosse você."
+      },
+      {
+          "Key": "waiter_badAnswerAlcohol",
+          "Text": "Nada de alcool pra você, você já fala demais enquanto está sóbrio."
+      },
+      {
+          "Key": "redman_hope",
+          "Text": "Cara, espero que você não fale assim com todos os clientes."
+      },
+      {
+          "Key": "redman_convinced",
+          "Text": "Mas você me convenceu, provarei do seu mijo."
+      },
+      {
+          "Key": "redman_madalenta",
+          "Text": "Hidromel? Sirva isso para os playboys da Vila Madalenta."
+      },
+      {
+          "Key": "redman_bringBeer",
+          "Text": "Me trás a cerveja mesmo."
+      },
+      {
+          "Key": "Rredman_customerOrder",
+          "Text": "Eu achava que o cliente é que desse as ordens aqui."
+      },
+      {
+          "Key": "redman_workedDays",
+          "Text": "Eu trabalhei as 16 horas diárias assim como todo aldeão de bem, tenho direito a minha cervejinha."
+      },
+      {
+          "Key": "redman_hurry",
+          "Text": "Bom, você está com pressa para se livrar de mim e eu com pressa para comer, vamos ao pedido."
+      },
+      {
+          "Key": "redman_serveOrder",
+          "Text": "Me trás essas Dragon's Breath Bruschettas, para começar e depois pode me servir umas Wyvern Wings. Ah, e não esquece minha cervejinha."
+      },
+      {
+          "Key": "waiter_goodAnswerSir",
+          "Text": "Grrr. As suas ordens, senhor."
+      },
+      {
+          "Key": "waiter_badAnswerMoney",
+          "Text": "Eu devia fazer você mesmo ir buscar… mas preciso do dinheiro."
+      },
+      {
+          "Key": "waiter_normalAnswerKeepQuiet",
+          "Text": "Vou trazer o que quer, mas tente ficar quieto até lá."
+      },
+      {
+          "Key": "redman_verySatisfiedAwesome",
+          "Text": "Aí Waiter, esse lugar é demais!"
+      },
+      {
+          "Key": "redman_verySatisfiedSpreadToEveryone",
+          "Text": "Pode deixar que eu vou espalhar pra turma toda, ah, e fica com essa gorjetinha aqui."
+      },
+      {
+          "Key": "waiter_verySatisfiedThanks",
+          "Text": "Valeu… eu acho…"
+      },
+      {
+          "Key": "redman_satisfiedDespite",
+          "Text": "Ei, apesar de tudo, até que a comida é boa."
+      },
+      {
+          "Key": "redman_satisfiedLetMoney",
+          "Text": "Deixei o dinheiro na mesa, até a próxima Waiter."
+      },
+      {
+          "Key": "waiter_satisfiedCleanTable",
+          "Text": "Tá bom, tá bom, só se apresse para que eu possa limpar a mesa."
+      },
+      {
+          "Key": "redman_dessatisfiedNeverComeBack",
+          "Text": "Cara, esse lugar é péssimo, o dinheiro tá na mesa, mas eu nunca mais volta nessa espelunca."
+      },
+      {
+          "Key": "waiter_dissatisfiedSucker",
+          "Text": "Volte sempre… otário."
+      }
+  ]
+}

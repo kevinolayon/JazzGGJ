@@ -24,6 +24,10 @@ public class GameManager : Singleton<GameManager>
 
     public TextAsset dialogFile;
 
+    [SerializeField]
+    private LocalizationManager _localizationManager;
+    public LocalizationManager LocalizationManager { get { return _localizationManager; } }
+
     public void Start()
     {
         Init();
@@ -36,6 +40,8 @@ public class GameManager : Singleton<GameManager>
 
         _initializeDialogs = new InitializeDialogs();
         _initializeDialogs.Load(dialogFile);
+
+        _localizationManager.Init();
 
         DialogManager.Init();
     }
