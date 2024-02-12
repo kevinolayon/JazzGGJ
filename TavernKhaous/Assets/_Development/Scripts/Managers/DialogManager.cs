@@ -107,7 +107,7 @@ public class DialogManager : MonoBehaviour
             #region Set Dialog Components
             if (_currentNodeDialog.normalDialogs.Length > 0 && _dialogIndex < _currentNodeDialog.normalDialogs.Length)
             {
-                UpdateDialog(_currentNodeDialog.normalDialogs[_dialogIndex].dialog.ToCharArray(), _currentNodeDialog.normalDialogs[_dialogIndex].nodePortrait);
+                UpdateDialog(_currentNodeDialog.normalDialogs[_dialogIndex].dialog, _currentNodeDialog.normalDialogs[_dialogIndex].nodePortrait);
                 ChangePortrait();
 
                 _dialogIndex++;
@@ -129,7 +129,7 @@ public class DialogManager : MonoBehaviour
 
                 else
                 {
-                    UpdateDialog(_currentNodeDialog.normalDialogs[_dialogIndex].dialog.ToCharArray(), _currentNodeDialog.normalDialogs[_dialogIndex].nodePortrait);
+                    UpdateDialog(_currentNodeDialog.normalDialogs[_dialogIndex].dialog, _currentNodeDialog.normalDialogs[_dialogIndex].nodePortrait);
                     ResetOptions();
                     OnUpdateOptions(_currentNodeDialog.answers);
                 }
@@ -159,7 +159,7 @@ public class DialogManager : MonoBehaviour
         for (int i = 0; i < answers.Length; i++)
         {      
             _currentDialogOptions[i].text = "";
-            _currentDialogOptions[i].text = answers[i].answer;
+            _currentDialogOptions[i].text = GetKeyTranslation(answers[i].answer);
 
             _currentDialogOptions[i].index = i;     
         }
@@ -252,10 +252,23 @@ public class DialogManager : MonoBehaviour
             onChangePortrait?.Invoke(_nodePortrait);
     }
 
-    private void UpdateDialog(char[] dialog, string portraitName)
+    private void UpdateDialog(string dialogKey, string portraitName)
     {
-        _dialogLetters = dialog;
-        _dialogName.value = _dialogReference.CaptalizeFirstLeter(portraitName);
+        var dialogTranslation = GetKeyTranslation(dialogKey);
+
+        if (dialogTranslation != "")
+            _dialogLetters = dialogTranslation.ToCharArray();
+
+         _dialogName.value = _dialogReference.CaptalizeFirstLeter(portraitName);
+    }
+
+    private string GetKeyTranslation(string dialogKey)
+    {
+        var text = GameManager.Instance.LocalizationManager.GetTranslation(dialogKey);
+
+        if(text != "")
+            return text;
+        return "";
     }
 }
 

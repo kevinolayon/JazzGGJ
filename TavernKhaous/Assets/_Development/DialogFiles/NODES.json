@@ -5,56 +5,52 @@
             "nextNode": 0,
             "normalDialogs": [
                 {
-                    "dialog":"HEY ROOKIE!",
+                    "dialog":"zeca_rookie",
                     "nodePortrait":"zeca"                 
                 },
                 {
-                    "dialog":"Yes, Boss.",
+                    "dialog":"waiter_response",
                     "nodePortrait":"waiter"                   
                 },
                 {
-                    "dialog":"We're opening soon, you were terrible in the test, but it's all we have for today.",
+                    "dialog":"zeca_opening",
                     "nodePortrait":"zeca"                
                 }
                 ,
                 {
-                    "dialog":"You'll take the last table, remember that.",
+                    "dialog":"zeca_lastTable",
                     "nodePortrait":"zeca"                   
                 },
                 {
-                    "dialog":"The job is simple; you go there, attend to the customers politely, and take orders from the menu.",
+                    "dialog":"zeca_theJob",
                     "nodePortrait":"zeca"                   
                 },
                 {
-                    "dialog":"Once you place the order, we'll start preparing the dishes. Take the opportunity to serve drinks in the meantime.",
+                    "dialog":"zeca_orderInstructions",
                     "nodePortrait":"zeca"                   
                 },
                 {
-                    "dialog":"Everything you order is prepared on the spot, and you can pick it up on the tray to the right of the counter.",
+                    "dialog":"zeca_rightCounter",
                     "nodePortrait":"zeca"                   
                 },
                 {
-                    "dialog":"Leave it to me, Boss.",
+                    "dialog":"waiter_confident",
                     "nodePortrait":"waiter"                   
                 },
                 {
-                    "dialog":"Hmm, make sure you don't mess everything up, and if you cause us a loss, you pay... GOT IT?",
+                    "dialog":"zeca_dontMess",
                     "nodePortrait":"zeca"                   
                 },
                 {
-                    "dialog":"YES, BOSS!",
+                    "dialog":"waiter_responseYes",
                     "nodePortrait":"waiter"                   
                 },
                 {
-                    "dialog":"Now, get to work; I didn't hire you to keep repeating",
+                    "dialog":"zeca_getToWork",
                     "nodePortrait":"zeca"                   
                 },
                 {
-                    "dialog":"Yes, boss, Yes, boss.",
-                    "nodePortrait":"waiter"                   
-                },
-                {
-                    "dialog":"You're a dog, not a parrot.",
+                    "dialog":"zeca_parrot",
                     "nodePortrait":"zeca"                   
                 }
             ],
@@ -66,48 +62,48 @@
             "nextNode": 0,
             "normalDialogs": [
                 {
-                    "dialog":"Welcome to Zeca's Tavern, sir, what would you like to...!",
+                    "dialog":"waiter_welcome",
                     "nodePortrait":"waiter"                 
                 },
                 {
-                    "dialog":"Waiter? Is that really you?",
+                    "dialog":"redman_surprised",
                     "nodePortrait":"redman"                   
                 },
                 {
-                    "dialog":"Oh, darn.",
+                    "dialog":"waiter_darn",
                     "nodePortrait":"waiter"                
                 }
                 ,
                 {
-                    "dialog":"I can't believe it! I heard you were working in the kitchen, but well, I didn't imagine it was like this...",
+                    "dialog":"redman_shocked",
                     "nodePortrait":"redman"                   
                 },
                 {
-                    "dialog":"Shhh, idiot, not here.",
+                    "dialog":"waiter_idiot",
                     "nodePortrait":"waiter"                   
                 },
                 {
-                    "dialog":"Alright, alright, I'm tired anyway. I've been working in the fields since you left the business.",
+                    "dialog":"redman_alright",
                     "nodePortrait":"redman"                   
                 },
                 {
-                    "dialog":"Is the food here good? I'm starving.",
+                    "dialog":"redman_goodFood",
                     "nodePortrait":"redman"                   
                 }
             ],
             "answers":[
                 {
-                    "answer": "Despite being a scoundrel, Zeca is a great cook. You can order whatever you want.",
+                    "answer": "waiter_goodAnswerGreat",
                     "point": 5,
                     "nodeLinkID": 2
                 },
                 {
-                    "answer": "Choose anything and get out of here before you open your mouth again.",
+                    "answer": "waiter_normalAnswerGetOut",
                     "point": 0,
                     "nodeLinkID": 3
                 },
                 {
-                    "answer": "I heard that Zeca does side jobs with the coroner whenever there's a battle, so at least he knows about cutting, hahaha!",
+                    "answer": "waiter_badAnswerBattle",
                     "point": -5,
                     "nodeLinkID": 4
                 }
@@ -118,7 +114,7 @@
             "nextNode": 5,
             "normalDialogs": [
                 {
-                    "dialog":"Great! I haven't had decent food since I left my mom's house.",
+                    "dialog":"redman_momHouse",
                     "nodePortrait":"redman"                 
                 }
             ],
@@ -130,7 +126,7 @@
             "nextNode": 5,
             "normalDialogs": [
                 {
-                    "dialog":"Yikes, I can see that bad mood is still there.",
+                    "dialog":"redman_badMood",
                     "nodePortrait":"redman"                 
                 }
             ],
@@ -142,7 +138,7 @@
             "nextNode": 5,
             "normalDialogs": [
                 {
-                    "dialog":"What's that? Are you sure this is safe?",
+                    "dialog":"redman_safe",
                     "nodePortrait":"redman"                 
                 }
             ],
@@ -154,23 +150,23 @@
             "nextNode": 0,
             "normalDialogs": [
                 {
-                    "dialog":"Okay, I've decided what I'll eat, but what about the drink? Is there one that spirals down?",
+                    "dialog":"redman_decidedOrder",
                     "nodePortrait":"redman"                 
                 }
             ],
             "answers":[
                 {
-                    "answer": "According to Zeca, the beer here tastes like piss, so you might like it.",
+                    "answer": "waiter_goodAnswerTastePiss",
                     "point": 5,
                     "nodeLinkID": 6
                 },   
                 {
-                    "answer": "I'd go for the mead if I were you.",
+                    "answer": "waiter_normalAnswerMead",
                     "point": 0,
                     "nodeLinkID": 7
                 },
                 {
-                    "answer": "No alcohol for you; you talk too much when you're sober.",
+                    "answer": "waiter_badAnswerAlcohol",
                     "point": -5,
                     "nodeLinkID": 8
                 }         
@@ -181,11 +177,11 @@
             "nextNode": 9,
             "normalDialogs": [
                 {
-                    "dialog":"Man, I hope you don't talk like this to all the customers.?",
+                    "dialog":"redman_hope",
                     "nodePortrait":"redman"                 
                 },
                 {
-                    "dialog":"But you convinced me; I'll try your piss.",
+                    "dialog":"redman_convinced",
                     "nodePortrait":"redman"                 
                 }
             ],
@@ -197,11 +193,11 @@
             "nextNode": 9,
             "normalDialogs": [
                 {
-                    "dialog":"Mead? Serve that for the posh folks in Vila Madalenta.?",
+                    "dialog":"redman_madalenta",
                     "nodePortrait":"redman"                 
                 },
                 {
-                    "dialog":"Just bring me the beer.",
+                    "dialog":"redman_bringBeer",
                     "nodePortrait":"redman"                 
                 }
             ],
@@ -213,11 +209,11 @@
             "nextNode": 9,
             "normalDialogs": [
                 {
-                    "dialog":"I thought the customer gives the orders here.",
+                    "dialog":"redman_customerOrder",
                     "nodePortrait":"redman"                 
                 },
                 {
-                    "dialog":"I worked 16-hour days like every decent villager; I'm entitled to my little beer.",
+                    "dialog":"redman_workedDays",
                     "nodePortrait":"redman"                 
                 }
             ],
@@ -229,30 +225,87 @@
             "nextNode": 0,
             "normalDialogs": [
                 {
-                    "dialog":"Well, you're in a hurry to get rid of me, and I'm in a hurry to eat, let's get to the order.",
+                    "dialog":"redman_hurry",
                     "nodePortrait":"redman"                 
                 },
                 {
-                    "dialog":"Bring me those Dragon's Breath Bruschettas to start, and then you can serve me some Wyvern Wings. Oh, and don't forget my beer.",
+                    "dialog":"redman_serveMyOrder",
                     "nodePortrait":"redman"                 
                 }
             ],
             "answers":[
                 {
-                    "answer": "Grrr. Your orders, sir.",
+                    "answer": "waiter_goodAnswerSir",
                     "point": 5,
                     "nodeLinkID": 0
                 },   
                 {
-                    "answer": "I should make you go get it yourself... but I need the money.",
+                    "answer": "waiter_badAnswerMoney",
                     "point": 0,
                     "nodeLinkID": 0
                 },
                 {
-                    "answer": "I'll bring what you want, but try to keep quiet until then.",
+                    "answer": "waiter_normalAnswerKeepQuiet",
                     "point": -5,
                     "nodeLinkID": 0
                 }         
+            ]
+        }
+        ,
+        {
+            "nodeId" : 10,
+            "nextNode": 0,
+            "normalDialogs": [
+                {
+                    "dialog":"redman_verySatisfiedAwesome",
+                    "nodePortrait":"redman"                 
+                },
+                {
+                    "dialog":"redman_verySatisfiedSpreadToEveryone",
+                    "nodePortrait":"redman"                 
+                },
+                {
+                    "dialog":"waiter_verySatisfiedThanks",
+                    "nodePortrait":"waiter"                 
+                }
+            ],
+            "answers":[         
+            ]
+        },
+        {
+            "nodeId" : 11,
+            "nextNode": 0,
+            "normalDialogs": [
+                {
+                    "dialog":"redman_satisfiedDespite",
+                    "nodePortrait":"redman"                 
+                },
+                {
+                    "dialog":"redman_satisfiedLetMoney",
+                    "nodePortrait":"redman"                 
+                },
+                {
+                    "dialog":"waiter_satisfiedCleanTable",
+                    "nodePortrait":"waiter"                 
+                }
+            ],
+            "answers":[         
+            ]
+        },
+        {
+            "nodeId" : 12,
+            "nextNode": 0,
+            "normalDialogs": [
+                {
+                    "dialog":"redman_dessatisfiedNeverComeBack",
+                    "nodePortrait":"redman"                 
+                },
+                {
+                    "dialog":"waiter_dissatisfiedSucker",
+                    "nodePortrait":"redman"                 
+                }
+            ],
+            "answers":[         
             ]
         }
     ]

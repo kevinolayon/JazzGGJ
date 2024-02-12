@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public enum Language
 {
     PT,
     EN
 }
+
 public class LocalizationManager : MonoBehaviour
 {
     private Dictionary<string, string> PT_BR;
@@ -18,7 +18,6 @@ public class LocalizationManager : MonoBehaviour
     private Language gameLanguage;
     private int languageIndex;
 
-    private LocalizedComponent readFile;
     public void Init()
     {
         PT_BR = new Dictionary<string, string>();
@@ -40,11 +39,11 @@ public class LocalizationManager : MonoBehaviour
 
     private void BuildDictionary(TextAsset file, int index)
     {
-        var readFiles = JsonUtils.Read<Dictionary<string,string>>(file);
+        Dictionary<string, string> readFiles = JsonUtils.Read<Dictionary<string,string>>(file);
         
-        for(int i = 0; i < readFile.textComponents.Count; i++)
+        foreach(KeyValuePair<string, string> entry in readFiles)
         {
-            languages[index].Add(readFile.textComponents[i].Key, readFile.textComponents[i].Key);           
+            languages[index].Add(entry.Key, entry.Value);
         }
 
         GetTranslation("waiter_verySatisfiedThanks");
@@ -65,5 +64,10 @@ public class LocalizationManager : MonoBehaviour
             return txt;
 
         return null;
+    }
+
+    public void ChangeCurrentLanguage(Language newLanguage)
+    {
+        gameLanguage = newLanguage;
     }
 }
