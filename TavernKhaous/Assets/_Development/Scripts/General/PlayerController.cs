@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float movementSpeed = 10f;
     [SerializeField] float timeToStable = 1;
+    public Vector2 Direction;
 
     [Header("References")]
     [SerializeField] Transform bowlSocket;
@@ -15,14 +17,13 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     ConfigurableJoint cj;
 
-    IInteractable interactableInterface;
-
-    bool dragging;
-    bool isMoving;
-    bool canWalk = true;
-    bool canInteract = true;
+    [SerializeField] bool dragging;
+    [SerializeField] bool isMoving;
+    [SerializeField] bool canWalk = true;
+    [SerializeField] bool canInteract = true;
 
     Coroutine legRoutine;
+    List<IInteractable> interactables = new();
 
     private void Start()
     {
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         CanvasManager.enableWalk += DisablePlayer;
-        InteractableDragItem.draggableObject += DragItem; 
+        InteractableDragItem.draggableObject += DragItem;
     }
 
     private void OnDisable()
@@ -47,11 +48,6 @@ public class PlayerController : MonoBehaviour
         Movement();
     }
 
-    private void Update()
-    {
-        Interact();
-    }
-
     public void DisablePlayer(bool value)
     {
         canWalk = value;
@@ -62,10 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!canWalk) return;
 
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
-
-        Vector3 dir = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 dir = new Vector3(Direction.x, 0, Direction.y).normalized;
 
         isMoving = dir.magnitude != 0;
 
@@ -109,29 +102,26 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.TryGetComponent(out IInteractable interactable))
         {
-            if (other.TryGetComponent<IInteractable>(out IInteractable interactable))
-            {
-                interactableInterface = interactable;
-            }
+            interactables.Add(interactable);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.TryGetComponent(out IInteractable interactable))
         {
-            interactableInterface = null;
+            interactables.Remove(interactable);
         }
     }
 
-    void Interact()
+    public void Interact()
     {
-        if (!canInteract || interactableInterface == null) return;
-
-        if (Input.GetKeyDown(KeyCode.E))
-            interactableInterface.Interact();
+        if (canInteract && interactables.Count > 0)
+        {
+            interactables[0].Interact();
+        }
     }
 
     void DragItem(GameObject item, GameObject vfx)
