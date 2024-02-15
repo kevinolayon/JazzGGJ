@@ -16,11 +16,6 @@ public class ClientSpawner : MonoBehaviour
 
     private ClientWrapper currentClient;
 
-    public void Init()
-    {
-        
-    }
-
     public void Spawn()
     {
         if(clients.Count > 0)
