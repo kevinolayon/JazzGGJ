@@ -246,13 +246,13 @@ public class DialogManager : MonoBehaviour
 
     private void ChangePortrait()
     {
-        _nodePortrait = _dialogReference.GetPortrait(_dialogName.value.ToString());
+        _nodePortrait = _dialogReference.GetPortrait(_dialogName.value.ToLower());
 
         if (_nodePortrait != null)
             onChangePortrait?.Invoke(_nodePortrait);
     }
 
-    private void UpdateDialog(string dialogKey, string portraitName)
+    private void UpdateDialog(string dialogKey, string portraitName) 
     {
         var dialogTranslation = GetKeyTranslation(dialogKey);
 

@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     public void Start()
     {
-        Init();
+        
     }
 
     public void Init()

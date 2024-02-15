@@ -28,6 +28,9 @@ public class GameManager : Singleton<GameManager>
     private LocalizationManager _localizationManager;
     public LocalizationManager LocalizationManager { get { return _localizationManager; } }
 
+    [SerializeField]
+    private bool startTutorial;
+
     public void Start()
     {
         Init();
@@ -43,9 +46,12 @@ public class GameManager : Singleton<GameManager>
 
         _localizationManager.Init();
 
-        DialogManager.Init();
+        _dialogManager.Init();
 
-        InitializeTutorial();
+        _uiController.Init();
+
+        if(startTutorial)
+            InitializeTutorial();
     }
 
     private void InitializeTutorial()
