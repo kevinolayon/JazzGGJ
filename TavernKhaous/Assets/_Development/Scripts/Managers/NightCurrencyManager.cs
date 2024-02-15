@@ -15,13 +15,6 @@ public enum PointsType
     badTime
 }
 
-public enum SatisfactionType
-{
-    satisfied,
-    dissatisfied,
-    verySatisfied
-}
-
 public class NightCurrencyManager
 {
     private int _currentOrderScore;

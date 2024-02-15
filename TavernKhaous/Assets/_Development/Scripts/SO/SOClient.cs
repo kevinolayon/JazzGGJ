@@ -8,6 +8,11 @@ public class SOClient : ScriptableObject
     public string clientName;
     public List<int> orders;
 
-    public int firstDialog;
-    public int[] finalDialog;
+    public int firstDialogNode;
+
+    public int SatisfiedDialog;
+    public int VerySatisfiedDialog;
+    public int DissatisfiedDialog;
+
+    public GameObject _model;
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ClientStatus
+public enum ClientSatisfactionStatus
 {
     None,
     Satisfied,
@@ -10,37 +10,38 @@ public enum ClientStatus
     verySatisfied
 }
 
-public class Client : InteractableClientOrder
+public class Client : InteractableClientOrder, IClient
 {
-    [SerializeField]
     private SOClient _clientData;
     public SOClient ClientData { get { return _clientData; } }
 
-    private ClientStatus _clientStatus;
-    public ClientStatus ClientStatus { get { return _clientStatus; } }
+    private ClientSatisfactionStatus _clientStatus;
+    public ClientSatisfactionStatus ClientStatus { get { return _clientStatus; } set { _clientStatus = value; } }
 
-    private Dictionary<ClientStatus, int> lastDialog;
+    private Dictionary<ClientSatisfactionStatus, int> lastDialog;
 
     private bool _hasOrdered;
     private int _currencyGiven;
+    private int _satisfactionPoints;
 
-    public void Init(int value)
+    public void Init(SOClient data)
     {
-        _hasOrdered = false;
-        _currencyGiven = 0;
-        _clientStatus = ClientStatus.None;
+        Reset();
 
-        lastDialog = new Dictionary<ClientStatus, int>();
-        lastDialog.Add(ClientStatus.Satisfied, 0);
-        lastDialog.Add(ClientStatus.Dissatisfied, 1);
-        lastDialog.Add(ClientStatus.verySatisfied, 2);
+        _clientData = data;
+
+        lastDialog = new Dictionary<ClientSatisfactionStatus, int>();
+        lastDialog.Add(ClientSatisfactionStatus.Satisfied, _clientData.SatisfiedDialog);
+        lastDialog.Add(ClientSatisfactionStatus.verySatisfied, _clientData.VerySatisfiedDialog);
+        lastDialog.Add(ClientSatisfactionStatus.Dissatisfied, _clientData.DissatisfiedDialog);    
     }
 
     public void Reset()
     {
         _hasOrdered = false;
         _currencyGiven = 0;
-        _clientStatus = ClientStatus.None;
+        _satisfactionPoints = 0;
+        _clientStatus = ClientSatisfactionStatus.None;
     }
 
     public void PayOrder()
@@ -53,11 +54,18 @@ public class Client : InteractableClientOrder
         _currencyGiven += value;
     }
 
+    private void CalculateClientStatus(int dialogPoints)
+    {
+        
+    }
+
     public override void Interact()
     {
         if(!_hasOrdered)
-        GameManager.Instance.DialogManager.StartDialog(_clientData.firstDialog);
-
+        {
+            GameManager.Instance.DialogManager.StartDialog(_clientData.firstDialogNode);
+            _hasOrdered = true;
+        }
         else
         {
             int lastDialogNode = lastDialog[_clientStatus];

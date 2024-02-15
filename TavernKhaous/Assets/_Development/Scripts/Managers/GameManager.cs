@@ -44,6 +44,20 @@ public class GameManager : Singleton<GameManager>
         _localizationManager.Init();
 
         DialogManager.Init();
+
+        InitializeTutorial();
+    }
+
+    private void InitializeTutorial()
+    {
+        DialogManager.StartDialog(0);
+    }
+
+    private void ResetGame()
+    {
+        _nightCurrencyManager.Reset();
+        _dialogManager.Reset();
+
     }
 
     public void Update()

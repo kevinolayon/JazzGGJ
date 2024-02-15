@@ -4,42 +4,56 @@ using UnityEngine;
 
 public class ClientSpawner : MonoBehaviour
 {
+    public class ClientWrapper
+    {
+        public SOClient clientData;
+        public GameObject model;
+    }
+
+    public Queue<ClientWrapper> clients;
     public Transform parent;
-    public Client [] clients;
-    public int clientQtd;
     public Transform clientLocation;
 
-    private int _index;
+    private ClientWrapper currentClient;
 
     public void Init()
     {
-        clients = new Client[clientQtd];
-        _index = 0;
+        
     }
 
-    public void Spawn(int index)
+    public void Spawn()
     {
-        var spawnedObject = Instantiate(clients[index].gameObject, parent);
-
-        if(spawnedObject != null)
+        if(clients.Count > 0)
         {
-            spawnedObject.transform.localPosition = clientLocation.localPosition;
-            Client newClient = spawnedObject.GetComponent<Client>();
+            currentClient = clients.Dequeue();
 
-            if (newClient != null)
+            var spawnedObject = Instantiate(currentClient.model, parent);
+
+            if (spawnedObject != null)
             {
-                newClient.Init(_index);
-            }         
-        }
+                spawnedObject.transform.localPosition = clientLocation.localPosition;
+                Client newClient = spawnedObject.GetComponent<Client>();
 
-        _index++;
+                if (newClient != null)
+                {
+                    newClient.Init(currentClient.clientData);
+                }
+            }
+        }      
+    }
+
+    public void Reset()
+    {
+        clients.Clear();
     }
 
     public void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            Spawn(0);
+            Spawn();
         }    
     }
 }
+
+

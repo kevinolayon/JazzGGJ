@@ -26,16 +26,6 @@ public class InitializeDialogs
         }
     }
 
-    public Node GetNode(int id)
-    {
-        Node node = dialogNodes.nodes[id];
-
-        if(node != null)
-            return node;
-
-        return null;
-    }
-
     public Sprite GetPortrait(string portraitName)
     {
         for(int i = 0; i < dialogPortraits.Length; i++)
