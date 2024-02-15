@@ -15,11 +15,6 @@ public class UIManager : MonoBehaviour
     {
     }
 
-    public void Start()
-    {
-        
-    }
-
     public void Init()
     {
         GameManager.Instance.DialogManager.onStartDialog += OpenDialogBox;

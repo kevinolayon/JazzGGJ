@@ -46,12 +46,12 @@ public class GameManager : Singleton<GameManager>
 
         _localizationManager.Init();
 
-        _dialogManager.Init();
-
         _uiController.Init();
 
+        _dialogManager.Init();
+
         if(startTutorial)
-            InitializeTutorial();
+             InitializeTutorial();
     }
 
     private void InitializeTutorial()
