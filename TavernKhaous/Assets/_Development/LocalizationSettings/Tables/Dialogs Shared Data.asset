@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Dialogs Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Dialogs
+  m_TableCollectionNameGuidString: 4b7b20283c7f334488c45a0679f38fce
+  m_Entries:
+  - m_Id: 12281534636032
+    m_Key: zeca_rookie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636033
+    m_Key: waiter_response
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636034
+    m_Key: zeca_opening
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636035
+    m_Key: zeca_lastTable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636036
+    m_Key: zeca_theJob
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636037
+    m_Key: zeca_orderInstructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636038
+    m_Key: zeca_rightCounter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636039
+    m_Key: waiter_confident
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636040
+    m_Key: zeca_dontMess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636041
+    m_Key: waiter_responseYes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636042
+    m_Key: zeca_getToWork
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636043
+    m_Key: zeca_parrot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636044
+    m_Key: waiter_welcome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636045
+    m_Key: redman_surprised
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636046
+    m_Key: waiter_darn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636047
+    m_Key: redman_shocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636048
+    m_Key: waiter_idiot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636049
+    m_Key: redman_alright
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636050
+    m_Key: redman_goodFood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636051
+    m_Key: waiter_goodAnswerGreat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636052
+    m_Key: waiter_normalAnswerGetOut
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636053
+    m_Key: waiter_badAnswerBattle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636054
+    m_Key: redman_momHouse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636055
+    m_Key: redman_badMood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636056
+    m_Key: redman_safe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636057
+    m_Key: redman_decidedOrder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636058
+    m_Key: waiter_goodAnswerTastePiss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636059
+    m_Key: waiter_normalAnswerMead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636060
+    m_Key: waiter_badAnswerAlcohol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636061
+    m_Key: redman_hope
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636062
+    m_Key: redman_convinced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636063
+    m_Key: redman_madalenta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636064
+    m_Key: redman_bringBeer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636065
+    m_Key: redman_customerOrder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636066
+    m_Key: redman_workedDays
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636067
+    m_Key: redman_hurry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636068
+    m_Key: redman_serveMyOrder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636069
+    m_Key: waiter_goodAnswerSir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636070
+    m_Key: waiter_badAnswerMoney
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636071
+    m_Key: waiter_normalAnswerKeepQuiet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636072
+    m_Key: redman_verySatisfiedAwesome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636073
+    m_Key: redman_verySatisfiedSpreadToEveryone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636074
+    m_Key: waiter_verySatisfiedThanks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636075
+    m_Key: redman_satisfiedDespite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636076
+    m_Key: redman_satisfiedLetMoney
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636077
+    m_Key: waiter_satisfiedCleanTable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636078
+    m_Key: redman_dessatisfiedNeverComeBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636079
+    m_Key: waiter_dissatisfiedSucker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21622031540224
+    m_Key: Ola_Amigo
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 161550768472064053
+  references:
+    version: 2
+    RefIds:
+    - rid: 161550768472064053
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1711561641505

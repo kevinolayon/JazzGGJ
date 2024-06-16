@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogs_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 4b7b20283c7f334488c45a0679f38fce, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12281534636032
+    m_Localized: EEEI NOVATO!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636033
+    m_Localized: Sim, Chefe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636034
+    m_Localized: "Vamos abrir em breve, voc\xEA foi horr\xEDvel no teste, mas \xE9
+      tudo o que temos para hoje."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636035
+    m_Localized: "Voc\xEA vai ficar com a \xFAltima mesa, lembre-se disso."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636036
+    m_Localized: "O trabalho \xE9 simples, voc\xEA vai at\xE9 l\xE1, atende os clientes
+      com educa\xE7\xE3o e faz os pedidos pelo card\xE1pio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636037
+    m_Localized: "Assim que voc\xEA fizer o pedido vamos come\xE7ar a preparar os
+      pratos, aproveite para ir servindo as bebidas enquanto isso."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636038
+    m_Localized: "Tudo o que voc\xEA pedir fica pronto na hora e voc\xEA pode retirar
+      na bandeja do lado direito do balc\xE3o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636039
+    m_Localized: Deixa comigo Chefe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636040
+    m_Localized: "Hmm, v\xEA se n\xE3o vai estragar tudo, e se nos der preju\xEDzo
+      voc\xEA paga\u2026 OUVIU?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636041
+    m_Localized: SIM, CHEFE!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636042
+    m_Localized: "Agora m\xE3os a obra, n\xE3o te contratei pra ficar repetindo \u201CSim,
+      chefe\u201D, \u201CSim, chefe\u201D."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636043
+    m_Localized: "Voc\xEA \xE9 um cachorro, n\xE3o um papagaio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636044
+    m_Localized: "Bem vindo a Taverna do seu Zeca, senhor, o que gostaria de\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636045
+    m_Localized: "Waiter? \xC9 voc\xEA mesmo?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636046
+    m_Localized: Ah, droga.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636047
+    m_Localized: "N\xE3o acredito! Eu tinha ouvido falar que voc\xEA estava trabalhando
+      com cozinha, mas bem, n\xE3o imaginei que era desse tipo\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636048
+    m_Localized: "Shhh, idiota, n\xE3o aqui."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636049
+    m_Localized: "Certo, certo, estou cansado de qualquer forma, tenho trabalhado
+      no campo desde que voc\xEA saiu dos neg\xF3cios."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636050
+    m_Localized: "A comida aqui \xE9 boa? To morrendo de fome."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636051
+    m_Localized: "Apesar de ser um desgra\xE7ado, o Zeca \xE9 um \xF3timo cozinheiro,
+      pode pedir o que quiser."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636052
+    m_Localized: "Escolha qualquer coisa e v\xE1 embora logo, antes que voc\xEA abra
+      mais essa sua boca."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636053
+    m_Localized: "Ouvi dizer que o Zeca faz bico com o legista sempre que tem uma
+      batalha, ent\xE3o pelo menos de corte ele entende hahaha!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636054
+    m_Localized: "Maravilha! N\xE3o tenho comido nada decente desde que sa\xED da
+      casa da minha m\xE3e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636055
+    m_Localized: "Credo, t\xF4 vendo que ainda tem aquele mau humor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636056
+    m_Localized: "Como \xE9 que \xE9? Tem certeza de que isso \xE9 seguro?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636057
+    m_Localized: "T\xE1, j\xE1 decidi o que vou comer, mas e a bebida? tem aquela
+      que desce em espiral?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636058
+    m_Localized: "Segundo o Zeca, a cerveja daqui parece mijo, ent\xE3o voc\xEA deve
+      gostar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636059
+    m_Localized: "Eu pediria o hidromel se fosse voc\xEA."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636060
+    m_Localized: "Nada de alcool pra voc\xEA, voc\xEA j\xE1 fala demais enquanto
+      est\xE1 s\xF3brio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636061
+    m_Localized: "Cara, espero que voc\xEA n\xE3o fale assim com todos os clientes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636062
+    m_Localized: "Mas voc\xEA me convenceu, provarei do seu mijo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636063
+    m_Localized: Hidromel? Sirva isso para os playboys da Vila Madalenta.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636064
+    m_Localized: "Me tr\xE1s a cerveja mesmo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636065
+    m_Localized: "Eu achava que o cliente \xE9 que desse as ordens aqui."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636066
+    m_Localized: "Eu trabalhei as 16 horas di\xE1rias assim como todo alde\xE3o de
+      bem, tenho direito a minha cervejinha."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636067
+    m_Localized: "Bom, voc\xEA est\xE1 com pressa para se livrar de mim e eu com
+      pressa para comer, vamos ao pedido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636068
+    m_Localized: "Me tr\xE1s essas Dragon's Breath Bruschettas, para come\xE7ar e
+      depois pode me servir umas Wyvern Wings. Ah, e n\xE3o esquece minha cervejinha."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636069
+    m_Localized: Grrr. As suas ordens, senhor.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636070
+    m_Localized: "Eu devia fazer voc\xEA mesmo ir buscar\u2026 mas preciso do dinheiro."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636071
+    m_Localized: "Vou trazer o que quer, mas tente ficar quieto at\xE9 l\xE1."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636072
+    m_Localized: "A\xED Waiter, esse lugar \xE9 demais!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636073
+    m_Localized: Pode deixar que eu vou espalhar pra turma toda, ah, e fica com essa
+      gorjetinha aqui.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636074
+    m_Localized: "Valeu\u2026 eu acho\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636075
+    m_Localized: "Ei, apesar de tudo, at\xE9 que a comida \xE9 boa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636076
+    m_Localized: "Deixei o dinheiro na mesa, at\xE9 a pr\xF3xima Waiter."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636077
+    m_Localized: "T\xE1 bom, t\xE1 bom, s\xF3 se apresse para que eu possa limpar
+      a mesa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636078
+    m_Localized: "Cara, esse lugar \xE9 p\xE9ssimo, o dinheiro t\xE1 na mesa, mas
+      eu nunca mais volta nessa espelunca."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636079
+    m_Localized: "Volte sempre\u2026 ot\xE1rio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21622031540224
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

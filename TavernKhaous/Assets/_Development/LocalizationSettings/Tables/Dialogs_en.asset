@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogs_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 4b7b20283c7f334488c45a0679f38fce, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12281534636033
+    m_Localized: Yes, Boss.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636045
+    m_Localized: Waiter? Is that really you?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636037
+    m_Localized: Once you place the order, we'll start preparing the dishes. Take
+      the opportunity to serve drinks in the meantime.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636038
+    m_Localized: Everything you order is prepared on the spot, and you can pick it
+      up on the tray to the right of the counter.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636032
+    m_Localized: HEY ROOKIE!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636036
+    m_Localized: The job is simple; you go there, attend to the customers politely,
+      and take orders from the menu.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636034
+    m_Localized: We're opening soon, you were terrible in the test, but it's all
+      we have for today.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636055
+    m_Localized: Yikes, I can see that bad mood is still there.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636040
+    m_Localized: Hmm, make sure you don't mess everything up, and if you cause us
+      a loss, you pay... GOT IT?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636044
+    m_Localized: Welcome to Zeca's Tavern, sir, what would you like to...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636039
+    m_Localized: Leave it to me, Boss.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636035
+    m_Localized: You'll take the last table, remember that.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636041
+    m_Localized: YES, BOSS!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636062
+    m_Localized: But you convinced me; I'll try your piss.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636054
+    m_Localized: Great! I haven't had decent food since I left my mom's house.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636063
+    m_Localized: Mead? Serve that for the posh folks in Vila Madalenta.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636049
+    m_Localized: Alright, alright, I'm tired anyway. I've been working in the fields
+      since you left the business.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636079
+    m_Localized: Come back anytime... sucker.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636072
+    m_Localized: Hey Waiter, this place is awesome!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636052
+    m_Localized: Choose anything and get out of here before you open your mouth again.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636048
+    m_Localized: Shhh, idiot, not here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636057
+    m_Localized: Okay, I've decided what I'll eat, but what about the drink? Is there
+      one that spirals down?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636068
+    m_Localized: Bring me those Dragon's Breath Bruschettas to start, and then you
+      can serve me some Wyvern Wings. Oh, and don't forget my beer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636078
+    m_Localized: Man, this place is terrible; the money's on the table, but I'll
+      never come back to this dump.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636067
+    m_Localized: Well, you're in a hurry to get rid of me, and I'm in a hurry to
+      eat, let's get to the order.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636074
+    m_Localized: Thanks... I guess...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636050
+    m_Localized: Is the food here good? I'm starving.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636046
+    m_Localized: Oh, darn.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636058
+    m_Localized: According to Zeca, the beer here tastes like piss, so you might
+      like it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636071
+    m_Localized: I'll bring what you want, but try to keep quiet until then.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636076
+    m_Localized: Left the money on the table; until next time, Waiter.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636069
+    m_Localized: Grrr. Your orders, sir.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636077
+    m_Localized: Alright, alright, just hurry up so I can clean the table.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636075
+    m_Localized: Hey, despite everything, the food is actually good.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636059
+    m_Localized: I'd go for the mead if I were you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636070
+    m_Localized: I should make you go get it yourself... but I need the money.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636064
+    m_Localized: Just bring me the beer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636051
+    m_Localized: Despite being a scoundrel, Zeca is a great cook. You can order whatever
+      you want.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636056
+    m_Localized: What's that? Are you sure this is safe?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636047
+    m_Localized: I can't believe it! I heard you were working in the kitchen, but
+      well, I didn't imagine it was like this...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636061
+    m_Localized: Man, I hope you don't talk like this to all the customers.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636060
+    m_Localized: No alcohol for you; you talk too much when you're sober.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636042
+    m_Localized: Now, get to work; I didn't hire you to keep repeating "Yes, boss,"
+      "Yes, boss."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636066
+    m_Localized: I worked 16-hour days like every decent villager; I'm entitled to
+      my little beer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636065
+    m_Localized: I thought the customer gives the orders here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636043
+    m_Localized: You're a dog, not a parrot.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636073
+    m_Localized: Don't worry; I'll spread the word to everyone, and here's a little
+      tip for you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12281534636053
+    m_Localized: I heard that Zeca does side jobs with the coroner whenever there's
+      a battle, so at least he knows about cutting, hahaha!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21622031540224
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
